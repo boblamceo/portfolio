@@ -7,6 +7,7 @@ import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -22,7 +23,17 @@ export default function Home() {
     const [isOn, setOn] = useState(false);
     return (
         <>
-            <div className="h-full w-full bg-black text-white overflow-hidden">
+            <motion.div
+                className="h-full w-full bg-black text-white overflow-hidden"
+                initial={{
+                    scale: 0,
+                    opacity: 0,
+                    borderRadius: "100%",
+                    rotate: 45,
+                }}
+                animate={{ scale: 1, opacity: 1, borderRadius: 0, rotate: 0 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+            >
                 <div className="h-full flex flex-col justify-center align-middle">
                     <MouseParallaxContainer
                         containerStyle={{
@@ -61,14 +72,15 @@ export default function Home() {
                                 Bob Lam
                             </h1>
 
-                            <div
-                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-default`}
+                            <Link
+                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
                                 onMouseEnter={() => {
                                     setOn(true);
                                 }}
                                 onMouseLeave={() => {
                                     setOn(false);
                                 }}
+                                href="/about"
                             >
                                 Start{" "}
                                 <div className="arrow-container">
@@ -82,11 +94,11 @@ export default function Home() {
                                         <div className="right-arrow"></div>
                                     </motion.div>
                                 </div>
-                            </div>
+                            </Link>
                         </MouseParallaxChild>
                     </MouseParallaxContainer>
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 }

@@ -10,7 +10,29 @@ head,
     padding: 0px;
     margin: 0px;
 }
-
+.arrow-container {
+    display: flex;
+    align-items: center;
+}
+.right-arrow {
+    display: inline-block;
+    margin-left: 9vw;
+    margin-top: 0.25vw;
+    width: 1vw;
+    height: 1vw;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    transform-origin: center;
+    transform: rotate(135deg);
+}
+.right-arrow::after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 8vw;
+    background-color: white;
+    transform: rotate(-45deg) translate(2.77vw, 1vw);
+}
 h1,
 h2,
 h3,

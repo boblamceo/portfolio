@@ -51,8 +51,8 @@ export default function App() {
                                 className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle`}
                             >
                                 Start{" "}
-                                <div className="flex align-middle justify-center h-full">
-                                    <div className="origin-center inline-block ml-[5vw] w-[1vw] h-[1vw] border-t-[2px] border-l-[2px] border-white rotate-[135deg] after:block after:w-[2px] after:h-[4vw] after:bg-white after:-rotate-45 after:translate-x-[15px] after:translate-y-[4px]"></div>
+                                <div className="arrow-container">
+                                    <div className="right-arrow"></div>
                                 </div>
                             </div>
                         </MouseParallaxChild>

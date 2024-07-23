@@ -50,52 +50,57 @@ export default function Home() {
                             factorY={0.1}
                             className="bg-[url('/earth.png')] bg-center absolute bg-auto w-[150vw] h-[150vh] flex justify-center align-middle"
                         />
-                        <MouseParallaxChild
-                            factorX={0.5}
-                            factorY={0.5}
-                            className="flex align-middle justify-center w-screen h-screen flex-col p-[10vw]"
+                        <motion.div
+                            initial={{ x: -2000, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
                         >
-                            <h1
-                                className={`${
-                                    montserrat.className
-                                } drop-shadow-title ${
-                                    isOn ? "text-white" : "text-black/0"
-                                } font-bold text-[6vw] absolute mb-[5.5vw] transition-all duration-1000 ease-in-out`}
+                            <MouseParallaxChild
+                                factorX={0.5}
+                                factorY={0.5}
+                                className="flex align-middle justify-center w-screen h-screen flex-col p-[10vw]"
                             >
-                                Bob Lam
-                            </h1>
-                            <h1
-                                className={`${montserrat.className} ${
-                                    isOn ? "text-black" : "text-white"
-                                } font-bold text-[6vw] transition-all duration-1000 ease-in-out`}
-                            >
-                                Bob Lam
-                            </h1>
+                                <h1
+                                    className={`${
+                                        montserrat.className
+                                    } drop-shadow-title ${
+                                        isOn ? "text-white" : "text-black/0"
+                                    } font-bold text-[6vw] absolute mb-[5.5vw] transition-all duration-1000 ease-in-out`}
+                                >
+                                    Bob Lam
+                                </h1>
+                                <h1
+                                    className={`${montserrat.className} ${
+                                        isOn ? "text-black" : "text-white"
+                                    } font-bold text-[6vw] transition-all duration-1000 ease-in-out overflow-hidden`}
+                                >
+                                    Bob Lam
+                                </h1>
 
-                            <Link
-                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
-                                onMouseEnter={() => {
-                                    setOn(true);
-                                }}
-                                onMouseLeave={() => {
-                                    setOn(false);
-                                }}
-                                href="/about"
-                            >
-                                Start{" "}
-                                <div className="arrow-container">
-                                    <motion.div
-                                        animate={{ x: isOn ? 0 : -200 }}
-                                        transition={{
-                                            ease: "easeInOut",
-                                            duration: 2,
-                                        }}
-                                    >
-                                        <div className="right-arrow"></div>
-                                    </motion.div>
-                                </div>
-                            </Link>
-                        </MouseParallaxChild>
+                                <Link
+                                    className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
+                                    onMouseEnter={() => {
+                                        setOn(true);
+                                    }}
+                                    onMouseLeave={() => {
+                                        setOn(false);
+                                    }}
+                                    href="/about"
+                                >
+                                    Start{" "}
+                                    <div className="arrow-container">
+                                        <motion.div
+                                            animate={{ x: isOn ? 0 : -200 }}
+                                            transition={{
+                                                ease: "easeInOut",
+                                                duration: 2,
+                                            }}
+                                        >
+                                            <div className="right-arrow"></div>
+                                        </motion.div>
+                                    </div>
+                                </Link>
+                            </MouseParallaxChild>
+                        </motion.div>
                     </MouseParallaxContainer>
                 </div>
             </motion.div>

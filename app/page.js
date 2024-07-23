@@ -45,12 +45,24 @@ export default function Home() {
                             className="flex align-middle justify-center w-screen h-screen flex-col p-[10vw]"
                         >
                             <h1
-                                className={`${montserrat.className} text-white font-bold text-[6vw]`}
+                                className={`${
+                                    montserrat.className
+                                } drop-shadow-title ${
+                                    isOn ? "text-white" : "text-black/0"
+                                } font-bold text-[6vw] absolute mb-[5.5vw] transition-all duration-1000 ease-in-out`}
                             >
                                 Bob Lam
                             </h1>
+                            <h1
+                                className={`${montserrat.className} ${
+                                    isOn ? "text-black" : "text-white"
+                                } font-bold text-[6vw] transition-all duration-1000 ease-in-out`}
+                            >
+                                Bob Lam
+                            </h1>
+
                             <div
-                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100`}
+                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-default`}
                                 onMouseEnter={() => {
                                     setOn(true);
                                 }}

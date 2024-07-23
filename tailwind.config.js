@@ -19,6 +19,9 @@ module.exports = {
                 "pos-0": "0% 0%",
                 "pos-100": "100% 100%",
             },
+            dropShadow: {
+                title: "0 1px 1vw rgba(255, 255, 255, 1)",
+            },
         },
     },
     plugins: [],

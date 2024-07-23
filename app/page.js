@@ -3,6 +3,12 @@ import {
     MouseParallaxChild,
     MouseParallaxContainer,
 } from "react-parallax-mouse";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export default function App() {
     return (
@@ -29,7 +35,7 @@ export default function App() {
                             factorY={0.5}
                             className="flex align-middle justify-center"
                         >
-                            <h1>Bob Lam</h1>
+                            <h1 className={montserrat.className}>Bob Lam</h1>
                             <div>Start</div>
                         </MouseParallaxChild>
                     </MouseParallaxContainer>

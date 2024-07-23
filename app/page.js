@@ -5,7 +5,6 @@ import {
 } from "react-parallax-mouse";
 import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
-import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -17,7 +16,7 @@ const opensans = Open_Sans({
     display: "swap",
 });
 
-export default function App() {
+export default function Home() {
     return (
         <>
             <div className="h-full w-full bg-black text-white overflow-hidden">
@@ -52,7 +51,7 @@ export default function App() {
                             >
                                 Start{" "}
                                 <div className="arrow-container">
-                                    <div className="right-arrow"></div>
+                                    <div className="right-arrow after:mt-10 hover:after:mt-0 hover:after:transition-all transition duration-1000 ease-in-out"></div>
                                 </div>
                             </div>
                         </MouseParallaxChild>

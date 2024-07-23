@@ -5,6 +5,8 @@ import {
 } from "react-parallax-mouse";
 import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -17,6 +19,7 @@ const opensans = Open_Sans({
 });
 
 export default function Home() {
+    const [isOn, setOn] = useState(false);
     return (
         <>
             <div className="h-full w-full bg-black text-white overflow-hidden">
@@ -47,11 +50,25 @@ export default function Home() {
                                 Bob Lam
                             </h1>
                             <div
-                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle`}
+                                className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100`}
+                                onMouseEnter={() => {
+                                    setOn(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setOn(false);
+                                }}
                             >
                                 Start{" "}
                                 <div className="arrow-container">
-                                    <div className="right-arrow after:mt-10 hover:after:mt-0 hover:after:transition-all transition duration-1000 ease-in-out"></div>
+                                    <motion.div
+                                        animate={{ x: isOn ? 0 : -200 }}
+                                        transition={{
+                                            ease: "easeInOut",
+                                            duration: 2,
+                                        }}
+                                    >
+                                        <div className="right-arrow"></div>
+                                    </motion.div>
                                 </div>
                             </div>
                         </MouseParallaxChild>

@@ -10,6 +10,22 @@ head,
     padding: 0px;
     margin: 0px;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.about-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(/background1.png);
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 .arrow-container {
     display: flex;
     align-items: center;

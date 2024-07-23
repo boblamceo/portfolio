@@ -5,9 +5,9 @@ import {
 } from "react-parallax-mouse";
 import { Montserrat } from "next/font/google";
 import { Open_Sans } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -21,8 +21,28 @@ const opensans = Open_Sans({
 
 export default function Home() {
     const [isOn, setOn] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const [leave, setLeave] = useState(false);
+    const router = useRouter();
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (leave) {
+            setTimeout(() => {
+                router.push("/about");
+            }, 1000);
+        }
+    }, [leave]);
+
+    if (!mounted) {
+        return null;
+    }
+
     return (
-        <>
+        <div className="bg-slate-800 w-screen h-screen">
             <motion.div
                 className="h-full w-full bg-black text-white overflow-hidden"
                 initial={{
@@ -31,7 +51,12 @@ export default function Home() {
                     borderRadius: "100%",
                     rotate: 45,
                 }}
-                animate={{ scale: 1, opacity: 1, borderRadius: 0, rotate: 0 }}
+                animate={{
+                    scale: 1,
+                    opacity: leave ? 0 : 1,
+                    borderRadius: 0,
+                    rotate: 0,
+                }}
                 transition={{ duration: 1, ease: "easeInOut" }}
             >
                 <div className="h-full flex flex-col justify-center align-middle">
@@ -51,8 +76,9 @@ export default function Home() {
                             className="bg-[url('/earth.png')] bg-center absolute bg-auto w-[150vw] h-[150vh] flex justify-center align-middle"
                         />
                         <motion.div
-                            initial={{ x: -2000, opacity: 0 }}
+                            initial={{ x: "-100%", opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 2 }}
                         >
                             <MouseParallaxChild
                                 factorX={0.5}
@@ -76,7 +102,7 @@ export default function Home() {
                                     Bob Lam
                                 </h1>
 
-                                <Link
+                                <div
                                     className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
                                     onMouseEnter={() => {
                                         setOn(true);
@@ -84,7 +110,9 @@ export default function Home() {
                                     onMouseLeave={() => {
                                         setOn(false);
                                     }}
-                                    href="/about"
+                                    onClick={() => {
+                                        setLeave(true);
+                                    }}
                                 >
                                     Start{" "}
                                     <div className="arrow-container">
@@ -98,12 +126,12 @@ export default function Home() {
                                             <div className="right-arrow"></div>
                                         </motion.div>
                                     </div>
-                                </Link>
+                                </div>
                             </MouseParallaxChild>
                         </motion.div>
                     </MouseParallaxContainer>
                 </div>
             </motion.div>
-        </>
+        </div>
     );
 }

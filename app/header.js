@@ -9,11 +9,6 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
-const opensans = Open_Sans({
-    subsets: ["latin"],
-    display: "swap",
-});
-
 const Header = () => {
     const pathname = usePathname();
     return (
@@ -27,9 +22,27 @@ const Header = () => {
                 >
                     About
                 </li>
-                <li className={`text-[1vw] header-bt`}>Projects</li>
-                <li className={`text-[1vw] header-bt`}>Awards</li>
-                <li className={`text-[1vw] header-bt`}>Contact</li>
+                <li
+                    className={`text-[1vw] header-bt ${
+                        pathname === "/projects" && "font-bold"
+                    }`}
+                >
+                    Projects
+                </li>
+                <li
+                    className={`text-[1vw] header-bt ${
+                        pathname === "/awards" && "font-bold"
+                    }`}
+                >
+                    Awards
+                </li>
+                <li
+                    className={`text-[1vw] header-bt ${
+                        pathname === "/contact" && "font-bold"
+                    }`}
+                >
+                    Contact
+                </li>
             </ul>
         </div>
     );

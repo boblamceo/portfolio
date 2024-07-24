@@ -37,10 +37,10 @@ const About = () => {
     const diffTime = Math.abs(date2 - date1);
     const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
     return (
-        <div className="bg-slate-800 w-screen h-screen overflow-x-hidden flex whitespace-nowrap scrollbar-hide">
-            <div className="about-bg w-screen h-[calc(100%+13vw)] brightness-100 backdrop-brightness-0">
-                <Header />
-                <div
+        <div className="bg-slate-800 w-screen flex flex-col scrollbar-hide">
+            <Header />
+            <div className="about-bg w-screen h-[calc(100vh+13vw)] mt-0">
+                {/* <div
                     className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[17vw]`}
                 >
                     I'm<span className="font-bold">&nbsp;Bob Lam</span>
@@ -63,8 +63,9 @@ const About = () => {
                     >
                         {productList[product]}
                     </motion.h1>
-                </div>
+                </div> */}
             </div>
+            <div className="projects-bg w-screen h-screen"></div>
         </div>
     );
 };

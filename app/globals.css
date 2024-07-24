@@ -9,6 +9,8 @@ head,
     width: 100%;
     padding: 0px;
     margin: 0px;
+    margin-top: 0;
+    padding-top: 0;
     scroll-behavior: smooth;
 }
 
@@ -19,6 +21,11 @@ head,
 .about-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url(/background1.png);
+}
+
+.projects-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(/background2.png);
 }
 
 /* For IE, Edge and Firefox */

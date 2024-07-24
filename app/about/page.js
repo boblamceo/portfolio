@@ -30,7 +30,7 @@ const About = () => {
         setTimeout(() => {
             setProduct((product + 1) % productList.length);
             console.log((product + 1) % productList.length);
-        }, 6000);
+        }, 4000);
     }, [product]);
     const date1 = new Date("6/9/2010");
     const date2 = new Date();
@@ -47,19 +47,18 @@ const About = () => {
                     {`, a ${diffYear} year old 
                     student who specializes in `}
                 </div>
-                <div className="w-screen h-[7.5vw] pl-[4vw] pr-[5vw] overflow-hidden">
+                <div className="w-screen h-[8vw] pl-[4vw] pr-[5vw] overflow-hidden">
                     <motion.h1
-                        className={`text-white ${montserrat.className} text-[6vw]`}
+                        className={`text-white ${montserrat.className} text-[6vw] font-bold`}
                         animate={{
-                            y: [0, "60%"],
-                            opacity: [0.7, 0],
+                            y: ["55%", 0],
+                            opacity: [0, 0.7],
                         }}
                         transition={{
-                            duration: 3,
+                            duration: 2,
                             ease: "easeInOut",
                             repeat: Infinity,
                             repeatType: "mirror",
-                            delay: 3,
                         }}
                     >
                         {productList[product]}

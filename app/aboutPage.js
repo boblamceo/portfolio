@@ -31,11 +31,11 @@ const About = ({ innerref }) => {
     const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
     return (
         <div
-            className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover"
+            className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]"
             ref={innerref}
         >
             <div
-                className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[17vw]`}
+                className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw]`}
             >
                 I'm<span className="font-bold">&nbsp;Bob Lam</span>
                 {`, a ${diffYear} year old 

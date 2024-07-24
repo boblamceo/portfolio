@@ -14,7 +14,7 @@ const Header = () => {
     const pathname = usePathname();
     return (
         <motion.div
-            className={`flex flex-row p-[1.5vw] ${montserrat.className} sticky top-0`}
+            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0`}
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
         >

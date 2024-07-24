@@ -1,6 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Header from "../header";
 import { Montserrat, Open_Sans } from "next/font/google";
+import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -16,34 +19,52 @@ const About = () => {
     const [product, setProduct] = useState(0);
     const productList = [
         "robots",
+        "violin",
         "websites",
         "apps",
         "AI",
-        "machine learning",
-        "games",
+        "video games",
+        "swimming",
     ];
     useEffect(() => {
-        setInterval(() => {
+        setTimeout(() => {
             setProduct((product + 1) % productList.length);
-        }, 3000);
-    }, []);
+            console.log((product + 1) % productList.length);
+        }, 6000);
+    }, [product]);
+    const date1 = new Date("6/9/2010");
+    const date2 = new Date();
+    const diffTime = Math.abs(date2 - date1);
+    const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
     return (
         <div className="bg-slate-800 w-screen h-screen overflow-x-hidden flex whitespace-nowrap scrollbar-hide">
-            <div className="about-bg w-screen h-[120%] brightness-100 backdrop-brightness-0">
+            <div className="about-bg w-screen h-[calc(100%+13vw)] brightness-100 backdrop-brightness-0">
                 <Header />
                 <div
-                    className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[7vw]`}
+                    className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[17vw]`}
                 >
                     I'm<span className="font-bold">&nbsp;Bob Lam</span>
-                    {`, a 14 year old 
-                    student who specializes in 
-                    making engaging and unique`}
+                    {`, a ${diffYear} year old 
+                    student who specializes in `}
                 </div>
-                <h1
-                    className={`text-white ${montserrat.className} text-[6vw] pl-[4vw] pr-[5vw]`}
-                >
-                    {productList[product]}
-                </h1>
+                <div className="w-screen h-[7.5vw] pl-[4vw] pr-[5vw] overflow-hidden">
+                    <motion.h1
+                        className={`text-white ${montserrat.className} text-[6vw]`}
+                        animate={{
+                            y: [0, "60%"],
+                            opacity: [0.7, 0],
+                        }}
+                        transition={{
+                            duration: 3,
+                            ease: "easeInOut",
+                            repeat: Infinity,
+                            repeatType: "mirror",
+                            delay: 3,
+                        }}
+                    >
+                        {productList[product]}
+                    </motion.h1>
+                </div>
             </div>
         </div>
     );

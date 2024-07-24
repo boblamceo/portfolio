@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Montserrat, Open_Sans } from "next/font/google";
-import { usePathname } from "next/navigation";
+import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
@@ -10,8 +9,7 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
-const Header = () => {
-    const pathname = usePathname();
+const Header = ({ page }) => {
     return (
         <motion.div
             className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0`}
@@ -22,28 +20,28 @@ const Header = () => {
             <ul className="ml-[20vw] text-white">
                 <li
                     className={`text-[1vw] header-bt ${
-                        pathname === "/about" && "font-bold"
+                        page === "/about" && "font-bold"
                     }`}
                 >
                     About
                 </li>
                 <li
                     className={`text-[1vw] header-bt ${
-                        pathname === "/projects" && "font-bold"
+                        page === "/projects" && "font-bold"
                     }`}
                 >
                     Projects
                 </li>
                 <li
                     className={`text-[1vw] header-bt ${
-                        pathname === "/awards" && "font-bold"
+                        page === "/awards" && "font-bold"
                     }`}
                 >
                     Awards
                 </li>
                 <li
                     className={`text-[1vw] header-bt ${
-                        pathname === "/contact" && "font-bold"
+                        page === "/contact" && "font-bold"
                     }`}
                 >
                     Contact

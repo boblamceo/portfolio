@@ -32,7 +32,7 @@ export default function Home() {
     useEffect(() => {
         if (leave) {
             setTimeout(() => {
-                router.push("/about");
+                router.push("/main");
             }, 1000);
         }
     }, [leave]);

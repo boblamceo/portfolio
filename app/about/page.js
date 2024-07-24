@@ -41,10 +41,9 @@ const About = () => {
             <div className="about-bg w-screen h-[calc(100%+13vw)] brightness-100 backdrop-brightness-0">
                 <Header />
                 <div
-                    className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[17vw] opacity-70`}
+                    className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw] mt-[17vw]`}
                 >
-                    I'm
-                    <span className="font-bold opacity-100">&nbsp;Bob Lam</span>
+                    I'm<span className="font-bold">&nbsp;Bob Lam</span>
                     {`, a ${diffYear} year old 
                     student who specializes in `}
                 </div>

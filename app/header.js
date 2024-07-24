@@ -3,6 +3,7 @@
 import React from "react";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -12,7 +13,11 @@ const montserrat = Montserrat({
 const Header = () => {
     const pathname = usePathname();
     return (
-        <div className={`flex flex-row p-[1.5vw] ${montserrat.className} `}>
+        <motion.div
+            className={`flex flex-row p-[1.5vw] ${montserrat.className} sticky top-0`}
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+        >
             <h1 className={"text-[2vw] text-white"}>Bob Lam</h1>{" "}
             <ul className="ml-[20vw] text-white">
                 <li
@@ -44,7 +49,7 @@ const Header = () => {
                     Contact
                 </li>
             </ul>
-        </div>
+        </motion.div>
     );
 };
 

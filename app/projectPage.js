@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
-import { handleImageHandler, openai } from "./api/serverAI";
+import { getPhotosByQuery } from "./api/unsplash";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -19,12 +19,20 @@ const Projects = ({ innerref }) => {
     // STATE VARIABLES
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
-    const [loading, setIsLoading] = useState(false);
 
+    const handleImageHandler = async () => {
+        const data = await getPhotosByQuery({ query: userPrompt });
+        setGeneratedImage(data.results[0].urls.full);
+        console.log(data.results[0].urls.full);
+    };
     return (
         <div
             ref={innerref}
-            className={`projects-bg w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
+            className={`${
+                generatedImage
+                    ? "bg-[url(" + generatedImage + ")]"
+                    : "projects-bg"
+            } w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
         >
             <h1
                 className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}
@@ -35,14 +43,7 @@ const Projects = ({ innerref }) => {
                 <div className="bg-white border rounded-full w-[80vw] flex flex-row mb-[5vh]">
                     <div
                         className={`transition ease-in-out duration-300 bg-[#F2613F] rounded-full text-white w-[25%] p-[1.6vw] text-[1.2vw] text-center ${montserrat.className} font-bold cursor-pointer hover:bg-red-500 `}
-                        onClick={(e) => {
-                            handleImageHandler(
-                                e,
-                                setIsLoading,
-                                setGeneratedImage,
-                                userPrompt
-                            );
-                        }}
+                        onClick={handleImageHandler}
                     >
                         Generate an Image!
                     </div>

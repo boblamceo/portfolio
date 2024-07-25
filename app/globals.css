@@ -20,12 +20,12 @@ head,
 
 .about-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/background1.png);
+        url(./background1.png);
 }
 
 .projects-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/background2.gif);
+        url(./background2.gif);
     background-repeat: no-repeat;
     background-size: cover;
 }

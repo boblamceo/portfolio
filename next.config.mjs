@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        OPENAI_API_KEY: process.env.OPENAI_API_KEY,
-        HI: process.env.HI,
+        UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "images.unsplash.com",
+            },
+        ],
     },
 };
 

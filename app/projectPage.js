@@ -25,15 +25,15 @@ const Projects = ({ innerref }) => {
         setGeneratedImage(data.results[0].urls.full);
         console.log(data.results[0].urls.full);
     };
-
-    const imageClass = `bg-[url('${generatedImage}')]`;
-
     return (
         <div
             ref={innerref}
             className={`${
-                generatedImage ? imageClass : "projects-bg"
+                !generatedImage && "projects-bg"
             } w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
+            style={{
+                backgroundImage: generatedImage && `url(${generatedImage})`,
+            }}
         >
             <h1
                 className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}

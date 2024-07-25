@@ -1,11 +1,11 @@
 require("dotenv").config();
 
-// import OpenAI from "openai";
+import OpenAI from "openai";
 
-// export const hi = () => {
-//     console.log(process.env.HI);
-//     return process.env.HI;
-// };
+export const hi = () => {
+    console.log(process.env.HI);
+    return process.env.HI;
+};
 
 // export const openai = new OpenAI({
 //     apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY,

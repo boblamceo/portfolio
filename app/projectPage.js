@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
-import { openai, hi } from "./serverAI";
+import { openai, handleChange, handleImageHandler } from "./serverAI";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -20,7 +20,7 @@ const Projects = ({ innerref }) => {
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
     const [loading, setIsLoading] = useState(false);
-    hi();
+
     return (
         <div
             ref={innerref}

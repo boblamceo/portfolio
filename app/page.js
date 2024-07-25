@@ -32,7 +32,7 @@ export default function Home() {
     useEffect(() => {
         if (leave) {
             setTimeout(() => {
-                router.push("/about");
+                router.push("/main");
             }, 1000);
         }
     }, [leave]);
@@ -103,7 +103,7 @@ export default function Home() {
                                 </h1>
 
                                 <div
-                                    className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-red-500 from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
+                                    className={`${opensans.className} border-2 w-[30vw] p-[1.5vw] text-[1.5vw] flex flex-row align-middle border-opacity-100 hover:border-opacity-0 transition-all duration-500 bg-gradient-to-r to-white/0 via-[#F2613F] from-white/0 bg-size-200 bg-pos-0 hover:bg-pos-100 cursor-pointer`}
                                     onMouseEnter={() => {
                                         setOn(true);
                                     }}

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
-import { openai, handleChange, handleImageHandler } from "./serverAI";
+import { handleImageHandler, openai } from "./api/serverAI";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -24,7 +24,7 @@ const Projects = ({ innerref }) => {
     return (
         <div
             ref={innerref}
-            className="projects-bg w-screen h-screen bg-cover mt-0 flex flex-col items-center"
+            className={`projects-bg w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
         >
             <h1
                 className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}
@@ -35,12 +35,23 @@ const Projects = ({ innerref }) => {
                 <div className="bg-white border rounded-full w-[80vw] flex flex-row mb-[5vh]">
                     <div
                         className={`transition ease-in-out duration-300 bg-[#F2613F] rounded-full text-white w-[25%] p-[1.6vw] text-[1.2vw] text-center ${montserrat.className} font-bold cursor-pointer hover:bg-red-500 `}
+                        onClick={(e) => {
+                            handleImageHandler(
+                                e,
+                                setIsLoading,
+                                setGeneratedImage,
+                                userPrompt
+                            );
+                        }}
                     >
                         Generate an Image!
                     </div>
                     <input
                         className={`${opensans.className} w-full px-[1.6vw] rounded-e-full focus:outline-none`}
                         placeholder="Write your prompt here..."
+                        onChange={(e) => {
+                            setUserPrompt(e.target.value);
+                        }}
                     ></input>
                 </div>
             </div>

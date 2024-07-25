@@ -2,14 +2,16 @@ require("dotenv").config();
 
 import OpenAI from "openai";
 
+const apiKey = process.env.OPENAI_API_KEY;
+
 export const hi = () => {
     console.log(process.env.HI);
-    return process.env.HI;
 };
 
-// export const openai = new OpenAI({
-//     apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY,
-// });
+export const openai = new OpenAI({
+    apiKey,
+    dangerouslyAllowBrowser: true,
+});
 
 // export const handleChange = (e, setUserPrompt) => {
 //     setUserPrompt(e.target.value);

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
-import { hi } from "./serverAI";
+import { openai, hi } from "./serverAI";
 
 const montserrat = Montserrat({
     subsets: ["latin"],

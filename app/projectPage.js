@@ -25,13 +25,14 @@ const Projects = ({ innerref }) => {
         setGeneratedImage(data.results[0].urls.full);
         console.log(data.results[0].urls.full);
     };
+
+    const imageClass = `bg-[url('${generatedImage}')]`;
+
     return (
         <div
             ref={innerref}
             className={`${
-                generatedImage
-                    ? "bg-[url(" + generatedImage + ")]"
-                    : "projects-bg"
+                generatedImage ? imageClass : "projects-bg"
             } w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
         >
             <h1

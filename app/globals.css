@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html,
 body,
 head,
@@ -29,11 +30,9 @@ head,
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* For IE, Edge and Firefox */
 html {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .arrow-container {

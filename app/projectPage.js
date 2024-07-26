@@ -22,15 +22,15 @@ const Projects = ({ innerref }) => {
 
     const handleImageHandler = async () => {
         const data = await getPhotosByQuery({ query: userPrompt });
-        setGeneratedImage(data.results[0].urls.full);
-        console.log(data.results[0].urls.full);
+        setGeneratedImage(data.results[1].urls.full);
+        console.log(data);
     };
     return (
         <div
             ref={innerref}
             className={`${
                 !generatedImage && "projects-bg"
-            } w-screen h-screen bg-cover mt-0 flex flex-col items-center`}
+            } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center`}
             style={{
                 backgroundImage: generatedImage && `url(${generatedImage})`,
             }}

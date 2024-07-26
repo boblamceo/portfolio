@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
-import { getPhotosByQuery } from "./api/unsplash";
+import { getPhotosByQuery } from "./api/limewire";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -22,7 +22,7 @@ const Projects = ({ innerref }) => {
 
     const handleImageHandler = async () => {
         const data = await getPhotosByQuery({ query: userPrompt });
-        setGeneratedImage(data.results[1].urls.full);
+        // setGeneratedImage(data.results[1].urls.full);
         console.log(data);
     };
     return (

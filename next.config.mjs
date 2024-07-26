@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
+        API_KEY: process.env.API_KEY,
     },
     images: {
         remotePatterns: [

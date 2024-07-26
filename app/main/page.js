@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../header";
 import About from "../aboutPage";
 import Projects from "../projectPage";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Main = () => {
     const aboutRef = useRef(null);
@@ -28,10 +28,15 @@ const Main = () => {
         }
     };
     return (
-        <div className="bg-slate-800 w-screen flex flex-col">
+        <motion.div
+            className="bg-slate-800 w-screen flex flex-col"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+        >
             <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
             <Projects innerref={projectsRef} />
-        </div>
+        </motion.div>
     );
 };
 

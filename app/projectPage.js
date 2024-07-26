@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
 import { getPhotosByQuery } from "./api/limewire";
-import { cookies } from "next/headers";
+import { useCookies } from "next-client-cookies";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -17,8 +17,8 @@ const opensans = Open_Sans({
 });
 
 const Projects = ({ innerref }) => {
-    const cookieStore = cookies();
-    const generated = cookieStore.get("generated");
+    const cookies = useCookies();
+    const generated = cookies.get("generated");
     // STATE VARIABLES
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
@@ -27,7 +27,7 @@ const Projects = ({ innerref }) => {
         if (!generated) {
             const data = await getPhotosByQuery({ query: userPrompt });
             setGeneratedImage(data);
-            cookies().set("generated", true);
+            cookies.set("generated", true);
         }
     };
     return (
@@ -35,18 +35,26 @@ const Projects = ({ innerref }) => {
             ref={innerref}
             className={`${
                 !generatedImage && "projects-bg"
-            } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center`}
+            } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center overflow-y-hidden`}
             style={{
                 backgroundImage: generatedImage && `url(${generatedImage})`,
             }}
         >
-            <h1
+            <motion.h1
                 className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 3, ease: "easeInOut" }}
             >
                 Projects
-            </h1>
+            </motion.h1>
             <div className="h-[40vh] w-screen flex items-end justify-center">
-                <div className="bg-white border rounded-full w-[80vw] flex flex-row mb-[5vh]">
+                <motion.div
+                    className="bg-white border rounded-full w-[80vw] flex flex-row mb-[5vh]"
+                    initial={{ y: "100%", opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1 }}
+                >
                     <div
                         className={`transition ease-in-out duration-300 bg-[#F2613F] rounded-full text-white w-[25%] p-[1.6vw] text-[1.2vw] text-center ${montserrat.className} font-bold cursor-pointer hover:bg-red-500 `}
                         onClick={handleImageHandler}
@@ -60,7 +68,7 @@ const Projects = ({ innerref }) => {
                             setUserPrompt(e.target.value);
                         }}
                     ></input>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

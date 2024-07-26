@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
 import { getPhotosByQuery } from "./api/limewire";
+import { cookies } from "next/headers";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -16,14 +17,18 @@ const opensans = Open_Sans({
 });
 
 const Projects = ({ innerref }) => {
+    const cookieStore = cookies();
+    const generated = cookieStore.get("generated");
     // STATE VARIABLES
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
 
     const handleImageHandler = async () => {
-        const data = await getPhotosByQuery({ query: userPrompt });
-        // setGeneratedImage(data.results[1].urls.full);
-        console.log(data);
+        if (!generated) {
+            const data = await getPhotosByQuery({ query: userPrompt });
+            setGeneratedImage(data);
+            cookies().set("generated", true);
+        }
     };
     return (
         <div

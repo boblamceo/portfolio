@@ -5,6 +5,7 @@ import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
 import { getPhotosByQuery } from "./api/limewire";
 import { useCookies } from "next-client-cookies";
+import Slide from "./slide";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -70,6 +71,7 @@ const Projects = ({ innerref }) => {
                     ></input>
                 </motion.div>
             </div>
+            <Slide elements={1} />
         </div>
     );
 };

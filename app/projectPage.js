@@ -36,7 +36,7 @@ const Projects = ({ innerref }) => {
             ref={innerref}
             className={`${
                 !generatedImage && "projects-bg"
-            } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center overflow-y-hidden`}
+            } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center overflow-hidden`}
             style={{
                 backgroundImage: generatedImage && `url(${generatedImage})`,
             }}
@@ -71,7 +71,7 @@ const Projects = ({ innerref }) => {
                     ></input>
                 </motion.div>
             </div>
-            <Slide elements={1} />
+            <Slide elements={1} scrollY={100} />
         </div>
     );
 };

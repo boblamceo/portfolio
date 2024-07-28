@@ -29,7 +29,6 @@ export const getPhotosByQuery = async ({ query }) => {
         const response = await axios.request(options);
         // convert raw blob as ArrayBuffer to an image blob with MIME type
         const imageBlob = new Blob([response.data], { type: "image/jpeg" });
-        console.log(response, response.data);
         return URL.createObjectURL(imageBlob);
     } catch (error) {
         console.error("Error while fecthing Gen AI model API", error);

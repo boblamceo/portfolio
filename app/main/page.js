@@ -7,6 +7,7 @@ import Projects from "../projectPage";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import loadingsrc from "../../public/loading.gif";
+import Slide from "../slide";
 
 const Main = () => {
     const aboutRef = useRef(null);
@@ -19,10 +20,6 @@ const Main = () => {
     }, []);
 
     const handleScroll = () => {
-        console.log(
-            window.scrollY,
-            window.innerHeight + window.innerWidth * 0.13
-        );
         if (window.scrollY < window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
         } else {
@@ -48,6 +45,9 @@ const Main = () => {
         >
             <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
             <Projects innerref={projectsRef} />
+            <Slide />
+            <Slide />
+            <Slide />
         </motion.div>
     );
 };

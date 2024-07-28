@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useCookies } from "next-client-cookies";
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useState } from "react";
 import { getPhotosByQuery } from "./api/limewire";
-import { useCookies } from "next-client-cookies";
-import Slide from "./slide";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -23,7 +22,6 @@ const Projects = ({ innerref }) => {
     // STATE VARIABLES
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
-    const [scroll, setScroll] = useState(190);
 
     const handleImageHandler = async () => {
         if (!generated) {
@@ -32,6 +30,7 @@ const Projects = ({ innerref }) => {
             cookies.set("generated", true);
         }
     };
+
     return (
         <div
             ref={innerref}
@@ -72,10 +71,6 @@ const Projects = ({ innerref }) => {
                     ></input>
                 </motion.div>
             </div>
-            <Slide elements={1} scrollY={scroll} />
-            <Slide elements={2} scrollY={scroll} />
-            <Slide elements={3} scrollY={scroll} />
-            <Slide elements={4} scrollY={scroll} />
         </div>
     );
 };

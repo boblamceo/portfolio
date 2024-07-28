@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 const Header = ({ page }) => {
     return (
         <motion.div
-            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0`}
+            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10`}
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
         >

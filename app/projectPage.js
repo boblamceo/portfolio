@@ -23,6 +23,7 @@ const Projects = ({ innerref }) => {
     // STATE VARIABLES
     const [userPrompt, setUserPrompt] = useState("");
     const [generatedImage, setGeneratedImage] = useState("");
+    const [scroll, setScroll] = useState(190);
 
     const handleImageHandler = async () => {
         if (!generated) {
@@ -71,7 +72,10 @@ const Projects = ({ innerref }) => {
                     ></input>
                 </motion.div>
             </div>
-            <Slide elements={1} scrollY={100} />
+            <Slide elements={1} scrollY={scroll} />
+            <Slide elements={2} scrollY={scroll} />
+            <Slide elements={3} scrollY={scroll} />
+            <Slide elements={4} scrollY={scroll} />
         </div>
     );
 };

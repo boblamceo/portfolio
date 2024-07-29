@@ -1,7 +1,6 @@
 import { Montserrat, Open_Sans } from "next/font/google";
 import Image from "next/image";
 import React from "react";
-import Video from "next-video";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -37,7 +36,10 @@ const Slide = ({ date, name, type, images, videos }) => {
                 </div>
                 {videos[0] ? (
                     videos[0][0] !== "h" ? (
-                        <Video src={videos[0]} />
+                        <video width="320" height="240" controls preload="none">
+                            <source src={videos[0]} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     ) : null
                 ) : (
                     <Image />

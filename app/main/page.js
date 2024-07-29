@@ -20,23 +20,23 @@ import Zheng1 from "../../public/achivements/projects/tea/tea1.png";
 import Zheng2 from "../../public/achivements/projects/tea/tea2.png";
 import Zheng3 from "../../public/achivements/projects/tea/tea3.png";
 import Zheng4 from "../../public/achivements/projects/tea/tea4.png";
-import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
-import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
-import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
-import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
-import AerodynamicVid1 from "../../public/achivements/projects/aerodynamic/A1.mp4";
-import AerodynamicVid2 from "../../public/achivements/projects/aerodynamic/A2.mov";
-import AerodynamicVid3 from "../../public/achivements/projects/aerodynamic/A3.mp4";
+// import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
+// import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
+// import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
+// import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
+// import AerodynamicVid1 from "../../public/achivements/projects/aerodynamic/A1.mp4";
+// import AerodynamicVid2 from "../../public/achivements/projects/aerodynamic/A2.mov";
+// import AerodynamicVid3 from "../../public/achivements/projects/aerodynamic/A3.mp4";
 import Tetris from "../../public/achivements/projects/tetris/image.png";
 import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
 import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
 import Fan from "../../public/achivements/projects/arduino/IMG_2104.MOV";
 import NightLight from "../../public/achivements/projects/arduino/IMG_2122.MOV";
-import Game1 from "../../public/achivements/projects/arduino/Video - 2024-07-17 3_18_39 PM.MOV";
+import Game1 from "../../public/achivements/projects/arduino/Video - 2024-07-17 3_18_39 PM.mp4";
 import Game2 from "../../public/achivements/projects/arduino/IMG_2128.MOV";
 import Game3 from "../../public/achivements/projects/arduino/IMG_2130.MOV";
 import Game4 from "../../public/achivements/projects/arduino/IMG_2131.MOV";
-import Clapclock from "../../public/achivements/projects/arduino/IMG_6487f.MOV";
+import Clapclock from "../../public/achivements/projects/arduino/IMG_6487.MOV";
 
 const projects = [
     { date: "2022", name: "Smake", type: "Game", images: [Smake] },
@@ -52,20 +52,20 @@ const projects = [
         type: "App",
         images: [Zheng1, Zheng2, Zheng3, Zheng4],
     },
-    {
-        date: "2023",
-        name: "Aerodynamic",
-        type: "Crypto / App",
-        images: [
-            Aerodynamic1,
-            Aerodynamic2,
-            Aerodynamic3,
-            Aerodynamic4,
-            AerodynamicVid1,
-            AerodynamicVid2,
-            AerodynamicVid3,
-        ],
-    },
+    // {
+    //     date: "2023",
+    //     name: "Aerodynamic",
+    //     type: "Crypto / App",
+    //     images: [
+    //         Aerodynamic1,
+    //         Aerodynamic2,
+    //         Aerodynamic3,
+    //         Aerodynamic4,
+    //         AerodynamicVid1,
+    //         AerodynamicVid2,
+    //         AerodynamicVid3,
+    //     ],
+    // },
     { date: "2024", name: "Tetris", type: "AI / Game", images: [Tetris] },
     {
         date: "2024",
@@ -93,7 +93,14 @@ const projects = [
         type: "Robotics",
         images: [Clapclock],
     },
-    { date: "2024", name: "Music Machine", type: "Robotics", images: [] },
+    {
+        date: "2024",
+        name: "Music Machine",
+        type: "Robotics",
+        images: [
+            "https://www.youtube.com/watch?v=yGQrKJ_FCnc&ab_channel=TheOnlyDino",
+        ],
+    },
 ];
 
 const Main = () => {
@@ -132,9 +139,12 @@ const Main = () => {
         >
             <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
             <Projects innerref={projectsRef} />
-            <Slide />
-            <Slide />
-            <Slide />
+            {projects.map((item) => (
+                <div className="flex-row relative">
+                    <Slide {...item} />
+                    <div className="text-white sticky">hi</div>
+                </div>
+            ))}
         </motion.div>
     );
 };

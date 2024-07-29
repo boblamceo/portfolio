@@ -19,6 +19,7 @@ const Slide = ({ date, name, type, images, videos }) => {
             : date === "2023"
             ? "bg-red-500"
             : "bg-green-500";
+    console.log(videos);
     return (
         <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
             <div className={`${color} w-[50vw] h-[30vw] rounded-lg p-[1.5vw]`}>
@@ -34,15 +35,17 @@ const Slide = ({ date, name, type, images, videos }) => {
                     {name}
                 </div>
                 {videos[0] ? (
-                    <video
-                        className="w-full h-full"
-                        height={window.innerHeight * 0.2}
-                        controls
-                        preload="none"
-                    >
-                        <source src={videos[0]} type="video/mov" />
-                        Your browser does not support the video tag.
-                    </video>
+                    videos[0][0] !== "h" ? (
+                        <video
+                            className="w-full h-full"
+                            height={window.innerHeight * 0.2}
+                            controls
+                            preload="none"
+                        >
+                            <source src={videos[0]} type="video/mov" />
+                            Your browser does not support the video tag.
+                        </video>
+                    ) : null
                 ) : (
                     <Image />
                 )}

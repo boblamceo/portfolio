@@ -24,20 +24,19 @@ import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
 import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
 import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
 import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
-const AerodynamicVid2 = "../public/achivements/projects/aerodynamic/A1.mp4";
-const AerodynamicVid1 = "../public/achivements/projects/aerodynamic/A2.mp4";
-const AerodynamicVid3 = "../public/achivements/projects/aerodynamic/A3.mp4";
+import AerodynamicVid2 from "/videos/A1.mp4";
+import AerodynamicVid1 from "/videos/A2.mp4";
+import AerodynamicVid3 from "/videos/A3.mp4";
 import Tetris from "../../public/achivements/projects/tetris/image.png";
 import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
 import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
-const Fan = "../../public/achivements/projects/arduino/IMG_2104.mp4";
-const NightLight = "../public/achivements/projects/arduino/IMG_2122.mp4";
-const Game2 =
-    "../public/achivements/projects/arduino/Video - 2024-07-17 3_18_39 PM.mp4";
-const Game1 = "../public/achivements/projects/arduino/IMG_2128.mp4";
-const Game3 = "../public/achivements/projects/arduino/IMG_2130.mp4";
-const Game4 = "../public/achivements/projects/arduino/IMG_2131.mp4";
-const Clapclock = "../public/achivements/projects/arduino/IMG_6487.mp4";
+import Fan from "/videos/IMG_2104.mp4";
+import NightLight from "/videos/IMG_2122.mp4";
+import Game2 from "/videos/Video - 2024-07-17 3_18_39 PM.mp4";
+import Game1 from "/videos/IMG_2128.mp4";
+import Game3 from "/videos/IMG_2130.mp4";
+import Game4 from "/videos/IMG_2131.mp4";
+import Clapclock from "/videos/IMG_6487.mp4";
 
 const projects = [
     { date: "2022", name: "Smake", type: "Game", images: [Smake], videos: [] },

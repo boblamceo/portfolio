@@ -6,52 +6,53 @@ import About from "../aboutPage";
 import Projects from "../projectPage";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import loadingsrc from "../../public/loading.gif";
+import loadingsrc from "/loading.gif";
 import Slide from "../slide";
-import Smake from "../../public/achivements/projects/snake/smake.jpg";
-import Bin1 from "../../public/achivements/projects/binoculars/6.5 1.png";
-import Bin2 from "../../public/achivements/projects/binoculars/6.5 2.png";
-import Bin3 from "../../public/achivements/projects/binoculars/6.5 3.png";
-import Bin4 from "../../public/achivements/projects/binoculars/6.5 4.png";
-import Bin5 from "../../public/achivements/projects/binoculars/6.5 5.png";
-import Bin6 from "../../public/achivements/projects/binoculars/6.5 6.png";
-import Bin7 from "../../public/achivements/projects/binoculars/6.5 7.png";
-import Zheng1 from "../../public/achivements/projects/tea/tea1.png";
-import Zheng2 from "../../public/achivements/projects/tea/tea2.png";
-import Zheng3 from "../../public/achivements/projects/tea/tea3.png";
-import Zheng4 from "../../public/achivements/projects/tea/tea4.png";
-import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
-import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
-import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
-import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
-const AerodynamicVid1 = "../../public/achivements/projects/aerodynamic/A1.mp4";
-const AerodynamicVid2 = "../../public/achivements/projects/aerodynamic/A2.mov";
-const AerodynamicVid3 = "../../public/achivements/projects/aerodynamic/A3.mp4";
-import Tetris from "../../public/achivements/projects/tetris/image.png";
-import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
-import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
-const Fan = "../../public/achivements/projects/arduino/IMG_2104.MOV";
-const NightLight = "../../public/achivements/projects/arduino/IMG_2122.MOV";
-const Game1 =
-    "../../public/achivements/projects/arduino/Video - 2024-07-17 3_18_39 PM.mp4";
-const Game2 = "../../public/achivements/projects/arduino/IMG_2128.MOV";
-const Game3 = "../../public/achivements/projects/arduino/IMG_2130.MOV";
-const Game4 = "../../public/achivements/projects/arduino/IMG_2131.MOV";
-const Clapclock = "../../public/achivements/projects/arduino/IMG_6487.MOV";
+import Smake from "/achivements/projects/snake/smake.jpg";
+import Bin1 from "/achivements/projects/binoculars/6.5 1.png";
+import Bin2 from "/achivements/projects/binoculars/6.5 2.png";
+import Bin3 from "/achivements/projects/binoculars/6.5 3.png";
+import Bin4 from "/achivements/projects/binoculars/6.5 4.png";
+import Bin5 from "/achivements/projects/binoculars/6.5 5.png";
+import Bin6 from "/achivements/projects/binoculars/6.5 6.png";
+import Bin7 from "/achivements/projects/binoculars/6.5 7.png";
+import Zheng1 from "/achivements/projects/tea/tea1.png";
+import Zheng2 from "/achivements/projects/tea/tea2.png";
+import Zheng3 from "/achivements/projects/tea/tea3.png";
+import Zheng4 from "/achivements/projects/tea/tea4.png";
+import Aerodynamic1 from "/achivements/projects/aerodynamic/A1.jpg";
+import Aerodynamic2 from "/achivements/projects/aerodynamic/A2.jpg";
+import Aerodynamic3 from "/achivements/projects/aerodynamic/A3.jpg";
+import Aerodynamic4 from "/achivements/projects/aerodynamic/A4.png";
+const AerodynamicVid2 = "/achivements/projects/aerodynamic/A1.mp4";
+const AerodynamicVid1 = "/achivements/projects/aerodynamic/A2.mov";
+const AerodynamicVid3 = "/public/achivements/projects/aerodynamic/A3.mp4";
+import Tetris from "/achivements/projects/tetris/image.png";
+import Ticmoji from "/achivements/projects/ticmoji/image.png";
+import Teachable from "/achivements/projects/teachable-machine/image.png";
+const Fan = "/achivements/projects/arduino/IMG_2104.MOV";
+const NightLight = "/achivements/projects/arduino/IMG_2122.MOV";
+const Game2 = "/achivements/projects/arduino/Video - 2024-07-17 3_18_39 PM.mp4";
+const Game1 = "/achivements/projects/arduino/IMG_2128.MOV";
+const Game3 = "/achivements/projects/arduino/IMG_2130.MOV";
+const Game4 = "/achivements/projects/arduino/IMG_2131.MOV";
+const Clapclock = "/achivements/projects/arduino/IMG_6487.MOV";
 
 const projects = [
-    { date: "2022", name: "Smake", type: "Game", images: [Smake] },
+    { date: "2022", name: "Smake", type: "Game", images: [Smake], videos: [] },
     {
         date: "2022",
         name: "Binoculars",
         type: "App",
         images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7],
+        videos: [],
     },
     {
         date: "2023",
         name: "Zhengde Tea",
         type: "App",
         images: [Zheng1, Zheng2, Zheng3, Zheng4],
+        videos: [],
     },
     {
         date: "2023",
@@ -60,14 +61,27 @@ const projects = [
         images: [Aerodynamic1, Aerodynamic2, Aerodynamic3, Aerodynamic4],
         videos: [AerodynamicVid1, AerodynamicVid2, AerodynamicVid3],
     },
-    { date: "2024", name: "Tetris", type: "AI / Game", images: [Tetris] },
+    {
+        date: "2024",
+        name: "Tetris",
+        type: "AI / Game",
+        images: [Tetris],
+        videos: [],
+    },
     {
         date: "2024",
         name: "Teachable Machine",
         type: "AI",
         images: [Teachable],
+        videos: [],
     },
-    { date: "2024", name: "Ticmoji", type: "AI / Game", images: [Ticmoji] },
+    {
+        date: "2024",
+        name: "Ticmoji",
+        type: "AI / Game",
+        images: [Ticmoji],
+        videos: [],
+    },
     { date: "2024", name: "Fan", type: "Robotics", images: [], videos: [Fan] },
     {
         date: "2024",

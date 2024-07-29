@@ -1,4 +1,5 @@
 import { Montserrat, Open_Sans } from "next/font/google";
+import Image from "next/image";
 import React from "react";
 
 const montserrat = Montserrat({
@@ -12,11 +13,15 @@ const opensans = Open_Sans({
 });
 
 const Slide = ({ date, name, type, images, videos }) => {
+    const color =
+        date === "2022"
+            ? "bg-blue-500"
+            : date === "2023"
+            ? "bg-red-500"
+            : "bg-green-500";
     return (
         <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
-            <div
-                className={`bg-blue-500 w-[50vw] h-[30vw] rounded-lg p-[1.5vw]`}
-            >
+            <div className={`${color} w-[50vw] h-[30vw] rounded-lg p-[1.5vw]`}>
                 <div className="flex flex-row justify-between">
                     <div className={`text-[1vw] ${montserrat.className}`}>
                         {date}
@@ -25,6 +30,22 @@ const Slide = ({ date, name, type, images, videos }) => {
                         {type}
                     </div>
                 </div>
+                <div className={`${opensans.className} text-[3vw] mt-[1vh]`}>
+                    {name}
+                </div>
+                {videos[0] ? (
+                    <video
+                        className="w-full h-full"
+                        height={window.innerHeight * 0.2}
+                        controls
+                        preload="none"
+                    >
+                        <source src={videos[0]} type="video/mov" />
+                        Your browser does not support the video tag.
+                    </video>
+                ) : (
+                    <Image />
+                )}
             </div>
         </div>
     );

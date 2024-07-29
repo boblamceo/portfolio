@@ -121,7 +121,7 @@ const Main = () => {
     if (loading) {
         setTimeout(() => {
             setLoading(false);
-        }, 3000);
+        }, 1000);
         return (
             <div className="w-screen h-screen flex justify-center items-center  bg-slate-800">
                 <Image src={loadingsrc} className="w-[10vw]" />
@@ -137,14 +137,20 @@ const Main = () => {
         >
             <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
             <Projects innerref={projectsRef} />
-            {projects.map((item) => (
-                <>
-                    <Slide {...item} />
-                    <div className="text-white sticky w-[50vw] basis-[50%] top-0 bg-slate-800">
-                        {item.name}
-                    </div>
-                </>
-            ))}
+            <div className="flex flex-row">
+                <div className="w-[60%]">
+                    {projects.map((item) => (
+                        <Slide {...item} className="" />
+                    ))}
+                </div>
+                <div className="w-[40%] relative">
+                    {projects.map((item) => (
+                        <div className="text-white mt-[10vw] h-[30vw] sticky top-0 bg-slate-800">
+                            hi
+                        </div>
+                    ))}
+                </div>
+            </div>
         </motion.div>
     );
 };

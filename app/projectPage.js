@@ -46,6 +46,7 @@ const Projects = ({ innerref }) => {
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 3, ease: "easeInOut" }}
+                viewport={{ once: true }}
             >
                 Projects
             </motion.h1>
@@ -55,6 +56,7 @@ const Projects = ({ innerref }) => {
                     initial={{ y: "100%", opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 1 }}
+                    viewport={{ once: true }}
                 >
                     <div
                         className={`transition ease-in-out duration-300 bg-[#F2613F] rounded-full text-white w-[25%] p-[1.6vw] text-[1.2vw] text-center ${montserrat.className} font-bold cursor-pointer hover:bg-red-500 `}

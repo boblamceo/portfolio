@@ -38,11 +38,18 @@ const Slide = ({ date, name, type, images, videos }) => {
                     videos[0][0] !== "h" ? (
                         <video
                             className="w-full h-full"
-                            height={window.innerHeight * 0.2}
-                            controls
-                            preload="none"
+                            height={100}
+                            playsInline
+                            autoPlay
+                            muted
+                            loop
                         >
-                            <source src={videos[0]} type="video/mov" />
+                            <source
+                                src={
+                                    "/achievements/projects/aerodynamic/A1.mp4"
+                                }
+                                type="video/mp4"
+                            />
                             Your browser does not support the video tag.
                         </video>
                     ) : null

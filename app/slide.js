@@ -36,10 +36,19 @@ const Slide = ({ date, name, type, images, videos }) => {
                 </div>
                 {videos[0] ? (
                     videos[0][0] !== "h" ? (
-                        <video width="320" height="240" controls preload="none">
-                            <source src={videos[0]} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <div className="h-[100%] mt-auto">
+                            <video
+                                fluid={false}
+                                controls={false}
+                                muted
+                                preload="none"
+                                autoPlay
+                                className="h-[40vh] w-full"
+                            >
+                                <source src={videos[0]} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
                     ) : null
                 ) : (
                     <Image />

@@ -48,10 +48,17 @@ const Slide = ({ date, name, type, images, videos }) => {
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-                    ) : null
+                    ) : (
+                        <iframe
+                            src={videos[0]}
+                            frameborder="0"
+                            allowfullscreen
+                            className="pt-[2vh] pb-[2vh] h-[40vh] w-full object-cover object-[50%_25%] rounded-lg"
+                        />
+                    )
                 ) : (
-                    <Image
-                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh] bg-red-300"
+                    <div
+                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh] bg-red-300 bg-center bg-cover"
                         style={{
                             backgroundImage: `url(${images[0].src})`,
                         }}

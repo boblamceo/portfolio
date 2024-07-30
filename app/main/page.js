@@ -9,13 +9,13 @@ import Image from "next/image";
 import loadingsrc from "../../public/loading.gif";
 import Slide from "../slide";
 import Smake from "../../public/achivements/projects/snake/smake.jpg";
-import Bin1 from "../../public/achivements/projects/binoculars/6.5 1.png";
-import Bin2 from "../../public/achivements/projects/binoculars/6.5 2.png";
-import Bin3 from "../../public/achivements/projects/binoculars/6.5 3.png";
-import Bin4 from "../../public/achivements/projects/binoculars/6.5 4.png";
-import Bin5 from "../../public/achivements/projects/binoculars/6.5 5.png";
-import Bin6 from "../../public/achivements/projects/binoculars/6.5 6.png";
-import Bin7 from "../../public/achivements/projects/binoculars/6.5 7.png";
+import Bin1 from "../../public/achivements/projects/binoculars/6.51.png";
+import Bin2 from "../../public/achivements/projects/binoculars/6.52.png";
+import Bin3 from "../../public/achivements/projects/binoculars/6.53.png";
+import Bin4 from "../../public/achivements/projects/binoculars/6.54.png";
+import Bin5 from "../../public/achivements/projects/binoculars/6.55.png";
+import Bin6 from "../../public/achivements/projects/binoculars/6.56.png";
+import Bin7 from "../../public/achivements/projects/binoculars/6.57.png";
 import Zheng1 from "../../public/achivements/projects/tea/tea1.png";
 import Zheng2 from "../../public/achivements/projects/tea/tea2.png";
 import Zheng3 from "../../public/achivements/projects/tea/tea3.png";
@@ -39,13 +39,23 @@ import Game4 from "/public/IMG_2131.mp4";
 import Clapclock from "/public/IMG_6487.mp4";
 
 const projects = [
-    { date: "2022", name: "Smake", type: "Game", images: [Smake], videos: [] },
+    {
+        date: "2022",
+        name: "Smake",
+        type: "Game",
+        images: [Smake],
+        videos: [],
+        description:
+            "A normal snake game - the first game I ever made using Javascript! To play, press space and use arrow keys. The features of this game include a range of death messages and background music.",
+    },
     {
         date: "2022",
         name: "Binoculars",
         type: "App",
         images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7],
         videos: [],
+        description:
+            "Binoculars is an app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations, and be greeted with multiple animations and pictures that make the user feel relaxed. On this app, you can access a line chart, which you can change the data using the press of a button. It is easy to use and people of all ages can use it.",
     },
     {
         date: "2023",
@@ -53,6 +63,8 @@ const projects = [
         type: "App",
         images: [Zheng1, Zheng2, Zheng3, Zheng4],
         videos: [],
+        description:
+            "Also made with React Native and submitted to the App Store, Zhengde Tea is an e-commerce application that sells tea. It has a quick and fast user experience, with the purchasing process as simple as a few clicks.",
     },
     {
         date: "2023",
@@ -60,6 +72,8 @@ const projects = [
         type: "Crypto / App",
         images: [Aerodynamic1, Aerodynamic2, Aerodynamic3, Aerodynamic4],
         videos: [AerodynamicVid1, AerodynamicVid2, AerodynamicVid3],
+        description:
+            "Aerodynamic is a futuristic and modern app that is one of the only apps that focuses on allowing users to exchange crypto with different products like tea, horses, and paintings. It combines technologies like crypto and app development with products around the world, giving you a hybrid rollercoaster of things to enjoy while using the app. The app isn't on the app store yet, due to the legal complications of crypto.",
     },
     {
         date: "2024",
@@ -67,6 +81,8 @@ const projects = [
         type: "AI / Game",
         images: [Tetris],
         videos: [],
+        description:
+            "This is just a simple game of Tetris, right? The twist of this Tetris game is that it is powered by a handpose model that can track the direction of your hand. Due to the large model, it may take some time to load.",
     },
     {
         date: "2024",
@@ -74,6 +90,8 @@ const projects = [
         type: "AI",
         images: [Teachable],
         videos: [],
+        description:
+            "I recreated Google's teachable machine using HTML and Javascript. It uses transfer learning to use the data from a model called Mobilenet to identify custom objects, like a green book with a big grey square.",
     },
     {
         date: "2024",
@@ -81,6 +99,8 @@ const projects = [
         type: "AI / Game",
         images: [Ticmoji],
         videos: [],
+        description:
+            "Contninuing with the recurring theme of adding Machine Learning twists to classic games, this is a game of tic tac toe, but you make the facial expression of the corresponding square to play a move. It uses a face-landmark model to detect the face landmarks on your face, and guess your facial expression.",
     },
     {
         date: "2024",
@@ -88,6 +108,8 @@ const projects = [
         type: "Robotics",
         images: [],
         videos: [Fan],
+        description:
+            "This is one of my first robotics projects. It is a fan that is controlled by a remote controller, and run with an Arduino. During this project, I learned about the Arduino language, which is similar to C and C++.",
     },
     {
         date: "2024",
@@ -95,6 +117,8 @@ const projects = [
         type: "Robotics",
         images: [],
         videos: [NightLight],
+        description:
+            "This is a night light I made using Arduino, with a photocell resistor to detect how much light is surrounding the resistor.",
     },
     {
         date: "2024",
@@ -102,6 +126,8 @@ const projects = [
         type: "Robotics",
         images: [],
         videos: [Game1, Game2, Game3, Game4],
+        description:
+            "This project is an Arduino game console. The gaming console is powered by a joystick, including the button press on the joystick. The gaming console has four games. The first is a drawing editor, with a cursor controlled by the joystick. The second is a game similar to the Chrome dinosaur game, with the 'i's being obstacles. The third is a maze game, where you have to make it to the bottom right corner. The last is a guessing game, where you have to guess a number in the least amount of tries possible, with the Arduino telling you if your guess is closer to the actual number than your previous guess.",
     },
     {
         date: "2024",
@@ -109,15 +135,17 @@ const projects = [
         type: "Robotics",
         images: [],
         videos: [Clapclock],
+        description:
+            "This is a clock I made using an Arduino Mega 2560. To turn it on and off, you can clap twice in quick succession. In this project I used a sound sensor module to detect the volume, and compared the current volume to background volume to detect if the sound was a clap or background noise.",
     },
     {
         date: "2024",
         name: "Music Machine",
         type: "Robotics",
         images: [],
-        videos: [
-            "https://www.youtube.com/watch?v=yGQrKJ_FCnc&ab_channel=TheOnlyDino",
-        ],
+        videos: ["https://www.youtube.com/embed/yGQrKJ_FCnc"],
+        description:
+            "There are 5 buttons in this music player, and a buzzer. The button separated from the other four buttons is a music player, which plays a random song (Nokia ringtone, Mario, Harry Potter, Twinkle Twinkle Little Star, Godfather) every time you press it. The other buttons are a recording system. The button on the very right is the record button. If you press it, the arduino will start recording. The other three buttons are the notes C, D and E. To add a rest, press the record button. You can only record one take of 32 notes + rests. To reset, press the reset button on the Arduino.",
     },
 ];
 
@@ -163,7 +191,7 @@ const Main = () => {
                     <div className="w-[40%] relative">
                         {projects.map((item) => (
                             <div className="text-white mt-[10vw] h-[30vw] sticky top-0 bg-slate-800">
-                                hi
+                                {item.description}
                             </div>
                         ))}
                     </div>

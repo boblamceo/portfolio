@@ -24,8 +24,8 @@ import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
 import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
 import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
 import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
-import AerodynamicVid2 from "/public/A1.mp4";
-import AerodynamicVid1 from "/public/A2.mp4";
+import AerodynamicVid1 from "/public/A1.mp4";
+import AerodynamicVid2 from "/public/A2.mp4";
 import AerodynamicVid3 from "/public/A3.mp4";
 import Tetris from "../../public/achivements/projects/tetris/image.png";
 import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
@@ -82,7 +82,13 @@ const projects = [
         images: [Ticmoji],
         videos: [],
     },
-    { date: "2024", name: "Fan", type: "Robotics", images: [], videos: [Fan] },
+    {
+        date: "2024",
+        name: "RC Fan",
+        type: "Robotics",
+        images: [],
+        videos: [Fan],
+    },
     {
         date: "2024",
         name: "Night Light",
@@ -92,7 +98,7 @@ const projects = [
     },
     {
         date: "2024",
-        name: "Game",
+        name: "Game Console",
         type: "Robotics",
         images: [],
         videos: [Game1, Game2, Game3, Game4],

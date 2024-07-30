@@ -19,10 +19,9 @@ const Slide = ({ date, name, type, images, videos }) => {
             : date === "2023"
             ? "bg-red-500"
             : "bg-green-500";
-    console.log(videos);
     return (
         <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
-            <div className={`${color} w-[50vw] h-[30vw] rounded-lg p-[1.5vw]`}>
+            <div className={`${color} w-[50vw] rounded-lg p-[1.5vw]`}>
                 <div className="flex flex-row justify-between">
                     <div className={`text-[1vw] ${montserrat.className}`}>
                         {date}
@@ -36,14 +35,14 @@ const Slide = ({ date, name, type, images, videos }) => {
                 </div>
                 {videos[0] ? (
                     videos[0][0] !== "h" ? (
-                        <div className="h-[100%] mt-auto">
+                        <div className="pt-[2vh] pb-[2vh]">
                             <video
                                 fluid={false}
                                 controls={false}
                                 muted
                                 preload="none"
                                 autoPlay
-                                className="h-[40vh] w-full"
+                                className="h-[40vh] w-full object-cover object-[50%_25%] rounded-lg"
                             >
                                 <source src={videos[0]} type="video/mp4" />
                                 Your browser does not support the video tag.
@@ -51,7 +50,12 @@ const Slide = ({ date, name, type, images, videos }) => {
                         </div>
                     ) : null
                 ) : (
-                    <Image />
+                    <Image
+                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh] bg-red-300"
+                        style={{
+                            backgroundImage: `url(${images[0].src})`,
+                        }}
+                    />
                 )}
             </div>
         </div>

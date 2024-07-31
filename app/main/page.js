@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Suspense, useEffect, useRef, useState } from "react";
 import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
@@ -38,7 +37,7 @@ import Game4 from "/public/IMG_2131.mp4";
 import Clapclock from "/public/IMG_6487.mp4";
 import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import { Montserrat } from "next/font/google";
-import MouseTooltip from "react-sticky-mouse-tooltip";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const projects = [
     {
@@ -165,6 +164,38 @@ const Main = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const cursorSize = 15;
+
+    const mouse = {
+        x: useMotionValue(0),
+
+        y: useMotionValue(0),
+    };
+
+    const smoothOptions = { damping: 40, stiffness: 300, mass: 2 };
+
+    const smoothMouse = {
+        x: useSpring(mouse.x, smoothOptions),
+
+        y: useSpring(mouse.y, smoothOptions),
+    };
+
+    const manageMouseMove = (e) => {
+        const { clientX, clientY } = e;
+
+        mouse.x.set(clientX - cursorSize / 2);
+
+        mouse.y.set(clientY - cursorSize / 2);
+    };
+
+    useEffect(() => {
+        window.addEventListener("mousemove", manageMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", manageMouseMove);
+        };
+    }, []);
+
     const handleScroll = () => {
         if (window.scrollY < window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
@@ -205,9 +236,20 @@ const Main = () => {
                     </div>
                 </div>
             </motion.div>
-            <MouseTooltip visible offsetX={15} offsetY={10}>
-                <div className="w-[4vw] h-[4vw] border-[1px] rounded-full"></div>
-            </MouseTooltip>
+            <motion.div
+                className="w-[4vw] h-[4vw] border-[1px] rounded-full border-white fixed ml-5 mt-5"
+                style={{
+                    left: smoothMouse.x,
+                    top: smoothMouse.y,
+                }}
+            ></motion.div>
+            <motion.div
+                className="w-[3vw] h-[3vw] border-[1px] rounded-full border-black fixed ml-5 mt-5"
+                style={{
+                    left: smoothMouse.x,
+                    top: smoothMouse.y,
+                }}
+            ></motion.div>
         </Suspense>
     );
 };

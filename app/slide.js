@@ -21,7 +21,9 @@ const Slide = ({ date, name, type, images, videos }) => {
             : "bg-green-500";
     return (
         <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
-            <div className={`${color} w-[50vw] rounded-lg p-[1.5vw] h-[30vw]`}>
+            <div
+                className={`${color} w-[50vw] rounded-lg p-[1.5vw] h-[30vw] shadow-[0px_2vh_3vh_0.5vh_#fff]`}
+            >
                 <div className="flex flex-row justify-between">
                     <div className={`text-[1vw] ${montserrat.className}`}>
                         {date}
@@ -58,7 +60,7 @@ const Slide = ({ date, name, type, images, videos }) => {
                     )
                 ) : (
                     <div
-                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh] bg-red-300 bg-center bg-cover"
+                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh]bg-center bg-cover"
                         style={{
                             backgroundImage: `url(${images[0].src})`,
                         }}

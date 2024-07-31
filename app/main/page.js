@@ -193,9 +193,11 @@ const Main = () => {
                             <Slide {...item} className="" />
                         ))}
                     </div>
-                    <div className={`relative ${montserrat.className}`}>
+                    <div
+                        className={`relative ${montserrat.className} ml-[2vw]`}
+                    >
                         {projects.map((item) => (
-                            <div className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 p-[2vw]">
+                            <div className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw]">
                                 {item.description}
                             </div>
                         ))}

@@ -158,6 +158,7 @@ const montserrat = Montserrat({
 const Main = () => {
     const aboutRef = useRef(null);
     const projectsRef = useRef(null);
+    const [insideSize, setInsideSize] = useState(0);
     const [isVisible, setIsVisible] = useState("/about");
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -172,7 +173,7 @@ const Main = () => {
         y: useMotionValue(0),
     };
 
-    const smoothOptions = { damping: 40, stiffness: 300, mass: 2 };
+    const smoothOptions = { damping: 70, stiffness: 300, mass: 8 };
 
     const smoothMouse = {
         x: useSpring(mouse.x, smoothOptions),
@@ -188,11 +189,21 @@ const Main = () => {
         mouse.y.set(clientY - cursorSize / 2);
     };
 
+    const manageMouseClick = (e) => {
+        setInsideSize(1);
+    };
+    const manageMouseUp = (e) => {
+        setInsideSize(0);
+    };
+
     useEffect(() => {
         window.addEventListener("mousemove", manageMouseMove);
-
+        window.addEventListener("mousedown", manageMouseClick);
+        window.addEventListener("mouseup", manageMouseUp);
         return () => {
             window.removeEventListener("mousemove", manageMouseMove);
+            window.removeEventListener("mousedown", manageMouseClick);
+            window.removeEventListener("mouseup", manageMouseUp);
         };
     }, []);
 
@@ -244,10 +255,16 @@ const Main = () => {
                 }}
             ></motion.div>
             <motion.div
-                className="w-[3vw] h-[3vw] border-[1px] rounded-full border-black fixed ml-5 mt-5"
+                className="w-[4vw] h-[4vw] border-[1px] rounded-full bg-white fixed ml-5 mt-5"
                 style={{
                     left: smoothMouse.x,
                     top: smoothMouse.y,
+                }}
+                animate={{
+                    scale: insideSize,
+                }}
+                transition={{
+                    duration: 0.3,
                 }}
             ></motion.div>
         </Suspense>

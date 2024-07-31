@@ -38,6 +38,7 @@ import Game4 from "/public/IMG_2131.mp4";
 import Clapclock from "/public/IMG_6487.mp4";
 import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import { Montserrat } from "next/font/google";
+import MouseTooltip from "react-sticky-mouse-tooltip";
 
 const projects = [
     {
@@ -204,6 +205,9 @@ const Main = () => {
                     </div>
                 </div>
             </motion.div>
+            <MouseTooltip visible offsetX={15} offsetY={10}>
+                <div className="w-[4vw] h-[4vw] border-[1px] rounded-full"></div>
+            </MouseTooltip>
         </Suspense>
     );
 };

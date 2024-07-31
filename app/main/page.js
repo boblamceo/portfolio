@@ -230,7 +230,7 @@ const Main = () => {
             >
                 <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
                 <Projects innerref={projectsRef} />
-                <div className="flex flex-row ">
+                <div className="flex flex-row mb-[15vh]">
                     <div>
                         {projects.map((item) => (
                             <Slide {...item} className="" />
@@ -240,9 +240,17 @@ const Main = () => {
                         className={`relative ${montserrat.className} ml-[2vw]`}
                     >
                         {projects.map((item) => (
-                            <div className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw]">
+                            <motion.div
+                                className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw] text-[1.5vw]"
+                                viewport={{ once: true }}
+                                initial={{ fontSize: 0 }}
+                                whileInView={{
+                                    fontSize: `${window.innerWidth * 0.015}px`,
+                                }}
+                                transition={{ duration: 2 }}
+                            >
                                 {item.description}
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

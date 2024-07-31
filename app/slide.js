@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
 import Image from "next/image";
 import React from "react";
@@ -20,7 +21,13 @@ const Slide = ({ date, name, type, images, videos }) => {
             ? "bg-red-500"
             : "bg-green-500";
     return (
-        <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
+        <motion.div
+            className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0"
+            viewport={{ once: true }}
+            initial={{ x: "-100%", opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 2 }}
+        >
             <div
                 className={`${color} w-[50vw] rounded-lg p-[1.5vw] h-[30vw] shadow-[0px_2vh_3vh_0.5vh_#fff]`}
             >
@@ -67,7 +74,7 @@ const Slide = ({ date, name, type, images, videos }) => {
                     />
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 };
 

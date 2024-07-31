@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState, useRef, useEffect, Suspense } from "react";
-import Header from "../header";
-import About from "../aboutPage";
-import Projects from "../projectPage";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import loadingsrc from "../../public/loading.gif";
-import Slide from "../slide";
-import Smake from "../../public/achivements/projects/snake/smake.jpg";
+import { Suspense, useEffect, useRef, useState } from "react";
+import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
+import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
+import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
+import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
 import Bin1 from "../../public/achivements/projects/binoculars/6.51.png";
 import Bin2 from "../../public/achivements/projects/binoculars/6.52.png";
 import Bin3 from "../../public/achivements/projects/binoculars/6.53.png";
@@ -16,27 +14,30 @@ import Bin4 from "../../public/achivements/projects/binoculars/6.54.png";
 import Bin5 from "../../public/achivements/projects/binoculars/6.55.png";
 import Bin6 from "../../public/achivements/projects/binoculars/6.56.png";
 import Bin7 from "../../public/achivements/projects/binoculars/6.57.png";
+import Smake from "../../public/achivements/projects/snake/smake.jpg";
 import Zheng1 from "../../public/achivements/projects/tea/tea1.png";
 import Zheng2 from "../../public/achivements/projects/tea/tea2.png";
 import Zheng3 from "../../public/achivements/projects/tea/tea3.png";
 import Zheng4 from "../../public/achivements/projects/tea/tea4.png";
-import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
-import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
-import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
-import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
+import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
+import Tetris from "../../public/achivements/projects/tetris/image.png";
+import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
+import loadingsrc from "../../public/loading.gif";
+import About from "../aboutPage";
+import Header from "../header";
+import Projects from "../projectPage";
+import Slide from "../slide";
 import AerodynamicVid1 from "/public/A1.mp4";
 import AerodynamicVid2 from "/public/A2.mp4";
 import AerodynamicVid3 from "/public/A3.mp4";
-import Tetris from "../../public/achivements/projects/tetris/image.png";
-import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
-import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
 import Fan from "/public/IMG_2104.mp4";
 import NightLight from "/public/IMG_2122.mp4";
-import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import Game1 from "/public/IMG_2128.mp4";
 import Game3 from "/public/IMG_2130.mp4";
 import Game4 from "/public/IMG_2131.mp4";
 import Clapclock from "/public/IMG_6487.mp4";
+import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
+import { Montserrat } from "next/font/google";
 
 const projects = [
     {
@@ -100,7 +101,7 @@ const projects = [
         images: [Ticmoji],
         videos: [],
         description:
-            "Contninuing with the recurring theme of adding Machine Learning twists to classic games, this is a game of tic tac toe, but you make the facial expression of the corresponding square to play a move. It uses a face-landmark model to detect the face landmarks on your face, and guess your facial expression.",
+            "Continuing with the recurring theme of adding Machine Learning twists to classic games, this is a game of tic tac toe, but you make the facial expression of the corresponding square to play a move. It uses a face-landmark model to detect the face landmarks on your face, and guess your facial expression.",
     },
     {
         date: "2024",
@@ -149,11 +150,15 @@ const projects = [
     },
 ];
 
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
+
 const Main = () => {
     const aboutRef = useRef(null);
     const projectsRef = useRef(null);
     const [isVisible, setIsVisible] = useState("/about");
-    const [loading, setLoading] = useState(true);
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -182,15 +187,15 @@ const Main = () => {
             >
                 <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
                 <Projects innerref={projectsRef} />
-                <div className="flex flex-row">
-                    <div className="w-[60%]">
+                <div className="flex flex-row ">
+                    <div>
                         {projects.map((item) => (
                             <Slide {...item} className="" />
                         ))}
                     </div>
-                    <div className="w-[40%] relative">
+                    <div className={`relative ${montserrat.className}`}>
                         {projects.map((item) => (
-                            <div className="text-white mt-[10vw] h-[30vw] sticky top-0 bg-slate-800">
+                            <div className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 p-[2vw]">
                                 {item.description}
                             </div>
                         ))}

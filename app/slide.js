@@ -21,7 +21,7 @@ const Slide = ({ date, name, type, images, videos }) => {
             : "bg-green-500";
     return (
         <div className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0">
-            <div className={`${color} w-[50vw] rounded-lg p-[1.5vw]`}>
+            <div className={`${color} w-[50vw] rounded-lg p-[1.5vw] h-[30vw]`}>
                 <div className="flex flex-row justify-between">
                     <div className={`text-[1vw] ${montserrat.className}`}>
                         {date}

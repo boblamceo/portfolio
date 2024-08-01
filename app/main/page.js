@@ -240,18 +240,12 @@ const Main = () => {
                         className={`relative ${montserrat.className} ml-[2vw]`}
                     >
                         {projects.map((item) => (
-                            <motion.div
+                            <div
                                 className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw] text-[1.5vw]"
-                                viewport={{ once: true }}
-                                initial={{ paddingLeft: "100%" }}
-                                whileInView={{
-                                    paddingLeft: 0,
-                                }}
-                                transition={{ duration: 2 }}
                                 key={item.name}
                             >
                                 {item.description}
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>

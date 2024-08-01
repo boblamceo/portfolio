@@ -22,6 +22,9 @@ const Header = ({ page }) => {
                     className={`text-[1vw] header-bt ${
                         page === "/about" && "font-bold"
                     }`}
+                    onClick={() => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                 >
                     About
                 </li>
@@ -29,6 +32,12 @@ const Header = ({ page }) => {
                     className={`text-[1vw] header-bt ${
                         page === "/projects" && "font-bold"
                     }`}
+                    onClick={() => {
+                        window.scrollTo({
+                            top: window.innerHeight + window.innerWidth * 0.13,
+                            behavior: "smooth",
+                        });
+                    }}
                 >
                     Projects
                 </li>

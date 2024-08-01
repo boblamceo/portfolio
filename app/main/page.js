@@ -233,7 +233,7 @@ const Main = () => {
                 <div className="flex flex-row mb-[15vh]">
                     <div>
                         {projects.map((item) => (
-                            <Slide {...item} className="" />
+                            <Slide {...item} className="" key={item.name} />
                         ))}
                     </div>
                     <div
@@ -248,6 +248,7 @@ const Main = () => {
                                     paddingLeft: 0,
                                 }}
                                 transition={{ duration: 2 }}
+                                key={item.name}
                             >
                                 {item.description}
                             </motion.div>

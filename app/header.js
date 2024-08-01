@@ -5,6 +5,8 @@ import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import useSound from "use-sound";
 import backgroundMusic from "../public/rachmaninoff.mp3";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -62,6 +64,7 @@ const Header = ({ page }) => {
                     Contact
                 </li>
             </ul>
+            <VolumeOffIcon />
         </motion.div>
     );
 };

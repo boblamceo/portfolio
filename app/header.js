@@ -1,8 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
+import useSound from "use-sound";
+import backgroundMusic from "../public/rachmaninoff.mp3";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -10,6 +12,10 @@ const montserrat = Montserrat({
 });
 
 const Header = ({ page }) => {
+    const [background] = useSound(backgroundMusic);
+    useEffect(() => {
+        background();
+    }, []);
     return (
         <motion.div
             className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10`}

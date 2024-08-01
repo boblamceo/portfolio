@@ -37,7 +37,12 @@ const About = ({ innerref }) => {
             <div
                 className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw]`}
             >
-                I&apos;m<span className="font-bold">&nbsp;Bob Lam</span>
+                I&apos;m
+                <span
+                    className={`font-bold hover:drop-shadow-title transition-all duration-1000`}
+                >
+                    &nbsp;Bob Lam
+                </span>
                 {`, a ${diffYear} year old 
                     student who specializes in `}
             </div>

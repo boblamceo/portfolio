@@ -243,9 +243,9 @@ const Main = () => {
                             <motion.div
                                 className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw] text-[1.5vw]"
                                 viewport={{ once: true }}
-                                initial={{ fontSize: 0 }}
+                                initial={{ paddingLeft: "100%" }}
                                 whileInView={{
-                                    fontSize: `${window.innerWidth * 0.015}px`,
+                                    paddingLeft: 0,
                                 }}
                                 transition={{ duration: 2 }}
                             >

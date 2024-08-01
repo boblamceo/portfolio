@@ -13,6 +13,7 @@ head,
     margin-top: 0;
     padding-top: 0;
     scroll-behavior: smooth;
+    background-color: #1e293b;
 }
 
 .scrollbar-hide::-webkit-scrollbar {

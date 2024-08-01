@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import useSound from "use-sound";
-import backgroundMusic from "../public/rachmaninoff.mp3";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { IconButton } from "@mui/material";
@@ -16,10 +15,7 @@ const montserrat = Montserrat({
 
 const Header = ({ page }) => {
     const [volume, setVolume] = useState(false);
-    const [background] = useSound(backgroundMusic);
-    useEffect(() => {
-        background();
-    }, []);
+    const [play, { stop }] = useSound("/rachmaninoff.mp3", { volume: 3 });
     return (
         <motion.div
             className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between`}
@@ -68,6 +64,11 @@ const Header = ({ page }) => {
             </ul>
             <IconButton
                 onClick={() => {
+                    if (volume) {
+                        stop();
+                    } else {
+                        play();
+                    }
                     setVolume(!volume);
                 }}
                 className="h-[3vw] aspect-square"

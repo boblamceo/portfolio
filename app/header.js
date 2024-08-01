@@ -14,18 +14,24 @@ const montserrat = Montserrat({
 });
 
 const Header = ({ page }) => {
-    const [volume, setVolume] = useState(false);
-    const [background, { stopBackground, isBackgroundPlaying }] =
-        useSound("/rachmaninoff.mp3");
-    const [bloop, { stopBloop }] = useSound("/bloop.mp3");
-    const [click, { stopClick }] = useSound("/click.mp3");
+    const [volume, _setVolume] = useState(false);
+    const volumeRef = React.useRef(volume);
+    const setVolume = (data) => {
+        volumeRef.current = data;
+        _setVolume(data);
+    };
+    const [background, { stop }] = useSound("/rachmaninoff.mp3", {
+        interrupt: true,
+    });
+    const [click] = useSound("/click.mp3");
     useEffect(() => {
         if (volume) {
-            background();
-        } else if (isBackgroundPlaying) {
-            stopBackground();
-            stopBloop();
-            stopClick();
+            window.addEventListener("mousedown", () => {
+                console.log(volumeRef.current);
+                if (volumeRef.current) {
+                    click();
+                }
+            });
         }
     }, [volume]);
     return (
@@ -34,7 +40,7 @@ const Header = ({ page }) => {
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
         >
-            <h1 className={"text-[2vw] text-white"}>Bob Lam</h1>{" "}
+            <h1 className={"text-[2vw] text-white"}>Bob Lam</h1>
             <ul className="mr-[20vw] text-white">
                 <li
                     className={`text-[1vw] header-bt ${
@@ -76,6 +82,12 @@ const Header = ({ page }) => {
             </ul>
             <IconButton
                 onClick={() => {
+                    if (volume) {
+                        stop();
+                    } else {
+                        background();
+                        click();
+                    }
                     setVolume(!volume);
                 }}
                 className="h-[3vw] aspect-square"

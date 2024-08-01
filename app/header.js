@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Montserrat } from "next/font/google";
 import { motion } from "framer-motion";
 import useSound from "use-sound";
 import backgroundMusic from "../public/rachmaninoff.mp3";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import { IconButton } from "@mui/material";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -14,18 +15,19 @@ const montserrat = Montserrat({
 });
 
 const Header = ({ page }) => {
+    const [volume, setVolume] = useState(false);
     const [background] = useSound(backgroundMusic);
     useEffect(() => {
         background();
     }, []);
     return (
         <motion.div
-            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10`}
+            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between`}
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
         >
             <h1 className={"text-[2vw] text-white"}>Bob Lam</h1>{" "}
-            <ul className="ml-[20vw] text-white">
+            <ul className="mr-[20vw] text-white">
                 <li
                     className={`text-[1vw] header-bt ${
                         page === "/about" && "font-bold"
@@ -64,7 +66,18 @@ const Header = ({ page }) => {
                     Contact
                 </li>
             </ul>
-            <VolumeOffIcon />
+            <IconButton
+                onClick={() => {
+                    setVolume(!volume);
+                }}
+                className="h-[3vw] aspect-square"
+            >
+                {volume ? (
+                    <VolumeUpIcon className="text-[2vw] text-white" />
+                ) : (
+                    <VolumeOffIcon className="text-[2vw] text-white" />
+                )}
+            </IconButton>
         </motion.div>
     );
 };

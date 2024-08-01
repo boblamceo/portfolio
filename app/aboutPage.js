@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Montserrat, Open_Sans } from "next/font/google";
-import { motion } from "framer-motion";
+import { Montserrat } from "next/font/google";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -10,8 +10,8 @@ const montserrat = Montserrat({
 });
 
 const About = ({ innerref }) => {
-    const [product, setProduct] = useState(0);
-    const productList = [
+    const textIndex = useMotionValue(0);
+    const texts = [
         "robots",
         "violin",
         "websites",
@@ -20,15 +20,45 @@ const About = ({ innerref }) => {
         "video games",
         "swimming",
     ];
+
+    const baseText = useTransform(textIndex, (latest) => texts[latest] || "");
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, (latest) => Math.round(latest));
+    const displayText = useTransform(rounded, (latest) =>
+        baseText.get().slice(0, latest)
+    );
+    const updatedThisRound = useMotionValue(true);
+
     useEffect(() => {
-        setTimeout(() => {
-            setProduct((product + 1) % productList.length);
-        }, 4000);
-    }, [product]);
+        // thanks to noelcserespy for letting me permanently borrow this code
+        animate(count, 60, {
+            type: "tween",
+            delay: 1,
+            duration: 1,
+            ease: "easeIn",
+            repeat: Infinity,
+            repeatType: "reverse",
+            repeatDelay: 0.5,
+            onUpdate(latest) {
+                if (updatedThisRound.get() === true && latest > 0) {
+                    updatedThisRound.set(false);
+                } else if (updatedThisRound.get() === false && latest === 0) {
+                    if (textIndex.get() === texts.length - 1) {
+                        textIndex.set(0);
+                    } else {
+                        textIndex.set(textIndex.get() + 1);
+                    }
+                    updatedThisRound.set(true);
+                }
+            },
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     const date1 = new Date("6/9/2010");
     const date2 = new Date();
     const diffTime = Math.abs(date2 - date1);
     const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
+    console.log(displayText);
     return (
         <div
             className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]"
@@ -50,21 +80,11 @@ const About = ({ innerref }) => {
                     student who specializes in `}
             </motion.div>
             <div className="w-screen h-[8vw] pl-[4vw] pr-[5vw] overflow-hidden">
-                <motion.h1
+                <motion.span
                     className={`text-white ${montserrat.className} text-[6vw] font-bold`}
-                    animate={{
-                        y: ["55%", 0],
-                        opacity: [0, 0.7],
-                    }}
-                    transition={{
-                        duration: 2,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                        repeatType: "mirror",
-                    }}
                 >
-                    {productList[product]}
-                </motion.h1>
+                    {displayText}
+                </motion.span>
             </div>
         </div>
     );

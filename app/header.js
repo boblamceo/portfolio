@@ -23,7 +23,7 @@ const Header = ({ page }) => {
     const [background, { stop }] = useSound("/rachmaninoff.mp3", {
         interrupt: true,
     });
-    const [click] = useSound("/click.mp3");
+    const [click] = useSound("/click.mp3", { volume: 0.3 });
     useEffect(() => {
         if (volume) {
             window.addEventListener("mousedown", () => {
@@ -58,7 +58,10 @@ const Header = ({ page }) => {
                     }`}
                     onClick={() => {
                         window.scrollTo({
-                            top: window.innerHeight + window.innerWidth * 0.13,
+                            top:
+                                window.innerHeight +
+                                window.innerWidth * 0.13 +
+                                1,
                             behavior: "smooth",
                         });
                     }}

@@ -15,7 +15,19 @@ const montserrat = Montserrat({
 
 const Header = ({ page }) => {
     const [volume, setVolume] = useState(false);
-    const [play, { stop }] = useSound("/rachmaninoff.mp3", { volume: 3 });
+    const [background, { stopBackground, isBackgroundPlaying }] =
+        useSound("/rachmaninoff.mp3");
+    const [bloop, { stopBloop }] = useSound("/bloop.mp3");
+    const [click, { stopClick }] = useSound("/click.mp3");
+    useEffect(() => {
+        if (volume) {
+            background();
+        } else if (isBackgroundPlaying) {
+            stopBackground();
+            stopBloop();
+            stopClick();
+        }
+    }, [volume]);
     return (
         <motion.div
             className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between`}
@@ -64,11 +76,6 @@ const Header = ({ page }) => {
             </ul>
             <IconButton
                 onClick={() => {
-                    if (volume) {
-                        stop();
-                    } else {
-                        play();
-                    }
                     setVolume(!volume);
                 }}
                 className="h-[3vw] aspect-square"

@@ -34,8 +34,11 @@ const About = ({ innerref }) => {
             className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]"
             ref={innerref}
         >
-            <div
+            <motion.div
                 className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw]`}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1 }}
             >
                 I&apos;m
                 <span
@@ -45,7 +48,7 @@ const About = ({ innerref }) => {
                 </span>
                 {`, a ${diffYear} year old 
                     student who specializes in `}
-            </div>
+            </motion.div>
             <div className="w-screen h-[8vw] pl-[4vw] pr-[5vw] overflow-hidden">
                 <motion.h1
                     className={`text-white ${montserrat.className} text-[6vw] font-bold`}

@@ -1,7 +1,8 @@
+"use client";
 import { ArrowForward } from "@mui/icons-material";
-import { IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
+import Router from "next/router";
 import React, { useState } from "react";
 
 const montserrat = Montserrat({
@@ -38,6 +39,18 @@ const Slide = ({ date, name, type, images, videos }) => {
             }}
             onMouseLeave={() => {
                 setHover(false);
+            }}
+            onClick={() => {
+                Router.push({
+                    pathname: "/description",
+                    query: {
+                        date,
+                        name,
+                        type,
+                        images,
+                        videos,
+                    },
+                });
             }}
         >
             <div

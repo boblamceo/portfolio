@@ -1,6 +1,7 @@
+import { ArrowRight } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
-import Image from "next/image";
 import React from "react";
 
 const montserrat = Montserrat({
@@ -39,8 +40,13 @@ const Slide = ({ date, name, type, images, videos }) => {
                         {type}
                     </div>
                 </div>
-                <div className={`${opensans.className} text-[3vw] mt-[1vh]`}>
-                    {name}
+                <div className="flex flex-row mt-[1vh] justify-between">
+                    <div className={`${opensans.className} text-[3vw] `}>
+                        {name}
+                    </div>
+                    <IconButton>
+                        <ArrowRight />
+                    </IconButton>
                 </div>
                 {videos[0] ? (
                     videos[0][0] !== "h" ? (

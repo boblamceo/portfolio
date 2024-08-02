@@ -15,7 +15,7 @@ const opensans = Open_Sans({
     display: "swap",
 });
 
-const Slide = ({ date, name, type, images, videos }) => {
+const Slide = ({ date, name, type, images, videos, description }) => {
     const [hover, setHover] = useState(false);
     const color =
         date === "2022"
@@ -27,7 +27,14 @@ const Slide = ({ date, name, type, images, videos }) => {
         <Link
             href={{
                 pathname: "/description",
-                query: { date, name, type, images, videos },
+                query: {
+                    date,
+                    name,
+                    type,
+                    details: description,
+                    images,
+                    videos,
+                },
             }}
         >
             <motion.div

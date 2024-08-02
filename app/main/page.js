@@ -173,7 +173,7 @@ const Main = () => {
         y: useMotionValue(0),
     };
 
-    const smoothOptions = { damping: 70, stiffness: 300, mass: 8 };
+    const smoothOptions = { damping: 80, stiffness: 300, mass: 8 };
 
     const smoothMouse = {
         x: useSpring(mouse.x, smoothOptions),
@@ -237,11 +237,11 @@ const Main = () => {
                         ))}
                     </div>
                     <div
-                        className={`relative ${montserrat.className} ml-[2vw]`}
+                        className={`relative ${montserrat.className} ml-[5vw]`}
                     >
                         {projects.map((item) => (
                             <div
-                                className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[2vw] text-[1.5vw]"
+                                className="text-white pt-[10vw] h-[40vw] sticky top-0 bg-slate-800 pr-[5vw] text-[1.3vw]"
                                 key={item.name}
                             >
                                 {item.description}

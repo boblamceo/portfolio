@@ -24,7 +24,7 @@ const Slide = ({ date, name, type, images, videos }) => {
             : "bg-green-500";
     return (
         <motion.div
-            className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0"
+            className="flex flex-row mt-[10vw] ml-[5vw] text-white relative z-0 hover:cursor-pointer"
             viewport={{ once: true }}
             initial={{ x: "-100%", opacity: 0, scale: 1 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -71,7 +71,7 @@ const Slide = ({ date, name, type, images, videos }) => {
                                 muted
                                 preload="none"
                                 autoPlay
-                                className="h-[40vh] w-full object-cover object-[50%_25%] rounded-lg"
+                                className="h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
                             >
                                 <source src={videos[0]} type="video/mp4" />
                                 Your browser does not support the video tag.
@@ -82,12 +82,12 @@ const Slide = ({ date, name, type, images, videos }) => {
                             src={videos[0]}
                             frameborder="0"
                             allowfullscreen
-                            className="pt-[2vh] pb-[2vh] h-[40vh] w-full object-cover object-[50%_25%] rounded-lg"
+                            className="pt-[2vh] pb-[2vh] h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
                         />
                     )
                 ) : (
                     <div
-                        className="h-[40vh] w-full rounded-lg pt-[2vh] pb-[2vh]bg-center bg-cover"
+                        className="h-[20vw] w-full rounded-lg pt-[2vh] pb-[2vh]bg-center bg-cover"
                         style={{
                             backgroundImage: `url(${images[0].src})`,
                         }}

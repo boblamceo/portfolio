@@ -54,6 +54,18 @@ const About = ({ innerref }) => {
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    const cursorVariants = {
+        blinking: {
+            opacity: [0, 0, 1, 1],
+            transition: {
+                duration: 1,
+                repeat: Infinity,
+                repeatDelay: 0,
+                ease: "linear",
+                times: [0, 0.5, 0.5, 1],
+            },
+        },
+    };
     const date1 = new Date("6/9/2010");
     const date2 = new Date();
     const diffTime = Math.abs(date2 - date1);
@@ -85,6 +97,11 @@ const About = ({ innerref }) => {
                 >
                     {displayText}
                 </motion.span>
+                <motion.div
+                    variants={cursorVariants}
+                    animate="blinking"
+                    className="inline-block h-[6vw] w-[3px] translate-y-1 bg-white"
+                />
             </div>
         </div>
     );

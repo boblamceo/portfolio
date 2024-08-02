@@ -30,7 +30,7 @@ const Description = () => {
             </h1>
             <br />
             <div
-                className={`${opensans.className} text-[3vw] inline-block bg-clip-text bg-gradient-to-r from-slate-900 via-white via-white to-white text-transparent ml-[2vw]`}
+                className={`${opensans.className} text-[3vw] inline-block bg-clip-text bg-gradient-to-r from-slate-900  via-white to-white text-transparent ml-[2vw]`}
             >
                 {details}
             </div>

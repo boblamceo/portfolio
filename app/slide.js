@@ -26,7 +26,7 @@ const Slide = ({ date, name, type, images, videos, description }) => {
     return (
         <Link
             href={{
-                pathname: "/description",
+                pathname: "/description/[date]/[name]/[type]/[details]",
                 query: {
                     date,
                     name,

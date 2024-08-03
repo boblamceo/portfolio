@@ -4,35 +4,36 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 import ImageGallery from "react-image-gallery";
 import Header from "../header";
-import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
-import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
-import Aerodynamic3 from "../../public/achivements/projects/aerodynamic/A3.jpg";
-import Aerodynamic4 from "../../public/achivements/projects/aerodynamic/A4.png";
-import Bin1 from "../../public/achivements/projects/binoculars/6.51.png";
-import Bin2 from "../../public/achivements/projects/binoculars/6.52.png";
-import Bin3 from "../../public/achivements/projects/binoculars/6.53.png";
-import Bin4 from "../../public/achivements/projects/binoculars/6.54.png";
-import Bin5 from "../../public/achivements/projects/binoculars/6.55.png";
-import Bin6 from "../../public/achivements/projects/binoculars/6.56.png";
-import Bin7 from "../../public/achivements/projects/binoculars/6.57.png";
-import Smake from "../../public/achivements/projects/snake/smake.jpg";
-import Zheng1 from "../../public/achivements/projects/tea/tea1.png";
-import Zheng2 from "../../public/achivements/projects/tea/tea2.png";
-import Zheng3 from "../../public/achivements/projects/tea/tea3.png";
-import Zheng4 from "../../public/achivements/projects/tea/tea4.png";
-import Teachable from "../../public/achivements/projects/teachable-machine/image.png";
-import Tetris from "../../public/achivements/projects/tetris/image.png";
-import Ticmoji from "../../public/achivements/projects/ticmoji/image.png";
-import AerodynamicVid1 from "/public/A1.mp4";
-import AerodynamicVid2 from "/public/A2.mp4";
-import AerodynamicVid3 from "/public/A3.mp4";
-import Fan from "/public/IMG_2104.mp4";
-import NightLight from "/public/IMG_2122.mp4";
-import Game1 from "/public/IMG_2128.mp4";
-import Game3 from "/public/IMG_2130.mp4";
-import Game4 from "/public/IMG_2131.mp4";
-import Clapclock from "/public/IMG_6487.mp4";
-import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
+
+const Aerodynamic2 = "/achivements/projects/aerodynamic/A2.jpg";
+const Aerodynamic1 = "/achivements/projects/aerodynamic/A1.jpg";
+const Aerodynamic3 = "/achivements/projects/aerodynamic/A3.jpg";
+const Aerodynamic4 = "/achivements/projects/aerodynamic/A4.png";
+const Bin1 = "/achivements/projects/binoculars/6.51.png";
+const Bin2 = "/achivements/projects/binoculars/6.52.png";
+const Bin3 = "/achivements/projects/binoculars/6.53.png";
+const Bin4 = "/achivements/projects/binoculars/6.54.png";
+const Bin5 = "/achivements/projects/binoculars/6.55.png";
+const Bin6 = "/achivements/projects/binoculars/6.56.png";
+const Bin7 = "/achivements/projects/binoculars/6.57.png";
+const Smake = "/achivements/projects/snake/smake.jpg";
+const Zheng1 = "/achivements/projects/tea/tea1.png";
+const Zheng2 = "/achivements/projects/tea/tea2.png";
+const Zheng3 = "/achivements/projects/tea/tea3.png";
+const Zheng4 = "/achivements/projects/tea/tea4.png";
+const Teachable = "/achivements/projects/teachable-machine/image.png";
+const Tetris = "/achivements/projects/tetris/image.png";
+const Ticmoji = "/achivements/projects/ticmoji/image.png";
+const AerodynamicVid1 = "/A1.mp4";
+const AerodynamicVid2 = "/A2.mp4";
+const AerodynamicVid3 = "/A3.mp4";
+const Fan = "/IMG_2104.mp4";
+const NightLight = "/IMG_2122.mp4";
+const Game1 = "/IMG_2128.mp4";
+const Game3 = "/IMG_2130.mp4";
+const Game4 = "/IMG_2131.mp4";
+const Clapclock = "/IMG_6487.mp4";
+const Game2 = "/Video - 2024-07-17 3_18_39 PM.mp4";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -163,23 +164,9 @@ const Description = () => {
         (curr) => curr.name === name
     )[0];
 
-    // const imagesArr = images.map((curr) => {
-    //     return { original: curr };
-    // });
-    const imagesArr = [
-        {
-            original: "/background1.png",
-            thumbnail: "https://picsum.photos/id/1018/250/150/",
-        },
-        {
-            original: "https://picsum.photos/id/1015/1000/600/",
-            thumbnail: "https://picsum.photos/id/1015/250/150/",
-        },
-        {
-            original: "https://picsum.photos/id/1019/1000/600/",
-            thumbnail: "https://picsum.photos/id/1019/250/150/",
-        },
-    ];
+    const imagesArr = images.map((curr) => {
+        return { original: curr };
+    });
 
     return (
         <div className="bg-slate-900 w-screen h-screen">

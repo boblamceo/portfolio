@@ -2,6 +2,7 @@
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
+import ImageGallery from "react-image-gallery";
 import Header from "../header";
 import Aerodynamic1 from "../../public/achivements/projects/aerodynamic/A1.jpg";
 import Aerodynamic2 from "../../public/achivements/projects/aerodynamic/A2.jpg";
@@ -162,10 +163,28 @@ const Description = () => {
         (curr) => curr.name === name
     )[0];
 
+    // const imagesArr = images.map((curr) => {
+    //     return { original: curr };
+    // });
+    const imagesArr = [
+        {
+            original: "/background1.png",
+            thumbnail: "https://picsum.photos/id/1018/250/150/",
+        },
+        {
+            original: "https://picsum.photos/id/1015/1000/600/",
+            thumbnail: "https://picsum.photos/id/1015/250/150/",
+        },
+        {
+            original: "https://picsum.photos/id/1019/1000/600/",
+            thumbnail: "https://picsum.photos/id/1019/250/150/",
+        },
+    ];
+
     return (
         <div className="bg-slate-900 w-screen h-screen">
             <Header page="/projects" />
-            <h1
+            {/* <h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
             >
                 {name}
@@ -175,7 +194,8 @@ const Description = () => {
                 className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}
             >
                 {description}
-            </div>
+            </div> */}
+            <ImageGallery items={imagesArr} />
         </div>
     );
 };

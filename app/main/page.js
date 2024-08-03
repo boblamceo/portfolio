@@ -56,7 +56,7 @@ const projects = [
         images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7],
         videos: [],
         description:
-            "Binoculars is an app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations, and be greeted with multiple animations and pictures that make the user feel relaxed. On this app, you can access a line chart, which you can change the data using the press of a button. It is easy to use and people of all ages can use it.",
+            "Binoculars is a weather app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations with a relaxing UI. It is easy to use, and loaded with global weather information.",
     },
     {
         date: "2023",
@@ -128,7 +128,7 @@ const projects = [
         images: [],
         videos: [Game1, Game2, Game3, Game4],
         description:
-            "This project is an Arduino game console. The gaming console is powered by a joystick, including the button press on the joystick. The gaming console has four games. The first is a drawing editor, with a cursor controlled by the joystick. The second is a game similar to the Chrome dinosaur game, with the 'i's being obstacles. The third is a maze game, where you have to make it to the bottom right corner. The last is a guessing game, where you have to guess a number in the least amount of tries possible, with the Arduino telling you if your guess is closer to the actual number than your previous guess.",
+            "This project is an Arduino game console. The gaming console is powered by a joystick, with a LCD 1602 module to display the game. The gaming console has four games: a drawing game, a chrome dinosaur-inspired game, a maze game, and a guessing game.",
     },
     {
         date: "2024",
@@ -146,7 +146,7 @@ const projects = [
         images: [],
         videos: ["https://www.youtube.com/embed/yGQrKJ_FCnc"],
         description:
-            "There are 5 buttons in this music player, and a buzzer. The button separated from the other four buttons is a music player, which plays a random song (Nokia ringtone, Mario, Harry Potter, Twinkle Twinkle Little Star, Godfather) every time you press it. The other buttons are a recording system. The button on the very right is the record button. If you press it, the arduino will start recording. The other three buttons are the notes C, D and E. To add a rest, press the record button. You can only record one take of 32 notes + rests. To reset, press the reset button on the Arduino.",
+            "There are 5 buttons in this music player, and a buzzer. The button separated from the other four buttons is a music player, which plays a random song every time you press it. The other buttons are a recording system, where you can make music with only four buttons.",
     },
 ];
 

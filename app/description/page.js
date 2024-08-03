@@ -21,7 +21,7 @@ const Description = () => {
     const details = searchParams.get("details");
     console.log(details);
     return (
-        <div className="bg-slate-900 w-screen h-screen overflow-hidden">
+        <div className="bg-slate-900 w-screen h-screen">
             <Header page="/projects" />
             <h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
@@ -30,7 +30,7 @@ const Description = () => {
             </h1>
             <br />
             <div
-                className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[2vw] description-background`}
+                className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}
             >
                 {details}
             </div>

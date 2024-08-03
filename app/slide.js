@@ -15,7 +15,7 @@ const opensans = Open_Sans({
     display: "swap",
 });
 
-const Slide = ({ date, name, type, images, videos, description }) => {
+const Slide = ({ date, name, type, images, videos }) => {
     const [hover, setHover] = useState(false);
     const color =
         date === "2022"
@@ -28,10 +28,7 @@ const Slide = ({ date, name, type, images, videos, description }) => {
             href={{
                 pathname: "/description",
                 query: {
-                    date,
                     name,
-                    type,
-                    details: description,
                 },
             }}
         >

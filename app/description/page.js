@@ -24,13 +24,13 @@ const Description = () => {
         <div className="bg-slate-900 w-screen h-screen overflow-hidden">
             <Header page="/projects" />
             <h1
-                className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r from-slate-900 via-white to-white text-transparent mt-[5vw] ml-[5vw]`}
+                className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
             >
                 {name}
             </h1>
             <br />
             <div
-                className={`${opensans.className} text-[3vw] inline-block bg-clip-text bg-gradient-to-r from-slate-900  via-white to-white text-transparent ml-[2vw]`}
+                className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[2vw] description-background`}
             >
                 {details}
             </div>

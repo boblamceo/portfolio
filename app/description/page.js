@@ -25,16 +25,16 @@ const Zheng4 = "/achivements/projects/tea/tea4.png";
 const Teachable = "/achivements/projects/teachable-machine/image.png";
 const Tetris = "/achivements/projects/tetris/image.png";
 const Ticmoji = "/achivements/projects/ticmoji/image.png";
-const AerodynamicVid1 = "/A1.mp4";
-const AerodynamicVid2 = "/A2.mp4";
-const AerodynamicVid3 = "/A3.mp4";
-const Fan = "/IMG_2104.mp4";
-const NightLight = "/IMG_2122.mp4";
-const Game1 = "/IMG_2128.mp4";
-const Game3 = "/IMG_2130.mp4";
-const Game4 = "/IMG_2131.mp4";
-const Clapclock = "/IMG_6487.mp4";
-const Game2 = "/Video - 2024-07-17 3_18_39 PM.mp4";
+const AerodynamicVid1 = "https://www.youtube.com/watch?v=jdHji-E6Gbc";
+const AerodynamicVid2 = "https://www.youtube.com/watch?v=z23Bj78lOOI";
+const AerodynamicVid3 = "https://www.youtube.com/watch?v=PuU-5FhJG9s";
+const Fan = "https://www.youtube.com/watch?v=QDHf01-FIxQ";
+const NightLight = "https://www.youtube.com/watch?v=cf8-2NtZLCQ";
+const Game1 = "https://www.youtube.com/watch?v=EmOJRdUiW9I";
+const Game3 = "https://www.youtube.com/watch?v=JDgl5uxW_j0";
+const Game4 = "https://www.youtube.com/watch?v=6vuk56JNBAk";
+const Clapclock = "https://www.youtube.com/watch?v=wrt1Tu5RpBg";
+const Game2 = "https://www.youtube.com/watch?v=U8qCZ8EP3Oo";
 
 const montserrat = Montserrat({
     subsets: ["latin"],

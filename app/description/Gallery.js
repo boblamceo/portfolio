@@ -36,10 +36,9 @@ const Gallery = ({ images, videos }) => {
                 {videos.map((curr) => (
                     <a className="gallery-item" data-src={curr} key={curr}>
                         <img
-                            style={{ maxWidth: "400px" }}
                             className="img-responsive"
                             alt=""
-                            src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
+                            src="/video-placeholder.webp"
                         />
                     </a>
                 ))}

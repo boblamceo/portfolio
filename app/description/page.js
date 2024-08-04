@@ -175,6 +175,45 @@ const projects = [
     },
 ];
 
+const RenderVideo = (item) => {
+    if (item.embedUrl) {
+        return (
+            <div>
+                {curr[0] !== "h" ? (
+                    <div className="pt-[2vh] pb-[2vh]">
+                        <video
+                            fluid={false}
+                            controls={false}
+                            muted
+                            preload="none"
+                            autoPlay
+                            className="h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
+                        >
+                            <source src={curr} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                ) : (
+                    <iframe
+                        src={curr}
+                        frameborder="0"
+                        allowfullscreen
+                        className="pt-[2vh] pb-[2vh] h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
+                    />
+                )}
+            </div>
+        );
+    }
+    return (
+        <div
+            className="h-[20vw] w-full rounded-lg pt-[2vh] pb-[2vh]bg-center bg-cover"
+            style={{
+                backgroundImage: `url(${item.original})`,
+            }}
+        />
+    );
+};
+
 const Description = () => {
     const searchParams = useSearchParams();
 
@@ -187,7 +226,10 @@ const Description = () => {
         return { original: curr };
     });
     const items = videos.map((curr) => {
-        return { embedUrl: curr };
+        return {
+            embedUrl: curr,
+            renderItem: <RenderVideo curr={curr} />,
+        };
     });
 
     // console.log([...imagesArr, ...videosArr]);

@@ -10,9 +10,9 @@ import "lightgallery/css/lg-thumbnail.css";
 
 const Gallery = ({ images, videos }) => {
     return (
-        <div className="bg-red-400 w-[70vw] flex items-center justify-center mx-auto">
+        <div className="w-[70vw] flex items-center justify-center mx-auto">
             <LightGallery
-                plugins={[lgThumbnail, lgZoom]}
+                plugins={[lgZoom]}
                 width={`1000px`}
                 mode="lg-fade"
                 onInit={() => {
@@ -24,6 +24,7 @@ const Gallery = ({ images, videos }) => {
                         data-lg-size="1406-1390"
                         className="inline-block mx-auto"
                         data-src={curr}
+                        key={curr}
                     >
                         <img
                             className="img-responsive h-[50vh] mx-auto"

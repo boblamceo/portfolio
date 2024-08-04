@@ -164,11 +164,11 @@ const Description = () => {
     const { date, type, images, videos, description } = projects.filter(
         (curr) => curr.name === name
     )[0];
-    {
-        /*
-        <div className="bg-slate-900 w-screen h-screen">
+
+    return (
+        <div className="bg-slate-900 w-screen">
             <Header page="/projects" />
-             <h1
+            <h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
             >
                 {name}
@@ -178,13 +178,10 @@ const Description = () => {
                 className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}
             >
                 {description}
-            </div> */
-    }
-
-    {
-        /*</div>*/
-    }
-    return <Gallery images={images} videos={videos} />;
+            </div>
+            <Gallery images={images} videos={videos} />
+        </div>
+    );
 };
 
 export default Description;

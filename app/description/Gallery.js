@@ -34,11 +34,17 @@ const Gallery = ({ images, videos }) => {
                     </a>
                 ))}
                 {videos.map((curr) => (
-                    <a className="gallery-item" data-src={curr} key={curr}>
+                    <a
+                        className="inline-block m-[1vw] rounded-[1vw]"
+                        data-src={curr}
+                        key={curr}
+                    >
                         <img
                             className="img-responsive"
                             alt=""
-                            src="/video-placeholder.webp"
+                            src={`https://img.youtube.com/vi/${curr.slice(
+                                -11
+                            )}/maxresdefault.jpg`}
                         />
                     </a>
                 ))}

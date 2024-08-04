@@ -7,6 +7,7 @@ import useSound from "use-sound";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import { IconButton } from "@mui/material";
+import Link from "next/link";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -40,7 +41,9 @@ const Header = ({ page }) => {
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
         >
-            <h1 className={"text-[2vw] text-white"}>Bob Lam</h1>
+            <Link className={"text-[2vw] text-white"} href={"/main"}>
+                Bob Lam
+            </Link>
             <ul className="mr-[20vw] text-white">
                 <li
                     className={`text-[1vw] header-bt ${

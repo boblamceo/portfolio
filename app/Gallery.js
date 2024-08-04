@@ -10,7 +10,7 @@ import "lightgallery/css/lg-thumbnail.css";
 
 const Gallery = ({ images, videos }) => {
     return (
-        <div className="w-[70vw] flex items-center justify-center mx-auto">
+        <div className="w-[80vw] flex items-center justify-center mx-auto mt-[5vh]">
             <LightGallery
                 plugins={[lgZoom]}
                 width={`1000px`}
@@ -22,12 +22,12 @@ const Gallery = ({ images, videos }) => {
                 {images.map((curr) => (
                     <a
                         data-lg-size="1406-1390"
-                        className="inline-block mx-auto"
+                        className="inline-block m-[1vw] rounded-[1vw]"
                         data-src={curr}
                         key={curr}
                     >
                         <img
-                            className="img-responsive h-[50vh] mx-auto"
+                            className="img-responsive h-[50vh] mx-auto rounded-[1vw]"
                             src={curr}
                         />
                     </a>

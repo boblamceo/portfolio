@@ -2,8 +2,9 @@
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
-import ImageGallery from "react-image-gallery";
+
 import Header from "../header";
+import Gallery from "../Gallery";
 
 const Aerodynamic2 = "/achivements/projects/aerodynamic/A2.jpg";
 const Aerodynamic1 = "/achivements/projects/aerodynamic/A1.jpg";
@@ -44,25 +45,6 @@ const opensans = Open_Sans({
     subsets: ["latin"],
     display: "swap",
 });
-
-// thanks to stackoverflow community wiki
-
-function shuffle(array) {
-    let currentIndex = array.length;
-
-    // While there remain elements to shuffle...
-    while (currentIndex != 0) {
-        // Pick a remaining element...
-        let randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex],
-            array[currentIndex],
-        ];
-    }
-}
 
 const projects = [
     {
@@ -175,45 +157,6 @@ const projects = [
     },
 ];
 
-const RenderVideo = (item) => {
-    if (item.embedUrl) {
-        return (
-            <div>
-                {curr[0] !== "h" ? (
-                    <div className="pt-[2vh] pb-[2vh]">
-                        <video
-                            fluid={false}
-                            controls={false}
-                            muted
-                            preload="none"
-                            autoPlay
-                            className="h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
-                        >
-                            <source src={curr} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                ) : (
-                    <iframe
-                        src={curr}
-                        frameborder="0"
-                        allowfullscreen
-                        className="pt-[2vh] pb-[2vh] h-[20vw] w-full object-cover object-[50%_25%] rounded-lg"
-                    />
-                )}
-            </div>
-        );
-    }
-    return (
-        <div
-            className="h-[20vw] w-full rounded-lg pt-[2vh] pb-[2vh]bg-center bg-cover"
-            style={{
-                backgroundImage: `url(${item.original})`,
-            }}
-        />
-    );
-};
-
 const Description = () => {
     const searchParams = useSearchParams();
 
@@ -221,25 +164,11 @@ const Description = () => {
     const { date, type, images, videos, description } = projects.filter(
         (curr) => curr.name === name
     )[0];
-
-    const imagesArr = images.map((curr) => {
-        return { original: curr };
-    });
-    const items = videos.map((curr) => {
-        return {
-            embedUrl: curr,
-            renderItem: <RenderVideo curr={curr} />,
-        };
-    });
-
-    // console.log([...imagesArr, ...videosArr]);
-
-    // const items = shuffle([...imagesArr, ...videosArr]);
-
-    return (
+    {
+        /*
         <div className="bg-slate-900 w-screen h-screen">
             <Header page="/projects" />
-            {/* <h1
+             <h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
             >
                 {name}
@@ -249,10 +178,13 @@ const Description = () => {
                 className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}
             >
                 {description}
-            </div> */}
-            <ImageGallery items={items} />
-        </div>
-    );
+            </div> */
+    }
+
+    {
+        /*</div>*/
+    }
+    return <Gallery images={images} videos={videos} />;
 };
 
 export default Description;

@@ -1,4 +1,6 @@
-@import "~react-image-gallery/styles/css/image-gallery.css";
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lightgallery.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lg-zoom.css");
+@import url("https://cdn.jsdelivr.net/npm/lightgallery@2.4.0/css/lg-video.css");
 
 @tailwind base;
 @tailwind components;

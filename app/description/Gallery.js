@@ -1,18 +1,19 @@
 import React from "react";
 import LightGallery from "lightgallery/react";
 
-import lgThumbnail from "lightgallery/plugins/thumbnail";
+import lgVideo from "lightgallery/plugins/video";
 import lgZoom from "lightgallery/plugins/zoom";
 
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-video.css";
 
 const Gallery = ({ images, videos }) => {
     return (
         <div className="w-[80vw] flex items-center justify-center mx-auto mt-[5vh]">
             <LightGallery
-                plugins={[lgZoom]}
+                plugins={[lgZoom, lgVideo]}
                 width={`1000px`}
                 mode="lg-fade"
                 onInit={() => {
@@ -27,8 +28,18 @@ const Gallery = ({ images, videos }) => {
                         key={curr}
                     >
                         <img
-                            className="img-responsive h-[50vh] mx-auto rounded-[1vw]"
+                            className="img-responsive max-h-[50vh] mx-auto rounded-[1vw]"
                             src={curr}
+                        />
+                    </a>
+                ))}
+                {videos.map((curr) => (
+                    <a className="gallery-item" data-src={curr} key={curr}>
+                        <img
+                            style={{ maxWidth: "400px" }}
+                            className="img-responsive"
+                            alt=""
+                            src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg"
                         />
                     </a>
                 ))}

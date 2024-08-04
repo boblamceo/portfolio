@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 
 import Header from "../header";
-import Gallery from "../Gallery";
+import Gallery from "./Gallery";
 
 const Aerodynamic2 = "/achivements/projects/aerodynamic/A2.jpg";
 const Aerodynamic1 = "/achivements/projects/aerodynamic/A1.jpg";

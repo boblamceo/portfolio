@@ -166,7 +166,7 @@ const Description = () => {
     )[0];
 
     return (
-        <div className="bg-slate-900 w-screen">
+        <div className="bg-slate-900 w-screen pb-[3vh]">
             <Header page="/projects" />
             <motion.h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}

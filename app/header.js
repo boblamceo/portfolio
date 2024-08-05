@@ -28,7 +28,6 @@ const Header = ({ page }) => {
     useEffect(() => {
         if (volume) {
             window.addEventListener("mousedown", () => {
-                console.log(volumeRef.current);
                 if (volumeRef.current) {
                     click();
                 }

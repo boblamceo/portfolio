@@ -39,6 +39,7 @@ import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import { Montserrat } from "next/font/google";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Awards from "../awards";
+import { WindowSharp } from "@mui/icons-material";
 
 const projects = [
     {
@@ -210,11 +211,25 @@ const Main = () => {
     }, []);
 
     const handleScroll = () => {
-        if (window.scrollY < window.innerHeight + window.innerWidth * 0.13) {
+        console.log(
+            "hi",
+            window.scrollY,
+            window.innerHeight + window.innerWidth * 0.13,
+            window.innerWidth * 12 * 0.4 +
+                window.innerWidth * 0.15 +
+                window.innerHeight +
+                window.innerWidth * 0.13 +
+                window.innerHeight
+        );
+        if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
         } else if (
-            window.scrollY <
-            window.innerWidth * 12 * 0.4 + window.innerWidth * 0.15
+            window.scrollY <=
+            window.innerWidth * 12 * 0.4 +
+                window.innerHeight * 0.15 +
+                window.innerHeight +
+                window.innerWidth * 0.13 +
+                window.innerHeight
         ) {
             setIsVisible("/projects");
         } else {

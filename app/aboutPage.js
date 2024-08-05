@@ -70,7 +70,6 @@ const About = ({ innerref }) => {
     const date2 = new Date();
     const diffTime = Math.abs(date2 - date1);
     const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
-    console.log(displayText);
     return (
         <div
             className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]"

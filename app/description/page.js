@@ -2,9 +2,9 @@
 import { Montserrat, Open_Sans } from "next/font/google";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
-
 import Header from "../header";
 import Gallery from "./Gallery";
+import { motion } from "framer-motion";
 
 const Aerodynamic2 = "/achivements/projects/aerodynamic/A2.jpg";
 const Aerodynamic1 = "/achivements/projects/aerodynamic/A1.jpg";
@@ -168,17 +168,23 @@ const Description = () => {
     return (
         <div className="bg-slate-900 w-screen">
             <Header page="/projects" />
-            <h1
+            <motion.h1
                 className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 2 }}
             >
                 {name}
-            </h1>
+            </motion.h1>
             <br />
-            <div
+            <motion.div
                 className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 2 }}
             >
                 {description}
-            </div>
+            </motion.div>
             <Gallery images={images} videos={videos} />
         </div>
     );

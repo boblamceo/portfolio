@@ -3,11 +3,11 @@ import LightGallery from "lightgallery/react";
 
 import lgVideo from "lightgallery/plugins/video";
 import lgZoom from "lightgallery/plugins/zoom";
-
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-video.css";
+import { motion } from "framer-motion";
 
 const Gallery = ({ images, videos }) => {
     return (
@@ -27,9 +27,16 @@ const Gallery = ({ images, videos }) => {
                         data-src={curr}
                         key={curr}
                     >
-                        <img
+                        <motion.img
                             className="img-responsive max-h-[50vh] mx-auto rounded-[1vw]"
                             src={curr}
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                delay: 2,
+                                duration: 0.5,
+                                type: "spring",
+                            }}
                         />
                     </a>
                 ))}
@@ -44,7 +51,7 @@ const Gallery = ({ images, videos }) => {
                             alt=""
                             src={`https://img.youtube.com/vi/${curr.slice(
                                 -11
-                            )}/maxresdefault.jpg`}
+                            )}/hqdefault.jpg`}
                         />
                     </a>
                 ))}

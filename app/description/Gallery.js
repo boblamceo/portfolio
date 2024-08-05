@@ -35,7 +35,7 @@ const Gallery = ({ images, videos }) => {
             key={curr}
         >
             <motion.img
-                className="img-responsive max-h-[50vh] mx-auto rounded-[1vw]"
+                className="img-responsive max-h-[50vh] mx-auto rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
                 src={curr}
                 initial={{ y: "100%", opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -43,6 +43,7 @@ const Gallery = ({ images, videos }) => {
                     duration: 0.5,
                     type: "spring",
                 }}
+                whileHover={{ scale: 1.03 }}
             />
         </a>
     ));
@@ -53,17 +54,18 @@ const Gallery = ({ images, videos }) => {
             key={curr}
         >
             <motion.img
-                className="img-responsive max-w-[30vw] rounded-[1vw]"
+                className="img-responsive max-w-[30vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
                 alt=""
                 src={`https://img.youtube.com/vi/${curr.slice(
                     -11
                 )}/hqdefault.jpg`}
-                initial={{ y: "100%", opacity: 0 }}
+                initial={{ y: "100%", opacity: 0, scale: 1 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{
                     duration: 0.5,
                     type: "spring",
                 }}
+                whileHover={{ scale: 1.03 }}
             />
         </a>
     ));

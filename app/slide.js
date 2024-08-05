@@ -68,7 +68,7 @@ const Slide = ({ date, name, type, images, videos }) => {
                             animate={{ rotate: hover ? -45 : 0 }}
                             className="aspect-square inline-block"
                         >
-                            <ArrowForward className="text-white text-[4vw]" />
+                            <ArrowForward className="text-white text-[3vw]" />
                         </motion.div>
                     </div>
                     {videos[0] ? (

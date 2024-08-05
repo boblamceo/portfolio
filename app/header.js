@@ -74,6 +74,18 @@ const Header = ({ page }) => {
                     className={`text-[1vw] header-bt ${
                         page === "/awards" && "font-bold"
                     }`}
+                    onClick={() => {
+                        window.scrollTo({
+                            top:
+                                window.innerWidth * 12 * 0.4 +
+                                window.innerHeight * 0.15 +
+                                window.innerHeight +
+                                window.innerWidth * 0.13 +
+                                window.innerHeight +
+                                1,
+                            behavior: "smooth",
+                        });
+                    }}
                 >
                     Awards
                 </li>

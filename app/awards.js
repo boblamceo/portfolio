@@ -11,7 +11,7 @@ const Awards = () => {
     return (
         <div className="w-screen h-[100vh] awards-bg flex justify-center items-center">
             <motion.h1
-                className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}
+                className={`text-white font-bold ${montserrat.className} text-[8vw]`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 3, ease: "easeInOut" }}

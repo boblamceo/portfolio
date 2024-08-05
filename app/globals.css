@@ -27,8 +27,8 @@ head,
 .description-background {
     background: linear-gradient(
         90deg,
-        #1e293b 0%,
-        rgba(255, 255, 255, 0.8) 10%,
+        #444e5c 0%,
+        rgba(255, 255, 255, 0.8) 40%,
         rgba(255, 255, 255, 0.8) 100%
     );
     color: transparent;
@@ -38,11 +38,21 @@ head,
 .about-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url(./background1.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .projects-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url(./background2.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.awards-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(./background3.png);
     background-repeat: no-repeat;
     background-size: cover;
 }

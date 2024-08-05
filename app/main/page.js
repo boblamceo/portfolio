@@ -38,6 +38,7 @@ import Clapclock from "/public/IMG_6487.mp4";
 import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import { Montserrat } from "next/font/google";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import Awards from "../awards";
 
 const projects = [
     {
@@ -158,6 +159,7 @@ const montserrat = Montserrat({
 const Main = () => {
     const aboutRef = useRef(null);
     const projectsRef = useRef(null);
+    const awardsRef = useRef(null);
     const [insideSize, setInsideSize] = useState(0);
     const [isVisible, setIsVisible] = useState("/about");
     useEffect(() => {
@@ -210,8 +212,13 @@ const Main = () => {
     const handleScroll = () => {
         if (window.scrollY < window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
-        } else {
+        } else if (
+            window.scrollY <
+            window.innerWidth * 12 * 0.4 + window.innerWidth * 0.15
+        ) {
             setIsVisible("/projects");
+        } else {
+            setIsVisible("/awards");
         }
     };
     return (
@@ -249,6 +256,7 @@ const Main = () => {
                         ))}
                     </div>
                 </div>
+                <Awards innerref={awardsRef} />
             </motion.div>
             <motion.div
                 className="w-[4vw] h-[4vw] border-[1px] rounded-full border-white fixed ml-5 mt-5"

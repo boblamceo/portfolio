@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
+import LightGallery from "lightgallery/react";
 import { Montserrat } from "next/font/google";
 import React from "react";
+import lgVideo from "lightgallery/plugins/video";
+import lgZoom from "lightgallery/plugins/zoom";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-video.css";
 
 const CCC = "/achievements/awards/canadiancomputingcompetition.pdf";
 const CMC = "/achievements/awards/canadianmathcompetition.jpg";
@@ -33,6 +40,34 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
+const awards = [
+    CCC,
+    CMC,
+    Cath,
+    Quest1,
+    Quest2,
+    HKMKC1,
+    HKMKC2,
+    HKMKC3,
+    Sasmo,
+    Theory,
+    Violin1,
+    Violin2,
+    Violin3,
+    Coco1,
+    Coco2,
+    Coco3,
+    Coco4,
+    Coco5,
+    Coco6,
+    Coco7,
+    Coco8,
+    Coco9,
+    Coco10,
+    Coco11,
+    Coco12,
+];
+
 const Awards = () => {
     return (
         <div>
@@ -47,7 +82,28 @@ const Awards = () => {
                     Awards
                 </motion.h1>
             </div>
-            <div>hi</div>
+
+            {awards.map((curr) => (
+                <LightGallery
+                    plugins={[lgZoom, lgVideo]}
+                    width={`1000px`}
+                    mode="lg-fade"
+                    onInit={() => {
+                        console.log("hi");
+                    }}
+                >
+                    <a
+                        className="inline-block m-[1vw] rounded-[1vw]"
+                        data-src={curr}
+                        key={curr}
+                    >
+                        <img
+                            className="img-responsive max-w-[30vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
+                            src={curr}
+                        ></img>
+                    </a>
+                </LightGallery>
+            ))}
         </div>
     );
 };

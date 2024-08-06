@@ -20,7 +20,7 @@ const HKMKC2 = "/achievements/awards/HKMKC2023.jpg";
 const HKMKC3 = "/achievements/awards/HKMKC2024.jpg";
 const Sasmo = "/achievements/awards/sasmo2022.jpg";
 const Theory = "/achievements/awards/Theory5.jpg";
-const Violin1 = "/achievements/awards/Violin5.jpg";
+const Violin1 = "/achievements/awards/Violin5.jpeg";
 const Violin2 = "/achievements/awards/Violin6.jpg";
 const Violin3 = "/achievements/awards/Violin8.jpg";
 const Coco1 = "/achievements/awards/coco1.jpg";
@@ -55,18 +55,20 @@ const awards = [
     Violin1,
     Violin2,
     Violin3,
-    Coco1,
-    Coco2,
-    Coco3,
-    Coco4,
-    Coco5,
-    Coco6,
-    Coco7,
-    Coco8,
-    Coco9,
-    Coco10,
-    Coco11,
-    Coco12,
+    [
+        Coco1,
+        Coco2,
+        Coco3,
+        Coco4,
+        Coco5,
+        Coco6,
+        Coco7,
+        Coco8,
+        Coco9,
+        Coco10,
+        Coco11,
+        Coco12,
+    ],
 ];
 
 const Awards = () => {
@@ -84,27 +86,60 @@ const Awards = () => {
                 </motion.h1>
             </div>
 
-            {awards.map((curr, index) => (
-                <LightGallery
-                    plugins={[lgZoom, lgVideo]}
-                    width={`1000px`}
-                    mode="lg-fade"
-                    onInit={() => {
-                        console.log("hi");
-                    }}
+            {/* {awards.map((curr, index) =>
+                index === 13 ? ( */}
+            <LightGallery
+                plugins={[lgZoom, lgVideo]}
+                mode="lg-fade"
+                onInit={() => {
+                    console.log("hi");
+                }}
+            >
+                {/* {curr.map((image, imageIndex) => ( */}
+                <a
+                    className="inline-block m-[1vw] rounded-[1vw]"
+                    data-src={awards[13][0]}
+                    // key={curr[0]}
                 >
-                    <a
-                        className="inline-block m-[1vw] rounded-[1vw]"
-                        data-src={curr}
-                        key={curr}
+                    <img
+                        className={`img-responsive  rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]`}
+                        src={awards[13][0]}
+                    ></img>
+                </a>
+                <a
+                    className="inline-block m-[1vw] rounded-[1vw]"
+                    data-src={awards[13][0]}
+                    key={awards[13][0]}
+                >
+                    <img
+                        className={`img-responsive  rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]`}
+                        src={awards[13][0]}
+                    ></img>
+                </a>
+                {/* ))} */}
+            </LightGallery>
+            {/* ) : (
+                    <LightGallery
+                        plugins={[lgZoom, lgVideo]}
+                        width={`1000px`}
+                        mode="lg-fade"
+                        onInit={() => {
+                            console.log("hi");
+                        }}
                     >
-                        <img
-                            className="img-responsive max-w-[30vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
-                            src={index === 0 ? CCCThumb : curr}
-                        ></img>
-                    </a>
-                </LightGallery>
-            ))}
+                        <a
+                            className="inline-block m-[1vw] rounded-[1vw]"
+                            data-src={curr}
+                            key={curr}
+                        >
+                            <img
+                                className="img-responsive max-w-[40vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
+                                src={index === 0 ? CCCThumb : curr}
+                            ></img>
+                        </a>
+                    </LightGallery>
+                )
+            )} */}
         </div>
     );
 };

@@ -12,24 +12,20 @@ const montserrat = Montserrat({
 });
 
 const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
+const range = (val, max, min) => (val - min) / (max - min);
 const Award = ({ curr, index }) => {
     const [opacity, setOpacity] = useState(0);
     const ref = useRef(null);
     const handleScroll = () => {
         if (ref.current) {
             const top =
-                ref.current.getBoundingClientRect().top + window.scrollY;
-            setOpacity(
-                (window.scrollY -
-                    ref.current.getBoundingClientRect() +
-                    document.body.scrollTop / window.innerHeight +
-                    1) *
-                    -1
-            );
+                ref.current.getBoundingClientRect().top +
+                window.scrollY +
+                window.innerHeight;
+            const cardBottom = top + window.innerHeight;
+            // setOpacity(range(scrollY, cardBottom, top) * -1);
             console.log(
-                top,
-                ref.current.getBoundingClientRect().top,
-                window.scrollY
+                range(scrollY, cardBottom, cardBottom + window.innerHeight)
             );
         }
     };
@@ -53,9 +49,6 @@ const Award = ({ curr, index }) => {
                 <LightGallery
                     plugins={[lgZoom, lgThumbnail]}
                     mode="lg-fade"
-                    onInit={() => {
-                        console.log("hi");
-                    }}
                     onBeforeOpen={() => {
                         setClickIn(true);
                     }}
@@ -84,9 +77,6 @@ const Award = ({ curr, index }) => {
                 <LightGallery
                     plugins={[lgZoom, lgThumbnail]}
                     mode="lg-fade"
-                    onInit={() => {
-                        console.log("hi");
-                    }}
                     onBeforeOpen={() => {
                         setClickIn(true);
                     }}

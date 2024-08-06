@@ -77,13 +77,7 @@ const Gallery = ({ images, videos }) => {
     }, []);
     return (
         <div className="w-[80vw] flex items-center justify-center mx-auto my-[5vh]">
-            <LightGallery
-                plugins={[lgZoom, lgVideo]}
-                mode="lg-fade"
-                onInit={() => {
-                    console.log("hi");
-                }}
-            >
+            <LightGallery plugins={[lgZoom, lgVideo]} mode="lg-fade">
                 {final}
             </LightGallery>
         </div>

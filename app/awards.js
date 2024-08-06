@@ -124,7 +124,11 @@ const descriptions = [
             "ESF Coco - A computing conference hosted by students, including a hackathon.",
         date: 2023,
     },
-];
+]
+    .map((curr, index) => {
+        return { ...curr, awards: awards[index] };
+    })
+    .sort((a, b) => a.date - b.date);
 
 const Awards = ({ setClickIn }) => {
     return (
@@ -141,7 +145,7 @@ const Awards = ({ setClickIn }) => {
                 </motion.h1>
             </div>
 
-            {awards.map((curr, index) => (
+            {descriptions.map((curr, index) => (
                 <div
                     key={index}
                     className={`w-screen flex flex-col ${
@@ -162,7 +166,7 @@ const Awards = ({ setClickIn }) => {
                                 setClickIn(false);
                             }}
                         >
-                            {curr.map((image, imageIndex) => (
+                            {curr.awards.map((image, imageIndex) => (
                                 <a
                                     className=" inline-block rounded-[1vw]"
                                     data-src={image}
@@ -195,18 +199,22 @@ const Awards = ({ setClickIn }) => {
                         >
                             <a
                                 className="inline-block rounded-[1vw]"
-                                data-src={curr}
-                                key={curr}
+                                data-src={curr.awards}
+                                key={curr.awards}
                             >
                                 <img
                                     className="img-responsive max-w-[40vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
-                                    src={index === 0 ? CCCThumb : curr}
+                                    src={index === 0 ? CCCThumb : curr.awards}
                                 ></img>
                             </a>
                         </LightGallery>
                     )}
                     <div
-                        className={`text-white ${opensans.className} text-[2.5vh] mt-[2vh]`}
+                        className={`text-white ${
+                            opensans.className
+                        } text-[2.5vh] mt-[3vh] w-[40vw] ${
+                            index % 2 === 0 ? "text-left" : "text-right"
+                        }`}
                     >
                         {descriptions[index].details}
                     </div>

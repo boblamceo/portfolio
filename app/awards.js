@@ -62,78 +62,85 @@ const awards = [
 const Awards = ({ setClickIn }) => {
     return (
         <div>
-            <div className="w-screen h-[100vh] awards-bg flex justify-center items-center">
+            <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
                 <motion.h1
                     className={`text-white font-bold ${montserrat.className} text-[8vw]`}
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 3, ease: "easeInOut" }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
                     viewport={{ once: true }}
                 >
                     Awards
                 </motion.h1>
             </div>
 
-            {awards.map((curr, index) =>
-                index === 13 ? (
-                    <LightGallery
-                        plugins={[lgZoom, lgThumbnail]}
-                        mode="lg-fade"
-                        onInit={() => {
-                            console.log("hi");
-                        }}
-                        onBeforeOpen={() => {
-                            setClickIn(true);
-                        }}
-                        onBeforeClose={() => {
-                            setClickIn(false);
-                        }}
-                    >
-                        {curr.map((image, imageIndex) => (
+            {awards.map((curr, index) => (
+                <div
+                    key={index}
+                    className={`w-screen flex flex-col ${
+                        index % 2 === 0 ? "items-start" : "items-end"
+                    } p-[5vw]`}
+                >
+                    {index === 13 ? (
+                        <LightGallery
+                            plugins={[lgZoom, lgThumbnail]}
+                            mode="lg-fade"
+                            onInit={() => {
+                                console.log("hi");
+                            }}
+                            onBeforeOpen={() => {
+                                setClickIn(true);
+                            }}
+                            onBeforeClose={() => {
+                                setClickIn(false);
+                            }}
+                        >
+                            {curr.map((image, imageIndex) => (
+                                <a
+                                    className=" inline-block rounded-[1vw]"
+                                    data-src={image}
+                                    key={image}
+                                >
+                                    <img
+                                        className={`img-responsive ${
+                                            imageIndex === 0
+                                                ? "max-w-[40vw]"
+                                                : "max-w-0"
+                                        } rounded-[1vw] shadow-[0px_2vh_3vh_0.5vh_#fff] hover:cursor-pointer`}
+                                        src={image}
+                                    ></img>
+                                </a>
+                            ))}
+                        </LightGallery>
+                    ) : (
+                        <LightGallery
+                            plugins={[lgZoom, lgThumbnail]}
+                            mode="lg-fade"
+                            onInit={() => {
+                                console.log("hi");
+                            }}
+                            onBeforeOpen={() => {
+                                setClickIn(true);
+                            }}
+                            onBeforeClose={() => {
+                                setClickIn(false);
+                            }}
+                        >
                             <a
-                                className="m-[1vw] rounded-[1vw]"
-                                data-src={image}
-                                key={image}
+                                className="inline-block rounded-[1vw]"
+                                data-src={curr}
+                                key={curr}
                             >
                                 <img
-                                    className={`img-responsive ${
-                                        imageIndex === 0
-                                            ? "max-w-[40vw]"
-                                            : "max-w-0"
-                                    } rounded-[1vw] shadow-[0px_2vh_3vh_0.5vh_#fff]`}
-                                    src={image}
+                                    className="img-responsive max-w-[40vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
+                                    src={index === 0 ? CCCThumb : curr}
                                 ></img>
                             </a>
-                        ))}
-                    </LightGallery>
-                ) : (
-                    <LightGallery
-                        plugins={[lgZoom, lgThumbnail]}
-                        width={`1000px`}
-                        mode="lg-fade"
-                        onInit={() => {
-                            console.log("hi");
-                        }}
-                        onBeforeOpen={() => {
-                            setClickIn(true);
-                        }}
-                        onBeforeClose={() => {
-                            setClickIn(false);
-                        }}
-                    >
-                        <a
-                            className="inline-block m-[1vw] rounded-[1vw]"
-                            data-src={curr}
-                            key={curr}
-                        >
-                            <img
-                                className="img-responsive max-w-[40vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
-                                src={index === 0 ? CCCThumb : curr}
-                            ></img>
-                        </a>
-                    </LightGallery>
-                )
-            )}
+                        </LightGallery>
+                    )}
+                    <div className="text-white"> ahpfoiuwh</div>
+                </div>
+            ))}
         </div>
     );
 };

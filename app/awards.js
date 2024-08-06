@@ -24,18 +24,10 @@ const Theory = "/achievements/awards/Theory5.jpg";
 const Violin1 = "/achievements/awards/Violin5.jpeg";
 const Violin2 = "/achievements/awards/Violin6.jpg";
 const Violin3 = "/achievements/awards/Violin8.jpg";
-const Coco1 = "/achievements/awards/coco1.jpg";
 const Coco2 = "/achievements/awards/coco2.jpg";
-const Coco3 = "/achievements/awards/coco3.jpg";
 const Coco4 = "/achievements/awards/coco4.jpg";
-const Coco5 = "/achievements/awards/coco5.jpg";
-const Coco6 = "/achievements/awards/coco6.jpg";
-const Coco7 = "/achievements/awards/coco7.jpg";
-const Coco8 = "/achievements/awards/coco8.jpg";
-const Coco9 = "/achievements/awards/coco9.jpg";
 const Coco10 = "/achievements/awards/coco10.jpg";
 const Coco11 = "/achievements/awards/coco11.jpg";
-const Coco12 = "/achievements/awards/coco12.jpg";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -57,6 +49,11 @@ const awards = [
     Violin2,
     Violin3,
     [Coco2, Coco4, Coco10, Coco11],
+];
+
+const descriptions = [
+    "Canadian Computing Competition - A global programming competition from the University of Waterloo designed for secondary students.",
+    "Canada Jay Mathematical Competition - A worldwide mathematics competition from the University of Waterloo designed for secondary students.",
 ];
 
 const Awards = ({ setClickIn }) => {

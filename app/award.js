@@ -1,22 +1,44 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import lgZoom from "lightgallery/plugins/zoom";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import LightGallery from "lightgallery/react";
-import { Montserrat, Open_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
 
+const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
 const Award = ({ curr, index }) => {
+    const [opacity, setOpacity] = useState(0);
     const ref = useRef(null);
-    const montserrat = Montserrat({
-        subsets: ["latin"],
-        display: "swap",
-    });
-    const opensans = Open_Sans({
-        subsets: ["latin"],
-        display: "swap",
-    });
+    const handleScroll = () => {
+        if (ref.current) {
+            const top =
+                ref.current.getBoundingClientRect().top + window.scrollY;
+            setOpacity(
+                (window.scrollY -
+                    ref.current.getBoundingClientRect() +
+                    document.body.scrollTop / window.innerHeight +
+                    1) *
+                    -1
+            );
+            console.log(
+                top,
+                ref.current.getBoundingClientRect().top,
+                window.scrollY
+            );
+        }
+    };
+    useEffect(() => {
+        if (index === 0) {
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+        }
+    }, []);
     return (
         <div
             ref={ref}
@@ -24,11 +46,7 @@ const Award = ({ curr, index }) => {
                 index % 2 === 0 ? "items-start" : "items-end"
             } p-[5vw] sticky top-0`}
             style={{
-                opacity:
-                    Math.abs(
-                        ref.current.getBoundingClientRect() +
-                            document.body.scrollTop
-                    ) / window.innerHeight,
+                opacity: 1,
             }}
         >
             {index === 10 ? (
@@ -95,10 +113,8 @@ const Award = ({ curr, index }) => {
                     index % 2 === 0 ? "text-left" : "text-right"
                 } flex flex-col justify-end`}
             >
-                <div className="italic font-bold    ">
-                    {descriptions[index].date}
-                </div>
-                {descriptions[index].details}
+                <div className="italic font-bold    ">{curr.date}</div>
+                {curr.details}
             </div>
         </div>
     );

@@ -4,7 +4,6 @@ import React from "react";
 import Award from "./award";
 
 const CCC = "/achievements/awards/canadiancomputingcompetition.pdf";
-const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
 const CMC = "/achievements/awards/canadianmathcompetition.jpg";
 const Cath = "/achievements/awards/cathcon.jpg";
 const Quest1 = "/achievements/awards/codingquest2023.jpg";

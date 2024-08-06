@@ -219,16 +219,6 @@ const Main = () => {
     }, []);
 
     const handleScroll = () => {
-        console.log(
-            "hi",
-            window.scrollY,
-            window.innerHeight + window.innerWidth * 0.13,
-            window.innerWidth * 12 * 0.4 +
-                window.innerWidth * 0.15 +
-                window.innerHeight +
-                window.innerWidth * 0.13 +
-                window.innerHeight
-        );
         if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
         } else if (

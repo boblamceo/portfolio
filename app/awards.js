@@ -56,20 +56,7 @@ const awards = [
     Violin1,
     Violin2,
     Violin3,
-    [
-        Coco1,
-        Coco2,
-        Coco3,
-        Coco4,
-        Coco5,
-        Coco6,
-        Coco7,
-        Coco8,
-        Coco9,
-        Coco10,
-        Coco11,
-        Coco12,
-    ],
+    [Coco2, Coco4, Coco10, Coco11],
 ];
 
 const Awards = ({ setClickIn }) => {
@@ -109,7 +96,11 @@ const Awards = ({ setClickIn }) => {
                                 key={image}
                             >
                                 <img
-                                    className={`img-responsive  rounded-[1vw] shadow-[0px_2vh_3vh_0.5vh_#fff]`}
+                                    className={`img-responsive ${
+                                        imageIndex === 0
+                                            ? "max-w-[40vw]"
+                                            : "max-w-0"
+                                    } rounded-[1vw] shadow-[0px_2vh_3vh_0.5vh_#fff]`}
                                     src={image}
                                 ></img>
                             </a>

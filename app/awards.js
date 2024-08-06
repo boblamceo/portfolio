@@ -75,7 +75,7 @@ const awards = [
 const Awards = () => {
     return (
         <div>
-            {/* <div className="w-screen h-[100vh] awards-bg flex justify-center items-center">
+            <div className="w-screen h-[100vh] awards-bg flex justify-center items-center">
                 <motion.h1
                     className={`text-white font-bold ${montserrat.className} text-[8vw]`}
                     initial={{ opacity: 0, scale: 0 }}
@@ -85,7 +85,7 @@ const Awards = () => {
                 >
                     Awards
                 </motion.h1>
-            </div> */}
+            </div>
 
             <LightGallery plugins={[lgZoom, lgVideo]} mode="lg-fade">
                 <a

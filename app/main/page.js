@@ -158,84 +158,90 @@ const montserrat = Montserrat({
 });
 
 const Main = () => {
-    // const aboutRef = useRef(null);
-    // const projectsRef = useRef(null);
+    const aboutRef = useRef(null);
+    const projectsRef = useRef(null);
     const awardsRef = useRef(null);
-    // const [insideSize, setInsideSize] = useState(0);
-    // const [isVisible, setIsVisible] = useState("/about");
-    // useEffect(() => {
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // }, []);
+    const [insideSize, setInsideSize] = useState(0);
+    const [clickIn, setClickIn] = useState(false);
+    const [isVisible, setIsVisible] = useState("/about");
 
-    // const cursorSize = 15;
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
-    // const mouse = {
-    //     x: useMotionValue(0),
+    const cursorSize = 15;
 
-    //     y: useMotionValue(0),
-    // };
+    const mouse = {
+        x: useMotionValue(0),
 
-    // const smoothOptions = { damping: 80, stiffness: 300, mass: 8 };
+        y: useMotionValue(0),
+    };
 
-    // const smoothMouse = {
-    //     x: useSpring(mouse.x, smoothOptions),
+    const smoothOptions = { damping: 80, stiffness: 300, mass: 8 };
 
-    //     y: useSpring(mouse.y, smoothOptions),
-    // };
+    const smoothMouse = {
+        x: useSpring(mouse.x, smoothOptions),
 
-    // const manageMouseMove = (e) => {
-    //     const { clientX, clientY } = e;
+        y: useSpring(mouse.y, smoothOptions),
+    };
 
-    //     mouse.x.set(clientX - cursorSize / 2);
+    const manageMouseMove = (e) => {
+        const { clientX, clientY } = e;
 
-    //     mouse.y.set(clientY - cursorSize / 2);
-    // };
+        mouse.x.set(clientX - cursorSize / 2);
 
-    // const manageMouseClick = (e) => {
-    //     setInsideSize(1);
-    // };
-    // const manageMouseUp = (e) => {
-    //     setInsideSize(0);
-    // };
+        mouse.y.set(clientY - cursorSize / 2);
+    };
 
-    // useEffect(() => {
-    //     window.addEventListener("mousemove", manageMouseMove);
-    //     window.addEventListener("mousedown", manageMouseClick);
-    //     window.addEventListener("mouseup", manageMouseUp);
-    //     return () => {
-    //         window.removeEventListener("mousemove", manageMouseMove);
-    //         window.removeEventListener("mousedown", manageMouseClick);
-    //         window.removeEventListener("mouseup", manageMouseUp);
-    //     };
-    // }, []);
+    const manageMouseClick = (e) => {
+        if (!clickIn) {
+            setInsideSize(1);
+        }
+    };
+    const manageMouseUp = (e) => {
+        if (!clickIn) {
+            setInsideSize(0);
+        }
+    };
 
-    // const handleScroll = () => {
-    //     console.log(
-    //         "hi",
-    //         window.scrollY,
-    //         window.innerHeight + window.innerWidth * 0.13,
-    //         window.innerWidth * 12 * 0.4 +
-    //             window.innerWidth * 0.15 +
-    //             window.innerHeight +
-    //             window.innerWidth * 0.13 +
-    //             window.innerHeight
-    //     );
-    //     if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
-    //         setIsVisible("/about");
-    //     } else if (
-    //         window.scrollY <=
-    //         window.innerWidth * 12 * 0.4 +
-    //             window.innerHeight * 0.15 +
-    //             window.innerHeight +
-    //             window.innerWidth * 0.13 +
-    //             window.innerHeight
-    //     ) {
-    //         setIsVisible("/projects");
-    //     } else {
-    //         setIsVisible("/awards");
-    //     }
-    // };
+    useEffect(() => {
+        window.addEventListener("mousemove", manageMouseMove);
+        window.addEventListener("mousedown", manageMouseClick);
+        window.addEventListener("mouseup", manageMouseUp);
+        return () => {
+            window.removeEventListener("mousemove", manageMouseMove);
+            window.removeEventListener("mousedown", manageMouseClick);
+            window.removeEventListener("mouseup", manageMouseUp);
+        };
+    }, []);
+
+    const handleScroll = () => {
+        console.log(
+            "hi",
+            window.scrollY,
+            window.innerHeight + window.innerWidth * 0.13,
+            window.innerWidth * 12 * 0.4 +
+                window.innerWidth * 0.15 +
+                window.innerHeight +
+                window.innerWidth * 0.13 +
+                window.innerHeight
+        );
+        if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
+            setIsVisible("/about");
+        } else if (
+            window.scrollY <=
+            window.innerWidth * 12 * 0.4 +
+                window.innerHeight * 0.15 +
+                window.innerHeight +
+                window.innerWidth * 0.13 +
+                window.innerHeight
+        ) {
+            setIsVisible("/projects");
+        } else {
+            setIsVisible("/awards");
+        }
+    };
     return (
         <Suspense
             fallback={
@@ -244,14 +250,13 @@ const Main = () => {
                 </div>
             }
         >
-            {/* <motion.div
+            <motion.div
                 className="bg-slate-800 w-screen flex flex-col -z-20"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}
             >
-                <Header page={isVisible} /> <About innerref={aboutRef} />{" "}
-                <Projects innerref={projectsRef} />
+                <Header page={isVisible} /> <About /> <Projects />
                 <div className="flex flex-row mb-[15vh]">
                     <div>
                         {projects.map((item) => (
@@ -270,9 +275,9 @@ const Main = () => {
                             </div>
                         ))}
                     </div>
-                </div> */}
-            <Awards innerref={awardsRef} />
-            {/* </motion.div>
+                </div>
+                <Awards setClickIn={setClickIn} />
+            </motion.div>
             <motion.div
                 className="w-[4vw] h-[4vw] border-[1px] rounded-full border-white fixed ml-5 mt-5"
                 style={{
@@ -292,7 +297,7 @@ const Main = () => {
                 transition={{
                     duration: 0.3,
                 }}
-            ></motion.div> */}
+            ></motion.div>
         </Suspense>
     );
 };

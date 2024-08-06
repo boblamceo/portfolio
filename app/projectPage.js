@@ -16,7 +16,7 @@ const opensans = Open_Sans({
     display: "swap",
 });
 
-const Projects = ({ innerref }) => {
+const Projects = () => {
     const cookies = useCookies();
     const generated = cookies.get("generated");
     // STATE VARIABLES
@@ -33,7 +33,6 @@ const Projects = ({ innerref }) => {
 
     return (
         <div
-            ref={innerref}
             className={`${
                 !generatedImage && "projects-bg"
             } w-screen h-screen bg-cover mt-0 flex flex-col items-center bg-center overflow-hidden`}

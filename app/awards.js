@@ -10,10 +10,11 @@ import "lightgallery/css/lg-thumbnail.css";
 import "lightgallery/css/lg-video.css";
 
 const CCC = "/achievements/awards/canadiancomputingcompetition.pdf";
+const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
 const CMC = "/achievements/awards/canadianmathcompetition.jpg";
 const Cath = "/achievements/awards/cathcon.jpg";
 const Quest1 = "/achievements/awards/codingquest2023.jpg";
-const Quest2 = "/achievements/awards/codingquest2024.pdf";
+const Quest2 = "/achievements/awards/codingquest2024.jpg";
 const HKMKC1 = "/achievements/awards/HKMKC2022.jpg";
 const HKMKC2 = "/achievements/awards/HKMKC2023.jpg";
 const HKMKC3 = "/achievements/awards/HKMKC2024.jpg";
@@ -83,7 +84,7 @@ const Awards = () => {
                 </motion.h1>
             </div>
 
-            {awards.map((curr) => (
+            {awards.map((curr, index) => (
                 <LightGallery
                     plugins={[lgZoom, lgVideo]}
                     width={`1000px`}
@@ -99,7 +100,7 @@ const Awards = () => {
                     >
                         <img
                             className="img-responsive max-w-[30vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
-                            src={curr}
+                            src={index === 0 ? CCCThumb : curr}
                         ></img>
                     </a>
                 </LightGallery>

@@ -52,8 +52,71 @@ const awards = [
 ];
 
 const descriptions = [
-    "Canadian Computing Competition - A global programming competition from the University of Waterloo designed for secondary students.",
-    "Canada Jay Mathematical Competition - A worldwide mathematics competition from the University of Waterloo designed for secondary students.",
+    {
+        details:
+            "Canadian Computing Competition - A global programming competition from the University of Waterloo designed for secondary students.",
+        date: 2024,
+    },
+    {
+        details:
+            "Canada Jay Mathematical Competition - A worldwide mathematics competition from the University of Waterloo designed for secondary students.",
+        date: 2022,
+    },
+    {
+        details:
+            "CathCON - An online hackathon organised by The Cathedral and John Connon School.",
+        date: 2023,
+    },
+    {
+        details:
+            "Coding Quest - An online hackathon run annually for secondary students.",
+        date: 2023,
+    },
+    {
+        details:
+            "Coding Quest - An online hackathon run annually for secondary students.",
+        date: 2024,
+    },
+    {
+        details:
+            "Hong Kong Mathematics Kangaroo Contest - The Hong Kong branch of one of the biggest mathematics competitions in the world (MKC). ",
+        date: 2022,
+    },
+    {
+        details:
+            "Hong Kong Mathematics Kangaroo Contest - The Hong Kong branch of one of the biggest mathematics competitions in the world (MKC). ",
+        date: 2023,
+    },
+    {
+        details:
+            "Hong Kong Mathematics Kangaroo Contest - The Hong Kong branch of one of the biggest mathematics competitions in the world (MKC). ",
+        date: 2024,
+    },
+    {
+        details:
+            "Singapore and Asian Schools Math Olympiad - A mathematics competition focused on secondary schools in Asia.",
+        date: 2022,
+    },
+    {
+        details:
+            "The Associated Board of the Royal Schools of Music - A charity with exams for a wide range of instruments since 1889. The exam I took is for Grade 5 Music Theory.",
+        date: 2022,
+    },
+    {
+        details:
+            "The Associated Board of the Royal Schools of Music - A charity with exams for a wide range of instruments since 1889. The exam I took is for Violin Performance Grade 5.",
+        date: 2021,
+    },
+    {
+        details:
+            "The Associated Board of the Royal Schools of Music - A charity with exams for a wide range of instruments since 1889. The exam I took is for Violin Performance Grade 6.",
+        date: 2022,
+    },
+    {
+        details:
+            "The Associated Board of the Royal Schools of Music - A charity with exams for a wide range of instruments since 1889. The exam I took is for Violin Performance Grade 8.",
+        date: 2023,
+    },
 ];
 
 const Awards = ({ setClickIn }) => {

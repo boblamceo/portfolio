@@ -157,13 +157,15 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
+let clickIn = false;
+
 const Main = () => {
-    const aboutRef = useRef(null);
-    const projectsRef = useRef(null);
-    const awardsRef = useRef(null);
     const [insideSize, setInsideSize] = useState(0);
-    const [clickIn, setClickIn] = useState(false);
     const [isVisible, setIsVisible] = useState("/about");
+
+    const setClickIn = (newValue) => {
+        clickIn = newValue;
+    };
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);

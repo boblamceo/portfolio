@@ -87,7 +87,7 @@ const Header = ({ page }) => {
                         });
                     }}
                 >
-                    Awards
+                    Achievements
                 </li>
                 <li
                     className={`text-[1vw] header-bt ${

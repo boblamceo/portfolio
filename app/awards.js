@@ -131,6 +131,7 @@ const descriptions = [
     .sort((a, b) => a.date - b.date);
 
 const Awards = ({ setClickIn }) => {
+    console.log(descriptions);
     return (
         <div>
             <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
@@ -150,9 +151,9 @@ const Awards = ({ setClickIn }) => {
                     key={index}
                     className={`w-screen flex flex-col ${
                         index % 2 === 0 ? "items-start" : "items-end"
-                    } p-[5vw]`}
+                    } p-[5vw] sticky top-0`}
                 >
-                    {index === 13 ? (
+                    {index === 10 ? (
                         <LightGallery
                             plugins={[lgZoom, lgThumbnail]}
                             mode="lg-fade"
@@ -175,8 +176,8 @@ const Awards = ({ setClickIn }) => {
                                     <img
                                         className={`img-responsive ${
                                             imageIndex === 0
-                                                ? "max-w-[40vw]"
-                                                : "max-w-0"
+                                                ? "max-h-[50vh]"
+                                                : "max-h-0"
                                         } rounded-[1vw] shadow-[0px_2vh_3vh_0.5vh_#fff] hover:cursor-pointer`}
                                         src={image}
                                     ></img>
@@ -203,19 +204,22 @@ const Awards = ({ setClickIn }) => {
                                 key={curr.awards}
                             >
                                 <img
-                                    className="img-responsive max-w-[40vw] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
-                                    src={index === 0 ? CCCThumb : curr.awards}
+                                    className="img-responsive max-h-[60vh] rounded-[1vw] hover:cursor-pointer shadow-[0px_2vh_3vh_0.5vh_#fff]"
+                                    src={index === 11 ? CCCThumb : curr.awards}
                                 ></img>
                             </a>
                         </LightGallery>
                     )}
                     <div
                         className={`text-white ${
-                            opensans.className
+                            montserrat.className
                         } text-[2.5vh] mt-[3vh] w-[40vw] ${
                             index % 2 === 0 ? "text-left" : "text-right"
                         }`}
                     >
+                        <div className="italic font-bold    ">
+                            {descriptions[index].date}
+                        </div>
                         {descriptions[index].details}
                     </div>
                 </div>

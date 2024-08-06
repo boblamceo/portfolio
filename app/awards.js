@@ -1,14 +1,12 @@
 import { motion } from "framer-motion";
 import LightGallery from "lightgallery/react";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Open_Sans } from "next/font/google";
 import React from "react";
 import lgZoom from "lightgallery/plugins/zoom";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
-import lgVideo from "lightgallery/plugins/video";
-import "lightgallery/css/lg-video.css";
 
 const CCC = "/achievements/awards/canadiancomputingcompetition.pdf";
 const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
@@ -30,6 +28,10 @@ const Coco10 = "/achievements/awards/coco10.jpg";
 const Coco11 = "/achievements/awards/coco11.jpg";
 
 const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
+const opensans = Open_Sans({
     subsets: ["latin"],
     display: "swap",
 });
@@ -117,6 +119,11 @@ const descriptions = [
             "The Associated Board of the Royal Schools of Music - A charity with exams for a wide range of instruments since 1889. The exam I took is for Violin Performance Grade 8.",
         date: 2023,
     },
+    {
+        details:
+            "ESF Coco - A computing conference hosted by students, including a hackathon.",
+        date: 2023,
+    },
 ];
 
 const Awards = ({ setClickIn }) => {
@@ -130,7 +137,7 @@ const Awards = ({ setClickIn }) => {
                     transition={{ duration: 2, ease: "easeInOut" }}
                     viewport={{ once: true }}
                 >
-                    Awards
+                    Achievements
                 </motion.h1>
             </div>
 
@@ -198,7 +205,11 @@ const Awards = ({ setClickIn }) => {
                             </a>
                         </LightGallery>
                     )}
-                    <div className="text-white"> ahpfoiuwh</div>
+                    <div
+                        className={`text-white ${opensans.className} text-[2.5vh] mt-[2vh]`}
+                    >
+                        {descriptions[index].details}
+                    </div>
                 </div>
             ))}
         </div>

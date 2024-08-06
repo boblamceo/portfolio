@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LightGallery from "lightgallery/react";
 
 import lgVideo from "lightgallery/plugins/video";
@@ -27,6 +27,7 @@ function shuffle(array) {
 }
 
 const Gallery = ({ images, videos }) => {
+    const [final, setFinal] = useState(null);
     const imagesArr = images.map((curr) => (
         <a
             data-lg-size="1406-1390"
@@ -69,9 +70,11 @@ const Gallery = ({ images, videos }) => {
             />
         </a>
     ));
-
-    let final = [...imagesArr, ...videosArr];
-    shuffle(final);
+    useEffect(() => {
+        let tempFinal = [...imagesArr, ...videosArr];
+        shuffle(tempFinal);
+        setFinal(tempFinal);
+    }, []);
     return (
         <div className="w-[80vw] flex items-center justify-center mx-auto my-[5vh]">
             <LightGallery

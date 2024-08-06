@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import LightGallery from "lightgallery/react";
 import { Montserrat, Open_Sans } from "next/font/google";
-import React from "react";
+import React, { useEffect } from "react";
 import lgZoom from "lightgallery/plugins/zoom";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import "lightgallery/css/lightgallery.css";
@@ -130,8 +130,18 @@ const descriptions = [
     })
     .sort((a, b) => a.date - b.date);
 
+let scroll = 0;
+
 const Awards = ({ setClickIn }) => {
-    console.log(descriptions);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            scroll = window.scrollY;
+        });
+        return () =>
+            window.removeEventListener("scroll", () => {
+                scroll = window.scrollY;
+            });
+    }, []);
     return (
         <div>
             <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
@@ -152,6 +162,21 @@ const Awards = ({ setClickIn }) => {
                     className={`w-screen flex flex-col ${
                         index % 2 === 0 ? "items-start" : "items-end"
                     } p-[5vw] sticky top-0`}
+                    style={{
+                        opacity:
+                            Math.abs(
+                                scroll -
+                                    (window.innerWidth * 12 * 0.4 +
+                                        window.innerHeight * 0.15 +
+                                        window.innerHeight +
+                                        window.innerWidth * 0.13 +
+                                        2 * window.innerHeight +
+                                        index *
+                                            (window.innerWidth * 0.1 +
+                                                window.innerHeight * 0.5 +
+                                                window.innerHeight * 0.08))
+                            ) / window.innerHeight,
+                    }}
                 >
                     {index === 10 ? (
                         <LightGallery
@@ -213,9 +238,9 @@ const Awards = ({ setClickIn }) => {
                     <div
                         className={`text-white ${
                             montserrat.className
-                        } text-[2.5vh] mt-[3vh] w-[40vw] ${
+                        } text-[2.5vh] h-[20vh] w-[40vw] ${
                             index % 2 === 0 ? "text-left" : "text-right"
-                        }`}
+                        } flex flex-col justify-end`}
                     >
                         <div className="italic font-bold    ">
                             {descriptions[index].date}

@@ -14,7 +14,6 @@ const montserrat = Montserrat({
 const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
 const range = (val, min, max) => (val - min) / (max - min);
 const Award = ({ curr, index }) => {
-    const [opacity, setOpacity] = useState(0);
     const ref = useRef(null);
     const dummyRef = useRef(null);
     const handleScroll = () => {
@@ -23,7 +22,7 @@ const Award = ({ curr, index }) => {
             const top = elementTop + window.scrollY;
             if (elementTop < window.innerHeight) {
                 const cardBottom = top + window.innerHeight;
-                setOpacity(1 - range(scrollY, top, cardBottom));
+                ref.current.style.opacity = 1 - range(scrollY, top, cardBottom);
             }
         }
     };
@@ -40,7 +39,7 @@ const Award = ({ curr, index }) => {
                     index % 2 === 0 ? "items-start" : "items-end"
                 } p-[5vw] sticky top-0 h-screen`}
                 style={{
-                    opacity,
+                    opacity: 0,
                 }}
             >
                 {index === 10 ? (

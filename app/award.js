@@ -12,20 +12,21 @@ const montserrat = Montserrat({
 });
 
 const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
-const range = (val, max, min) => (val - min) / (max - min);
+const range = (val, min, max) => (val - min) / (max - min);
 const Award = ({ curr, index }) => {
     const [opacity, setOpacity] = useState(0);
     const ref = useRef(null);
     const handleScroll = () => {
         if (ref.current) {
             const top =
-                ref.current.getBoundingClientRect().top +
-                window.scrollY +
-                window.innerHeight;
+                ref.current.getBoundingClientRect().top + window.scrollY;
             const cardBottom = top + window.innerHeight;
-            // setOpacity(range(scrollY, cardBottom, top) * -1);
+            setOpacity(range(scrollY, cardBottom, top) * -1);
             console.log(
-                range(scrollY, cardBottom, cardBottom + window.innerHeight)
+                1 - range(scrollY, top, cardBottom),
+                scrollY,
+                top,
+                cardBottom
             );
         }
     };
@@ -40,7 +41,7 @@ const Award = ({ curr, index }) => {
             ref={ref}
             className={`w-screen flex flex-col ${
                 index % 2 === 0 ? "items-start" : "items-end"
-            } p-[5vw] sticky top-0`}
+            } p-[5vw] sticky top-0 h-screen`}
             style={{
                 opacity: 1,
             }}

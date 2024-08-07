@@ -6,6 +6,7 @@ import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import LightGallery from "lightgallery/react";
 import { Montserrat } from "next/font/google";
+import { motion } from "framer-motion";
 const montserrat = Montserrat({
     subsets: ["latin"],
     display: "swap",
@@ -33,7 +34,7 @@ const Award = ({ curr, index }) => {
     return (
         <>
             <div className="absolute h-screen w-screen" ref={dummyRef}></div>
-            <div
+            <motion.div
                 ref={ref}
                 className={`w-screen flex flex-col ${
                     index % 2 === 0 ? "items-start" : "items-end"
@@ -41,6 +42,14 @@ const Award = ({ curr, index }) => {
                 style={{
                     opacity: 0,
                 }}
+                initial={{
+                    x: index % 2 === 0 ? "-100%" : "100%",
+                }}
+                whileInView={{
+                    x: 0,
+                }}
+                transition={{ duration: 1, delay: 1 }}
+                viewport={{ once: true }}
             >
                 {index === 10 ? (
                     <LightGallery
@@ -100,10 +109,10 @@ const Award = ({ curr, index }) => {
                         index % 2 === 0 ? "text-left" : "text-right"
                     } flex flex-col justify-end`}
                 >
-                    <div className="italic font-bold    ">{curr.date}</div>
+                    <div className="italic font-bold">{curr.date}</div>
                     {curr.details}
                 </div>
-            </div>
+            </motion.div>
         </>
     );
 };

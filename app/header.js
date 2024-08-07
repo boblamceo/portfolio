@@ -33,6 +33,11 @@ const Header = ({ page }) => {
                 }
             });
         }
+        return window.removeEventListener("mousedown", () => {
+            if (volumeRef.current) {
+                click();
+            }
+        });
     }, [volume]);
     return (
         <motion.div

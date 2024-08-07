@@ -19,10 +19,12 @@ const Award = ({ curr, index }) => {
     const dummyRef = useRef(null);
     const handleScroll = () => {
         if (ref.current && dummyRef.current) {
-            const top =
-                dummyRef.current.getBoundingClientRect().top + window.scrollY;
-            const cardBottom = top + window.innerHeight;
-            setOpacity(1 - range(scrollY, top, cardBottom));
+            const elementTop = dummyRef.current.getBoundingClientRect().top;
+            const top = elementTop + window.scrollY;
+            if (elementTop < window.innerHeight) {
+                const cardBottom = top + window.innerHeight;
+                setOpacity(1 - range(scrollY, top, cardBottom));
+            }
         }
     };
     useEffect(() => {

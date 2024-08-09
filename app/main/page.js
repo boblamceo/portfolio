@@ -163,6 +163,7 @@ let clickIn = false;
 const Main = () => {
     const [insideSize, setInsideSize] = useState(0);
     const [isVisible, setIsVisible] = useState("/about");
+    const contactRef = useRef(null);
 
     const setClickIn = (newValue) => {
         clickIn = newValue;
@@ -249,7 +250,8 @@ const Main = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}
             >
-                <Header page={isVisible} /> <About /> <Projects />
+                <Header page={isVisible} contactRef={contactRef} /> <About />{" "}
+                <Projects />
                 <div className="flex flex-row mb-[15vh]">
                     <div>
                         {projects.map((item) => (
@@ -270,7 +272,7 @@ const Main = () => {
                     </div>
                 </div>
                 <Awards setClickIn={setClickIn} />
-                <Contact />
+                <Contact innerref={contactRef} />
             </motion.div>
             <motion.div
                 className="w-[4vw] h-[4vw] border-[1px] rounded-full border-white fixed ml-5 mt-5"

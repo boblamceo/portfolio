@@ -1,7 +1,11 @@
 import React from "react";
 
-const Contact = () => {
-    return <div className="contact-bg">hi</div>;
+const Contact = ({ innerref }) => {
+    return (
+        <div ref={innerref} className="contact-bg w-screen h-[110vh]">
+            hi
+        </div>
+    );
 };
 
 export default Contact;

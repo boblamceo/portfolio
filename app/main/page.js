@@ -40,6 +40,7 @@ import { Montserrat } from "next/font/google";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Awards from "../awards";
 import { WindowSharp } from "@mui/icons-material";
+import Contact from "../contact";
 
 const projects = [
     {
@@ -269,6 +270,7 @@ const Main = () => {
                     </div>
                 </div>
                 <Awards setClickIn={setClickIn} />
+                <Contact />
             </motion.div>
             <motion.div
                 className="w-[4vw] h-[4vw] border-[1px] rounded-full border-white fixed ml-5 mt-5"

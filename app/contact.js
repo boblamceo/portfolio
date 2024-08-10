@@ -47,7 +47,7 @@ const Contact = ({ innerref }) => {
                     icon={faSlack}
                     title="Slack"
                     username="The Only Dino"
-                    link=""
+                    link="https://hackclub.slack.com/team/U07C53U6F1C"
                 />{" "}
                 <MediaContact
                     icon={faEnvelope}

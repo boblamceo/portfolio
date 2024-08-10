@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
-import React from "react";
+import React, { useState } from "react";
 import MediaContact from "./mediaContact";
 import {
     faGithub,
@@ -15,6 +15,9 @@ const montserrat = Montserrat({
 });
 
 const Contact = ({ innerref }) => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
     return (
         <div
             ref={innerref}
@@ -24,23 +27,30 @@ const Contact = ({ innerref }) => {
                 <input
                     placeholder="Name"
                     className={`${montserrat.className} w-[65vw] m-[1vw] p-[1.5vw] text-[1vw] text-[#BBBBBB]  bg-[#363D47] focus:outline-none`}
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
                 ></input>
                 <input
-                    placeholder="Email"
+                    placeholder="Subject"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     className={`${montserrat.className} w-[65vw] m-[1vw] p-[1.5vw] text-[1vw] text-[#BBBBBB]  bg-[#363D47] focus:outline-none`}
                 ></input>
                 <textarea
                     placeholder="Message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className={`${montserrat.className} w-[65vw] m-[1vw] h-[30vh] p-[1.5vw] text-[1vw] text-[#BBBBBB]  bg-[#363D47] focus:outline-none resize-none`}
                 ></textarea>
-                <motion.div
+                <motion.a
                     className={`w-[65vw] p-[1.5vw] m-[1vw] bg-white text-[1.5vw] text-black ${montserrat.className} text-center font-extrabold hover:cursor-pointer`}
                     initial={{ scale: 1 }}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=boblam.ceo@gmail.com&su=From: ${name}, ${email}&body=${message}`}
                 >
                     Submit
-                </motion.div>
+                </motion.a>
             </div>
             <div className="flex justify-center items-center flex-col w-[30vw] h-screen">
                 <MediaContact

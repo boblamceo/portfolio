@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import React from "react";
 
@@ -25,11 +26,14 @@ const Contact = ({ innerref }) => {
                     placeholder="Message"
                     className={`${montserrat.className} w-[60vw] m-[1vw] h-[30vh] p-[1.5vw] text-[1vw] text-[#BBBBBB]  bg-[#363D47] focus:outline-none resize-none`}
                 ></textarea>
-                <div
-                    className={`w-[60vw] p-[1.5vw] m-[1vw] bg-white text-[1.5vw] text-black ${montserrat.className} text-center font-bold hover:cursor-pointer`}
+                <motion.div
+                    className={`w-[60vw] p-[1.5vw] m-[1vw] bg-white text-[1.5vw] text-black ${montserrat.className} text-center font-extrabold hover:cursor-pointer`}
+                    initial={{ scale: 1 }}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
                 >
                     Submit
-                </div>
+                </motion.div>
             </div>
             <div className="flex justify-center items-center flex-col w-[30vw] h-screen"></div>
         </div>

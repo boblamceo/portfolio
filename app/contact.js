@@ -2,7 +2,12 @@ import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
 import React from "react";
 import MediaContact from "./mediaContact";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faGithub,
+    faSlack,
+    faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -39,25 +44,25 @@ const Contact = ({ innerref }) => {
             </div>
             <div className="flex justify-center items-center flex-col w-[30vw] h-screen bg-white">
                 <MediaContact
-                    icon={"fa-brands fa-slack"}
+                    icon={faSlack}
                     title="Slack"
                     username="The Only Dino"
                     link=""
                 />{" "}
                 <MediaContact
-                    icon={"fa-solid fa-envelope"}
+                    icon={faEnvelope}
                     title="Mail"
                     username="boblam.ceo@gmail.com"
                     link="https://mail.google.com/mail/u/0/?fs=1&to=boblam.ceo@gmail.com&tf=cm"
                 />
                 <MediaContact
-                    icon={"fa-brands fa-github"}
+                    icon={faGithub}
                     title="Github"
                     username="boblamceo"
                     link="https://github.com/boblamceo"
                 />
                 <MediaContact
-                    icon={"fa-solid fa-youtube"}
+                    icon={faYoutube}
                     title="Youtube"
                     username="The Only Dino"
                     link="https://www.youtube.com/@theonlydino2244/videos"

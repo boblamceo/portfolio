@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "font-awesome/css/font-awesome.min.css";
 import React from "react";
 
 const MediaContact = ({ icon, title, username, link }) => {

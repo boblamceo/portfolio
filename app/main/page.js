@@ -221,6 +221,10 @@ const Main = () => {
     }, []);
 
     const handleScroll = () => {
+        let contactTop;
+        if (contactRef.current) {
+            contactTop = contactRef.current.getBoundingClientRect().top;
+        }
         if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
             setIsVisible("/about");
         } else if (
@@ -232,10 +236,13 @@ const Main = () => {
                 window.innerHeight
         ) {
             setIsVisible("/projects");
+        } else if (contactTop <= 1) {
+            setIsVisible("/contact");
         } else {
             setIsVisible("/awards");
         }
     };
+
     return (
         <Suspense
             fallback={

@@ -16,7 +16,6 @@ const montserrat = Montserrat({
 
 const Header = ({ page, contactRef }) => {
     const [volume, _setVolume] = useState(false);
-    const [showContact, setShowContact] = useState(false);
     const [contacttop, setContactTop] = useState(0);
     const volumeRef = React.useRef(volume);
     const setVolume = (data) => {
@@ -41,25 +40,12 @@ const Header = ({ page, contactRef }) => {
             }
         });
     }, [volume]);
-
-    const handleScroll = () => {
-        if (contactRef.current) {
-            const contactTop = contactRef.current.getBoundingClientRect().top;
-            if (contactTop <= 1) {
-                setShowContact(true);
-            } else {
-                setShowContact(false);
-            }
-        }
-    };
     useEffect(() => {
         setTimeout(() => {
             setContactTop(
                 contactRef.current.getBoundingClientRect().top + window.scrollY
             );
         }, 100);
-        window.addEventListener("scroll", handleScroll);
-        return window.removeEventListener("scroll", handleScroll);
     }, []);
     return (
         <motion.div
@@ -118,14 +104,13 @@ const Header = ({ page, contactRef }) => {
                 </li>
                 <li
                     className={`text-[1vw] header-bt ${
-                        showContact && "font-bold"
+                        page === "/contact" && "font-bold"
                     }`}
                     onClick={() => {
                         window.scrollTo({
                             top: contacttop,
                             behavior: "smooth",
                         });
-                        setShowContact(true);
                     }}
                 >
                     Contact

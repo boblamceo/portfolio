@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 
 const CCCThumb = "/achievements/awards/canadiancomputingcompetition.jpg";
 const range = (val, min, max) => (val - min) / (max - min);
-const Award = ({ curr, index }) => {
+const Award = ({ curr, index, setClickIn }) => {
     const ref = useRef(null);
     const dummyRef = useRef(null);
     const handleScroll = () => {

@@ -126,7 +126,7 @@ const descriptions = [
 
 const Awards = ({ setClickIn }) => {
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
                 <motion.h1
                     className={`text-white font-bold ${montserrat.className} text-[8vw]`}
@@ -140,7 +140,12 @@ const Awards = ({ setClickIn }) => {
             </div>
 
             {descriptions.map((curr, index) => (
-                <Award curr={curr} index={index} key={index} />
+                <Award
+                    curr={curr}
+                    index={index}
+                    key={index}
+                    setClickIn={setClickIn}
+                />
             ))}
         </div>
     );

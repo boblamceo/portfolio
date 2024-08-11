@@ -126,7 +126,7 @@ const descriptions = [
 
 const Awards = ({ setClickIn }) => {
     return (
-        <div className="overflow-x-hidden">
+        <div>
             <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
                 <motion.h1
                     className={`text-white font-bold ${montserrat.className} text-[8vw]`}

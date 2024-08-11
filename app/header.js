@@ -56,7 +56,7 @@ const Header = ({ page, contactRef }) => {
             <Link className={"text-[2vw] text-white"} href={"/main"}>
                 Bob Lam
             </Link>
-            <ul className="mr-[20vw] text-white">
+            <ul className="mr-[20vw] text-white ">
                 <li
                     className={`text-[1vw] header-bt ${
                         page === "/about" && "font-bold"
@@ -67,6 +67,7 @@ const Header = ({ page, contactRef }) => {
                 >
                     About
                 </li>
+                <br />
                 <li
                     className={`text-[1vw] header-bt ${
                         page === "/projects" && "font-bold"
@@ -83,6 +84,7 @@ const Header = ({ page, contactRef }) => {
                 >
                     Projects
                 </li>
+                <br />
                 <li
                     className={`text-[1vw] header-bt ${
                         page === "/awards" && "font-bold"
@@ -102,6 +104,7 @@ const Header = ({ page, contactRef }) => {
                 >
                     Achievements
                 </li>
+                <br />
                 <li
                     className={`text-[1vw] header-bt ${
                         page === "/contact" && "font-bold"

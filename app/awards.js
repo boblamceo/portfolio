@@ -16,10 +16,10 @@ const Theory = "/achievements/awards/Theory5.jpg";
 const Violin1 = "/achievements/awards/Violin5.jpeg";
 const Violin2 = "/achievements/awards/Violin6.jpg";
 const Violin3 = "/achievements/awards/Violin8.jpg";
-const Coco2 = "/achievements/awards/coco2.jpg";
-const Coco4 = "/achievements/awards/coco4.jpg";
-const Coco10 = "/achievements/awards/coco10.jpg";
-const Coco11 = "/achievements/awards/coco11.jpg";
+const Coco2 = "/achievements/awards/coco2.JPG";
+const Coco4 = "/achievements/awards/coco4.JPG";
+const Coco10 = "/achievements/awards/coco10.JPG";
+const Coco11 = "/achievements/awards/coco11.JPG";
 
 const montserrat = Montserrat({
     subsets: ["latin"],

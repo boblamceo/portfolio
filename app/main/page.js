@@ -13,6 +13,9 @@ import Bin4 from "../../public/achievements/projects/binoculars/6.54.png";
 import Bin5 from "../../public/achievements/projects/binoculars/6.55.png";
 import Bin6 from "../../public/achievements/projects/binoculars/6.56.png";
 import Bin7 from "../../public/achievements/projects/binoculars/6.57.png";
+import Bin8 from "../../public/achievements/projects/binoculars/6.58.jpg";
+import Bin9 from "../../public/achievements/projects/binoculars/6.59.jpg";
+import Bin10 from "../../public/achievements/projects/binoculars/6.510.jpg";
 import Smake from "../../public/achievements/projects/snake/smake.jpg";
 import Zheng1 from "../../public/achievements/projects/tea/tea1.png";
 import Zheng2 from "../../public/achievements/projects/tea/tea2.png";
@@ -39,7 +42,6 @@ import Game2 from "/public/Video - 2024-07-17 3_18_39 PM.mp4";
 import { Montserrat } from "next/font/google";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Awards from "../awards";
-import { WindowSharp } from "@mui/icons-material";
 import Contact from "../contact";
 
 const projects = [
@@ -56,7 +58,7 @@ const projects = [
         date: "2022",
         name: "Binoculars",
         type: "App",
-        images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7],
+        images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7, Bin8, Bin9, Bin10],
         videos: [],
         description:
             "Binoculars is a weather app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations with a relaxing UI. It is easy to use, and loaded with global weather information.",

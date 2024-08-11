@@ -23,7 +23,13 @@ const Contact = ({ innerref }) => {
             ref={innerref}
             className="contact-bg w-screen h-[100vh] flex justify-center items-center"
         >
-            <div className="flex justify-center items-center flex-col w-[70vw] h-screen ">
+            <motion.div
+                className="flex justify-center items-center flex-col w-[70vw] h-screen "
+                initial={{ x: "-100%", opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+            >
                 <input
                     placeholder="Name"
                     className={`${montserrat.className} w-[65vw] m-[1vw] p-[1.5vw] text-[1vw] text-[#BBBBBB]  bg-[#363D47] focus:outline-none`}
@@ -51,8 +57,14 @@ const Contact = ({ innerref }) => {
                 >
                     Submit
                 </motion.a>
-            </div>
-            <div className="flex justify-center items-center flex-col w-[30vw] h-screen">
+            </motion.div>
+            <motion.div
+                className="flex justify-center items-center flex-col w-[30vw] h-screen"
+                initial={{ x: "100%", opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+            >
                 <MediaContact
                     icon={faSlack}
                     title="Slack"
@@ -77,7 +89,7 @@ const Contact = ({ innerref }) => {
                     username="The Only Dino"
                     link="https://www.youtube.com/@theonlydino2244/videos"
                 />
-            </div>
+            </motion.div>
         </div>
     );
 };

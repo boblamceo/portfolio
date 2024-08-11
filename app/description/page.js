@@ -17,6 +17,9 @@ const Bin4 = "/achievements/projects/binoculars/6.54.png";
 const Bin5 = "/achievements/projects/binoculars/6.55.png";
 const Bin6 = "/achievements/projects/binoculars/6.56.png";
 const Bin7 = "/achievements/projects/binoculars/6.57.png";
+const Bin8 = "/achievements/projects/binoculars/6.58.jpg";
+const Bin9 = "/achievements/projects/binoculars/6.59.jpg";
+const Bin10 = "/achievements/projects/binoculars/6.510.jpg";
 const Smake = "/achievements/projects/snake/smake.jpg";
 const Zheng1 = "/achievements/projects/tea/tea1.png";
 const Zheng2 = "/achievements/projects/tea/tea2.png";
@@ -60,7 +63,7 @@ const projects = [
         date: "2022",
         name: "Binoculars",
         type: "App",
-        images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7],
+        images: [Bin1, Bin2, Bin3, Bin4, Bin5, Bin6, Bin7, Bin8, Bin9, Bin10],
         videos: [],
         description:
             "Binoculars is a weather app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations with a relaxing UI. It is easy to use, and loaded with global weather information.",

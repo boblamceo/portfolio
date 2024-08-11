@@ -28,6 +28,7 @@ const About = () => {
         baseText.get().slice(0, latest)
     );
     const updatedThisRound = useMotionValue(true);
+    const [hover, setHover] = useState(false);
 
     useEffect(() => {
         // thanks to noelcserespy for letting me permanently borrow this code
@@ -77,10 +78,18 @@ const About = () => {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1 }}
+                onMouseEnter={() => {
+                    setHover(true);
+                }}
+                onMouseLeave={() => {
+                    setHover(false);
+                }}
             >
                 I&apos;m
                 <span
-                    className={`font-bold hover:drop-shadow-title transition-all duration-1000`}
+                    className={`font-bold ${
+                        hover && "drop-shadow-title"
+                    } transition-all duration-1000`}
                 >
                     &nbsp;Bob Lam
                 </span>

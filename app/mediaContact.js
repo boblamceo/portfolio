@@ -13,7 +13,7 @@ const MediaContact = ({ icon, title, username, link }) => {
     return (
         <a
             className="w-[30vw] flex flex-row items-center mt-[2vw] h-[6vw] cursor-pointer"
-            onMouseOver={() => {
+            onMouseEnter={() => {
                 setHover(true);
             }}
             onMouseLeave={() => {

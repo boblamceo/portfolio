@@ -52,23 +52,30 @@ const Header = ({ page, contactRef }) => {
             className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between`}
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
+            transition={{ duration: 0.5 }}
         >
             <Link className={"text-[2vw] text-white"} href={"/main"}>
                 Bob Lam
             </Link>
             <ul className="mr-[20vw] text-white ">
-                <li
+                <motion.li
                     className={`text-[1vw] header-bt ${
                         page === "/about" && "font-bold"
                     }`}
                     onClick={() => {
                         window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
+                    initial={{ y: "-100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.25 }}
                 >
                     About
-                </li>
+                </motion.li>
                 <br />
-                <li
+                <motion.li
+                    initial={{ y: "-100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.75, duration: 0.25 }}
                     className={`text-[1vw] header-bt ${
                         page === "/projects" && "font-bold"
                     }`}
@@ -83,12 +90,15 @@ const Header = ({ page, contactRef }) => {
                     }}
                 >
                     Projects
-                </li>
+                </motion.li>
                 <br />
-                <li
+                <motion.li
                     className={`text-[1vw] header-bt ${
                         page === "/awards" && "font-bold"
                     }`}
+                    initial={{ y: "-100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.25 }}
                     onClick={() => {
                         window.scrollTo({
                             top:
@@ -103,12 +113,15 @@ const Header = ({ page, contactRef }) => {
                     }}
                 >
                     Achievements
-                </li>
+                </motion.li>
                 <br />
-                <li
+                <motion.li
                     className={`text-[1vw] header-bt ${
                         page === "/contact" && "font-bold"
                     }`}
+                    initial={{ y: "-100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.25, duration: 0.25 }}
                     onClick={() => {
                         window.scrollTo({
                             top: contacttop,
@@ -117,7 +130,7 @@ const Header = ({ page, contactRef }) => {
                     }}
                 >
                     Contact
-                </li>
+                </motion.li>
             </ul>
             <IconButton
                 onClick={() => {

@@ -124,9 +124,9 @@ const descriptions = [
     })
     .sort((a, b) => a.date - b.date);
 
-const Awards = ({ setClickIn }) => {
+const Awards = ({ setClickIn, innerref }) => {
     return (
-        <div>
+        <div ref={innerref}>
             <div className="w-screen h-[100vh] awards-bg flex justify-center items-center mb-[10vh]">
                 <motion.h1
                     className={`text-white font-bold ${montserrat.className} text-[8vw]`}

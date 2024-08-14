@@ -14,9 +14,19 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
-const Header = ({ page, contactRef }) => {
+const Header = ({
+    page,
+    aboutRef,
+    projectsRef,
+    achievementsRef,
+    contactRef,
+    description,
+}) => {
     const [volume, _setVolume] = useState(false);
     const [contacttop, setContactTop] = useState(0);
+    const [abouttop, setAboutTop] = useState(0);
+    const [projectstop, setProjectsTop] = useState(0);
+    const [achievementstop, setAchievementsTop] = useState(0);
     const volumeRef = React.useRef(volume);
     const setVolume = (data) => {
         volumeRef.current = data;
@@ -41,11 +51,26 @@ const Header = ({ page, contactRef }) => {
         });
     }, [volume]);
     useEffect(() => {
-        setTimeout(() => {
-            setContactTop(
-                contactRef.current.getBoundingClientRect().top + window.scrollY
-            );
-        }, 100);
+        if (!description) {
+            setTimeout(() => {
+                setContactTop(
+                    contactRef.current.getBoundingClientRect().top +
+                        window.scrollY
+                );
+                setAboutTop(
+                    aboutRef.current.getBoundingClientRect().top +
+                        window.scrollY
+                );
+                setProjectsTop(
+                    projectsRef.current.getBoundingClientRect().top +
+                        window.scrollY
+                );
+                setAchievementsTop(
+                    achievementsRef.current.getBoundingClientRect().top +
+                        window.scrollY
+                );
+            }, 100);
+        }
     }, []);
     return (
         <motion.div
@@ -81,10 +106,7 @@ const Header = ({ page, contactRef }) => {
                     }`}
                     onClick={() => {
                         window.scrollTo({
-                            top:
-                                window.innerHeight +
-                                window.innerWidth * 0.13 +
-                                1,
+                            top: projectstop,
                             behavior: "smooth",
                         });
                     }}
@@ -101,13 +123,7 @@ const Header = ({ page, contactRef }) => {
                     transition={{ delay: 1, duration: 0.25 }}
                     onClick={() => {
                         window.scrollTo({
-                            top:
-                                window.innerWidth * 12 * 0.4 +
-                                window.innerHeight * 0.15 +
-                                window.innerHeight +
-                                window.innerWidth * 0.13 +
-                                window.innerHeight +
-                                1,
+                            top: achievementstop,
                             behavior: "smooth",
                         });
                     }}

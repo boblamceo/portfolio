@@ -16,7 +16,7 @@ const opensans = Open_Sans({
     display: "swap",
 });
 
-const Projects = () => {
+const Projects = ({ innerref }) => {
     const cookies = useCookies();
     const generated = cookies.get("generated");
     // STATE VARIABLES
@@ -39,6 +39,7 @@ const Projects = () => {
             style={{
                 backgroundImage: generatedImage && `url(${generatedImage})`,
             }}
+            ref={innerref}
         >
             <motion.h1
                 className={`text-white font-bold ${montserrat.className} text-[8vw] h-[60vh] flex items-end`}

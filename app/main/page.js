@@ -166,6 +166,9 @@ const Main = () => {
     const [insideSize, setInsideSize] = useState(0);
     const [isVisible, setIsVisible] = useState("/about");
     const contactRef = useRef(null);
+    const aboutRef = useRef(null);
+    const projectsRef = useRef(null);
+    const achievementsRef = useRef(null);
 
     const setClickIn = (newValue) => {
         clickIn = newValue;
@@ -224,24 +227,30 @@ const Main = () => {
 
     const handleScroll = () => {
         let contactTop;
+        let projectstop;
+        let achievementstop;
+        let abouttop;
         if (contactRef.current) {
             contactTop = contactRef.current.getBoundingClientRect().top;
         }
-        if (window.scrollY <= window.innerHeight + window.innerWidth * 0.13) {
-            setIsVisible("/about");
-        } else if (
-            window.scrollY <=
-            window.innerWidth * 12 * 0.4 +
-                window.innerHeight * 0.15 +
-                window.innerHeight +
-                window.innerWidth * 0.13 +
-                window.innerHeight
-        ) {
-            setIsVisible("/projects");
-        } else if (contactTop <= 1) {
+        if (aboutRef.current) {
+            abouttop = aboutRef.current.getBoundingClientRect().top;
+        }
+        if (projectsRef.current) {
+            projectstop = projectsRef.current.getBoundingClientRect().top;
+        }
+        if (achievementsRef.current) {
+            achievementstop =
+                achievementsRef.current.getBoundingClientRect().top;
+        }
+        if (contactTop <= 1) {
             setIsVisible("/contact");
-        } else {
+        } else if (achievementstop <= 1) {
             setIsVisible("/awards");
+        } else if (projectstop <= 1) {
+            setIsVisible("/projects");
+        } else {
+            setIsVisible("/about");
         }
     };
 
@@ -259,8 +268,15 @@ const Main = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}
             >
-                <Header page={isVisible} contactRef={contactRef} /> <About />{" "}
-                <Projects />
+                <Header
+                    page={isVisible}
+                    contactRef={contactRef}
+                    aboutRef={aboutRef}
+                    projectsRef={projectsRef}
+                    achievementsRef={achievementsRef}
+                />{" "}
+                <About innerref={aboutRef} />{" "}
+                <Projects innerref={projectsRef} />
                 <div className="flex flex-row mb-[15vh]">
                     <div>
                         {projects.map((item) => (
@@ -280,7 +296,7 @@ const Main = () => {
                         ))}
                     </div>
                 </div>
-                <Awards setClickIn={setClickIn} />
+                <Awards setClickIn={setClickIn} innerref={achievementsRef} />
                 <Contact innerref={contactRef} />
             </motion.div>
             <motion.div

@@ -9,7 +9,7 @@ const montserrat = Montserrat({
     display: "swap",
 });
 
-const About = () => {
+const About = ({ innerref }) => {
     const textIndex = useMotionValue(0);
     const texts = [
         "robots",
@@ -72,7 +72,10 @@ const About = () => {
     const diffTime = Math.abs(date2 - date1);
     const diffYear = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
     return (
-        <div className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]">
+        <div
+            ref={innerref}
+            className="about-bg w-screen h-[calc(100vh+13vw)] mt-0 bg-cover bg-no-repeat flex flex-col justify-end pb-[6vw]"
+        >
             <motion.div
                 className={`text-white ${montserrat.className} text-[6vw] break-words w-screen  whitespace-normal pl-[4vw] pr-[5vw]`}
                 initial={{ y: "100%" }}

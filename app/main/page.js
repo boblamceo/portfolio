@@ -43,6 +43,7 @@ import { Montserrat } from "next/font/google";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import Awards from "../awards";
 import Contact from "../contact";
+import Timeline from "../timeline";
 
 const projects = [
     {
@@ -169,7 +170,7 @@ const Main = () => {
     const aboutRef = useRef(null);
     const projectsRef = useRef(null);
     const achievementsRef = useRef(null);
-
+    const timelineRef = useRef(null);
     const setClickIn = (newValue) => {
         clickIn = newValue;
     };
@@ -229,12 +230,12 @@ const Main = () => {
         let contactTop;
         let projectstop;
         let achievementstop;
-        let abouttop;
+        let timelinetop;
         if (contactRef.current) {
             contactTop = contactRef.current.getBoundingClientRect().top;
         }
-        if (aboutRef.current) {
-            abouttop = aboutRef.current.getBoundingClientRect().top;
+        if (timelineRef.current) {
+            timelinetop = timelineRef.current.getBoundingClientRect().top;
         }
         if (projectsRef.current) {
             projectstop = projectsRef.current.getBoundingClientRect().top;
@@ -249,6 +250,8 @@ const Main = () => {
             setIsVisible("/awards");
         } else if (projectstop <= 1) {
             setIsVisible("/projects");
+        } else if (timelinetop <= 1) {
+            setIsVisible("/timeline");
         } else {
             setIsVisible("/about");
         }
@@ -274,8 +277,10 @@ const Main = () => {
                     aboutRef={aboutRef}
                     projectsRef={projectsRef}
                     achievementsRef={achievementsRef}
+                    timelineRef={timelineRef}
                 />{" "}
                 <About innerref={aboutRef} />{" "}
+                <Timeline innerref={timelineRef} />
                 <Projects innerref={projectsRef} />
                 <div className="flex flex-row mb-[15vh]">
                     <div>

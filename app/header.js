@@ -19,6 +19,7 @@ const Header = ({
     aboutRef,
     projectsRef,
     achievementsRef,
+    timelineRef,
     contactRef,
     description,
 }) => {
@@ -27,6 +28,7 @@ const Header = ({
     const [abouttop, setAboutTop] = useState(0);
     const [projectstop, setProjectsTop] = useState(0);
     const [achievementstop, setAchievementsTop] = useState(0);
+    const [timelinetop, setTimelineTop] = useState(0);
     const volumeRef = React.useRef(volume);
     const setVolume = (data) => {
         volumeRef.current = data;
@@ -65,6 +67,10 @@ const Header = ({
                     projectsRef.current.getBoundingClientRect().top +
                         window.scrollY
                 );
+                setTimelineTop(
+                    timelineRef.current.getBoundingClientRect().top +
+                        window.scrollY
+                );
                 setAchievementsTop(
                     achievementsRef.current.getBoundingClientRect().top +
                         window.scrollY
@@ -95,6 +101,23 @@ const Header = ({
                     transition={{ delay: 0.5, duration: 0.25 }}
                 >
                     About
+                </motion.li>
+                <br />
+                <motion.li
+                    initial={{ y: "-100%", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.75, duration: 0.25 }}
+                    className={`text-[1vw] header-bt ${
+                        page === "/timeline" && "font-bold"
+                    }`}
+                    onClick={() => {
+                        window.scrollTo({
+                            top: timelinetop,
+                            behavior: "smooth",
+                        });
+                    }}
+                >
+                    Timeline
                 </motion.li>
                 <br />
                 <motion.li

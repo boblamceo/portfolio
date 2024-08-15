@@ -24,6 +24,8 @@ import Zheng4 from "../../public/achievements/projects/tea/tea4.png";
 import Teachable from "../../public/achievements/projects/teachable-machine/image.png";
 import Tetris from "../../public/achievements/projects/tetris/image.png";
 import Ticmoji from "../../public/achievements/projects/ticmoji/image.png";
+import WoopThumb from "../../public/achievements/projects/woop/image.png";
+import Woop from "../../public/woop.mp4";
 import loadingsrc from "../../public/loading.gif";
 import About from "../aboutPage";
 import Header from "../header";
@@ -90,6 +92,15 @@ const projects = [
         videos: [],
         description:
             "This is just a simple game of Tetris, right? The twist of this Tetris game is that it is powered by a handpose model that can track the direction of your hand. Due to the large model, it may take some time to load.",
+    },
+    {
+        date: "2024",
+        name: "Regression",
+        type: "AI",
+        images: [WoopThumb],
+        videos: [Woop],
+        description:
+            "This HTML and JS program uses a self-made tensorflow neural network to see if me wearing a green shirt is in the frame. It gets the colors of the pixels on screen, and puts them in a matrix for the model.",
     },
     {
         date: "2024",
@@ -266,7 +277,7 @@ const Main = () => {
             }
         >
             <motion.div
-                className="bg-slate-800 w-screen flex flex-col -z-20"
+                className="bg-slate-800 w-screen flex flex-col -z-20 overflow-x-clip"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}

@@ -38,6 +38,7 @@ const Game3 = "https://www.youtube.com/watch?v=JDgl5uxW_j0";
 const Game4 = "https://www.youtube.com/watch?v=6vuk56JNBAk";
 const Clapclock = "https://www.youtube.com/watch?v=wrt1Tu5RpBg";
 const Game2 = "https://www.youtube.com/watch?v=U8qCZ8EP3Oo";
+const Woop = "https://youtube.com/watch?v=5XdRYuQAyoE";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -85,6 +86,15 @@ const projects = [
         videos: [AerodynamicVid1, AerodynamicVid2, AerodynamicVid3],
         description:
             "Aerodynamic is a futuristic and modern app that is one of the only apps that focuses on allowing users to exchange crypto with different products like tea, horses, and paintings. It combines technologies like crypto and app development with products around the world, giving you a hybrid rollercoaster of things to enjoy while using the app. The app isn't on the app store yet, due to the legal complications of crypto.",
+    },
+    {
+        date: "2024",
+        name: "Regression",
+        type: "AI",
+        images: [],
+        videos: [Woop],
+        description:
+            "This HTML and JS program uses a self-made tensorflow neural network to see if me wearing a green shirt is in the frame. It gets the colors of the pixels on screen, and puts them in a matrix for the model.",
     },
     {
         date: "2024",

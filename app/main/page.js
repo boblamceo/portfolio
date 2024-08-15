@@ -46,6 +46,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import Awards from "../awards";
 import Contact from "../contact";
 import Timeline from "../timeline";
+import TimelineBody from "../timelineBody";
 
 const projects = [
     {
@@ -292,6 +293,7 @@ const Main = () => {
                 />{" "}
                 <About innerref={aboutRef} />{" "}
                 <Timeline innerref={timelineRef} />
+                <TimelineBody />
                 <Projects innerref={projectsRef} />
                 <div className="flex flex-row mb-[15vh]">
                     <div>

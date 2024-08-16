@@ -1,24 +1,31 @@
 import React from "react";
+import LightGallery from "lightgallery/react";
+import lgVideo from "lightgallery/plugins/video";
+import lgZoom from "lightgallery/plugins/zoom";
+import "lightgallery/css/lightgallery.css";
+import "lightgallery/css/lg-zoom.css";
+import "lightgallery/css/lg-thumbnail.css";
+import "lightgallery/css/lg-video.css";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
-import timeline11 from "../../public/timeline/IMG_0877.jpg";
-import timeline12 from "../../public/timeline/IMG_1019.jpg";
-import timeline13 from "../../public/timeline/IMG_1020.jpg";
-import timeline14 from "../../public/timeline/WechatIMG1140.jpg";
-import timeline15 from "../../public/timeline/WechatIMG1141.jpg";
-import timeline21 from "../../public/timeline/WechatIMG1135.jpg";
-import timeline31 from "../../public/timeline/WechatIMG1142.jpg";
-import timeline32 from "../../public/timeline/IMG_2447.jpg";
-import timeline33 from "../../public/timeline/IMG_2464.jpg";
-import timeline34 from "../../public/timeline/IMG_2466.jpg";
-import timeline35 from "../../public/timeline/IMG_2476.jpg";
-import timeline36 from "../../public/timeline/IMG_2477.jpg";
-import timeline37 from "../../public/timeline/IMG_2478.jpg";
-import timeline41 from "../../public/timeline/IMG_2653.jpg";
+import timeline11 from "../public/timeline/IMG_0877.jpg";
+import timeline12 from "../public/timeline/IMG_1019.jpg";
+import timeline13 from "../public/timeline/IMG_1020.jpg";
+import timeline15 from "../public/timeline/WechatIMG1141.jpg";
+import timeline14 from "../public/timeline/WechatIMG1140.jpg";
+import timeline21 from "../public/timeline/WechatIMG1135.jpg";
+import timeline31 from "../public/timeline/WechatIMG1142.jpg";
+import timeline32 from "../public/timeline/IMG_2447.jpg";
+import timeline33 from "../public/timeline/IMG_2464.jpg";
+import timeline34 from "../public/timeline/IMG_2466.jpg";
+import timeline35 from "../public/timeline/IMG_2476.jpg";
+import timeline36 from "../public/timeline/IMG_2477.jpg";
+import timeline37 from "../public/timeline/IMG_2478.jpg";
+import timeline41 from "../public/timeline/IMG_2653.jpg";
 
 const timelineItems = [
     {
@@ -57,28 +64,27 @@ const timelineItems = [
 
 const TimelineBody = () => {
     return (
-        <div className="min-h-screen w-screen bg-black">
+        <div className="min-h-screen w-screen bg-black pb-[5vh]">
             <Timeline position="alternate">
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot />
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>Eat</TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot />
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>Code</TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot />
-                    </TimelineSeparator>
-                    <TimelineContent>Sleep</TimelineContent>
-                </TimelineItem>
+                {timelineItems.map((curr, index) => (
+                    <TimelineItem>
+                        <TimelineSeparator>
+                            <TimelineDot />
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent
+                            className={`flex flex-row ${
+                                index % 2 === 0
+                                    ? "justify-start"
+                                    : "justify-end"
+                            }`}
+                        >
+                            <div className="border-2 border-white h-[40vw] w-[30vw]">
+                                hi
+                            </div>
+                        </TimelineContent>
+                    </TimelineItem>
+                ))}
             </Timeline>
         </div>
     );

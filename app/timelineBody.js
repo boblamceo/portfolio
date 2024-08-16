@@ -12,7 +12,7 @@ const TimelineBody = () => {
             <Timeline position="alternate">
                 <TimelineItem>
                     <TimelineSeparator>
-                        <TimelineDot color="white" />
+                        <TimelineDot className="text-white" />
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>Eat</TimelineContent>

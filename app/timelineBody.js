@@ -67,7 +67,7 @@ const TimelineBody = () => {
         <div className="min-h-screen w-screen bg-black pb-[5vh]">
             <Timeline position="alternate">
                 {timelineItems.map((curr, index) => (
-                    <TimelineItem>
+                    <TimelineItem key={index}>
                         <TimelineSeparator>
                             <TimelineDot />
                             <TimelineConnector />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import lgZoom from "lightgallery/plugins/zoom";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import "lightgallery/css/lightgallery.css";
@@ -14,8 +14,6 @@ import TimelineDot from "@mui/lab/TimelineDot";
 const timeline11 = "/timeline/IMG_0877.jpg";
 const timeline12 = "/timeline/IMG_1019.jpg";
 const timeline13 = "/timeline/IMG_1020.jpg";
-const timeline15 = "/timeline/WechatIMG1141.jpg";
-const timeline14 = "/timeline/WechatIMG1140.jpg";
 const timeline21 = "/timeline/WechatIMG1135.jpg";
 const timeline31 = "/timeline/WechatIMG1142.jpg";
 const timeline32 = "/timeline/IMG_2447.jpg";
@@ -31,7 +29,7 @@ const timelineItems = [
         date: "2017",
         description:
             "I started to learn how to code at 7 years old, with my first programming language being Javascript. I also learned many different algorithms, like quicksort, binary search etc. Moreover, I learned how to make websites with React JS. ",
-        images: [timeline11, timeline12, timeline13, timeline14, timeline15],
+        images: [timeline11, timeline12, timeline13],
     },
     {
         date: "2018",
@@ -61,7 +59,8 @@ const timelineItems = [
     },
 ];
 
-const TimelineBody = () => {
+const TimelineBody = ({ setClickIn }) => {
+    const [hover, setHover] = useState(false);
     return (
         <div className="min-h-screen w-screen bg-black pb-[5vh]">
             <Timeline position="alternate">
@@ -76,11 +75,17 @@ const TimelineBody = () => {
                                 index % 2 === 0
                                     ? "justify-start"
                                     : "justify-end"
-                            }`}
+                            } `}
                         >
                             <LightGallery
                                 plugins={[lgZoom, lgThumbnail]}
                                 mode="lg-fade"
+                                onBeforeOpen={() => {
+                                    setClickIn(true);
+                                }}
+                                onBeforeClose={() => {
+                                    setClickIn(false);
+                                }}
                             >
                                 {curr.images.map((image, imageIndex) => (
                                     <a
@@ -99,6 +104,9 @@ const TimelineBody = () => {
                                     </a>
                                 ))}
                             </LightGallery>
+                            <div className="absolute text-white h-[30vw] w-[30vw] bg-slate-800 border-x-2 border-white top-[calc(10vw+4px)]">
+                                hi
+                            </div>
                         </TimelineContent>
                     </TimelineItem>
                 ))}

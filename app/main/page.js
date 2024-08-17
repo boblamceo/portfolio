@@ -293,7 +293,7 @@ const Main = () => {
                 />{" "}
                 <About innerref={aboutRef} />{" "}
                 <Timeline innerref={timelineRef} />
-                <TimelineBody />
+                <TimelineBody setClickIn={setClickIn} />
                 <Projects innerref={projectsRef} />
                 <div className="flex flex-row mb-[15vh]">
                     <div>

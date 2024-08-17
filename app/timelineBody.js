@@ -1,31 +1,30 @@
 import React from "react";
-import LightGallery from "lightgallery/react";
-import lgVideo from "lightgallery/plugins/video";
 import lgZoom from "lightgallery/plugins/zoom";
+import lgThumbnail from "lightgallery/plugins/thumbnail";
 import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
-import "lightgallery/css/lg-video.css";
+import LightGallery from "lightgallery/react";
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
-import timeline11 from "../public/timeline/IMG_0877.jpg";
-import timeline12 from "../public/timeline/IMG_1019.jpg";
-import timeline13 from "../public/timeline/IMG_1020.jpg";
-import timeline15 from "../public/timeline/WechatIMG1141.jpg";
-import timeline14 from "../public/timeline/WechatIMG1140.jpg";
-import timeline21 from "../public/timeline/WechatIMG1135.jpg";
-import timeline31 from "../public/timeline/WechatIMG1142.jpg";
-import timeline32 from "../public/timeline/IMG_2447.jpg";
-import timeline33 from "../public/timeline/IMG_2464.jpg";
-import timeline34 from "../public/timeline/IMG_2466.jpg";
-import timeline35 from "../public/timeline/IMG_2476.jpg";
-import timeline36 from "../public/timeline/IMG_2477.jpg";
-import timeline37 from "../public/timeline/IMG_2478.jpg";
-import timeline41 from "../public/timeline/IMG_2653.jpg";
+const timeline11 = "/timeline/IMG_0877.jpg";
+const timeline12 = "/timeline/IMG_1019.jpg";
+const timeline13 = "/timeline/IMG_1020.jpg";
+const timeline15 = "/timeline/WechatIMG1141.jpg";
+const timeline14 = "/timeline/WechatIMG1140.jpg";
+const timeline21 = "/timeline/WechatIMG1135.jpg";
+const timeline31 = "/timeline/WechatIMG1142.jpg";
+const timeline32 = "/timeline/IMG_2447.jpg";
+const timeline33 = "/timeline/IMG_2464.jpg";
+const timeline34 = "/timeline/IMG_2466.jpg";
+const timeline35 = "/timeline/IMG_2476.jpg";
+const timeline36 = "/timeline/IMG_2477.jpg";
+const timeline37 = "/timeline/IMG_2478.jpg";
+const timeline41 = "/timeline/IMG_2653.jpg";
 
 const timelineItems = [
     {
@@ -79,9 +78,27 @@ const TimelineBody = () => {
                                     : "justify-end"
                             }`}
                         >
-                            <div className="border-2 border-white h-[40vw] w-[30vw]">
-                                hi
-                            </div>
+                            <LightGallery
+                                plugins={[lgZoom, lgThumbnail]}
+                                mode="lg-fade"
+                            >
+                                {curr.images.map((image, imageIndex) => (
+                                    <a
+                                        className=""
+                                        data-src={image}
+                                        key={image}
+                                    >
+                                        <img
+                                            className={`img-responsive ${
+                                                imageIndex === 0
+                                                    ? "h-[40vw] w-[30vw] border-2 border-white"
+                                                    : "max-h-0"
+                                            }  hover:cursor-pointer`}
+                                            src={image}
+                                        ></img>
+                                    </a>
+                                ))}
+                            </LightGallery>
                         </TimelineContent>
                     </TimelineItem>
                 ))}

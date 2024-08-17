@@ -49,7 +49,7 @@ const timelineItems = [
     },
 ];
 
-const TimelineBody = ({ setClickIn }) => {
+const TimelineBody = ({ setClickIn, clickIn }) => {
     return (
         <div className="min-h-screen w-screen bg-black pb-[5vh]">
             <Timeline position="alternate">
@@ -58,6 +58,8 @@ const TimelineBody = ({ setClickIn }) => {
                         curr={curr}
                         index={index}
                         setClickIn={setClickIn}
+                        clickIn={clickIn}
+                        key={index}
                     />
                 ))}
             </Timeline>

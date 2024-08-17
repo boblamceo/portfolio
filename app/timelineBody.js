@@ -1,16 +1,6 @@
 import React, { useState } from "react";
-import lgZoom from "lightgallery/plugins/zoom";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
-import LightGallery from "lightgallery/react";
 import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
+import TimelineComp from "./timelineItem";
 const timeline11 = "/timeline/IMG_0877.jpg";
 const timeline12 = "/timeline/IMG_1019.jpg";
 const timeline13 = "/timeline/IMG_1020.jpg";
@@ -60,55 +50,15 @@ const timelineItems = [
 ];
 
 const TimelineBody = ({ setClickIn }) => {
-    const [hover, setHover] = useState(false);
     return (
         <div className="min-h-screen w-screen bg-black pb-[5vh]">
             <Timeline position="alternate">
                 {timelineItems.map((curr, index) => (
-                    <TimelineItem key={index}>
-                        <TimelineSeparator>
-                            <TimelineDot />
-                            <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent
-                            className={`flex flex-row ${
-                                index % 2 === 0
-                                    ? "justify-start"
-                                    : "justify-end"
-                            } `}
-                        >
-                            <LightGallery
-                                plugins={[lgZoom, lgThumbnail]}
-                                mode="lg-fade"
-                                onBeforeOpen={() => {
-                                    setClickIn(true);
-                                }}
-                                onBeforeClose={() => {
-                                    setClickIn(false);
-                                }}
-                            >
-                                {curr.images.map((image, imageIndex) => (
-                                    <a
-                                        className=""
-                                        data-src={image}
-                                        key={image}
-                                    >
-                                        <img
-                                            className={`img-responsive ${
-                                                imageIndex === 0
-                                                    ? "h-[40vw] w-[30vw] border-2 border-white"
-                                                    : "max-h-0"
-                                            }  hover:cursor-pointer`}
-                                            src={image}
-                                        ></img>
-                                    </a>
-                                ))}
-                            </LightGallery>
-                            <div className="absolute text-white h-[30vw] w-[30vw] bg-slate-800 border-x-2 border-white top-[calc(10vw+4px)]">
-                                hi
-                            </div>
-                        </TimelineContent>
-                    </TimelineItem>
+                    <TimelineComp
+                        curr={curr}
+                        index={index}
+                        setClickIn={setClickIn}
+                    />
                 ))}
             </Timeline>
         </div>

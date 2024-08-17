@@ -16,19 +16,19 @@ const timeline41 = "/timeline/IMG_2653.jpg";
 
 const timelineItems = [
     {
-        date: "2017",
+        date: "Sept 25 2017",
         description:
             "I started to learn how to code at 7 years old, with my first programming language being Javascript. I also learned many different algorithms, like quicksort, binary search etc. Moreover, I learned how to make websites with React JS. ",
         images: [timeline11, timeline12, timeline13],
     },
     {
-        date: "2018",
+        date: "Aug 27 2018",
         description:
             "I joined a Credit Suisse conference and met many highly-skilled developers there. There were talks with a wide range of interesting topics, like cloud computing etc.",
         images: [timeline21],
     },
     {
-        date: "2019",
+        date: "Feb 3 2019",
         description:
             "I learned about robotics, and made my first Arduino circuit at 9 years old. In addition, I wrote code for Raspberry PI.",
         images: [
@@ -42,7 +42,7 @@ const timelineItems = [
         ],
     },
     {
-        date: "2020",
+        date: "Oct 15 2020",
         description:
             "I made my first app using React Native (which isn't on the app store). The first app I published on the app store is Binoculars, which you can see in the projects section!",
         images: [timeline41],

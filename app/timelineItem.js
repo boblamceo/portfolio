@@ -11,6 +11,12 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { motion } from "framer-motion";
+import { Montserrat } from "next/font/google";
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
+
 const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
     const hoverRef = useRef(null);
     const [hover, setHover] = useState(false);
@@ -41,6 +47,7 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                         onBeforeClose={() => {
                             setClickIn(false);
                             setGalleryPress(false);
+                            setHover(false);
                         }}
                     >
                         {curr.images.map((image, imageIndex) => (
@@ -63,7 +70,7 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                     </LightGallery>
                     <div
                         className={`absolute w-[30vw] h-[40vw] top-0 `}
-                        onMouseEnter={() => {
+                        onMouseOver={() => {
                             if (!galleryPress) {
                                 console.log(clickIn);
                                 setHover(true);
@@ -80,17 +87,21 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                         }}
                     >
                         <motion.div
-                            className="absolute text-white w-[30vw] bg-black border-x-2 border-white top-[calc(10vw+4px)]"
+                            className="absolute text-white w-[30vw] bg-black top-[calc(10vw+4px)] text-center"
                             animate={{
                                 height: hover
                                     ? window.innerWidth * 0.3
                                     : window.innerWidth * 0.1,
                                 top: hover
-                                    ? window.innerWidth * 0.1 + 4
-                                    : window.innerWidth * 0.3 + 4,
+                                    ? window.innerWidth * 0.1 + 8
+                                    : window.innerWidth * 0.3 + 8,
                             }}
                         >
-                            hi
+                            <div
+                                className={`${montserrat.className} text-[3vw] pt-[2.5vw]`}
+                            >
+                                {curr.date}
+                            </div>
                         </motion.div>
                     </div>
                 </div>

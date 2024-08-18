@@ -17,7 +17,7 @@ const Timeline = ({ innerref }) => {
                 className={`text-white font-bold ${montserrat.className} text-[8vw] flex items-end`}
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 3, ease: "easeInOut" }}
+                transition={{ duration: 2, ease: "easeInOut" }}
                 viewport={{ once: true }}
             >
                 Timeline

@@ -43,7 +43,16 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                     index % 2 === 0 ? "justify-start" : "justify-end"
                 }`}
             >
-                <div className="cursor-pointer border-white border-2 overflow-hidden relative">
+                <motion.div
+                    initial={{
+                        x: index % 2 === 1 ? "-100%" : "100%",
+                        opacity: 0,
+                    }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
+                    className="cursor-pointer border-white border-2 overflow-hidden relative"
+                >
                     <LightGallery
                         plugins={[lgZoom, lgThumbnail]}
                         mode="lg-fade"
@@ -115,7 +124,7 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                             </div>
                         </motion.div>
                     </div>
-                </div>
+                </motion.div>
             </TimelineContent>
         </TimelineItem>
     );

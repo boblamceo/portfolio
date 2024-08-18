@@ -74,7 +74,7 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                                             : "max-h-0"
                                     }  hover:cursor-pointer hover:opacity-50 transition-all duration-100 ${
                                         hover
-                                            ? "brightness-75"
+                                            ? "brightness-50"
                                             : "brightness-100"
                                     } `}
                                     src={image}

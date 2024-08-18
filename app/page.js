@@ -114,7 +114,7 @@ export default function Home() {
                                         setLeave(true);
                                     }}
                                 >
-                                    Start{" "}
+                                    Start
                                     <div className="arrow-container">
                                         <motion.div
                                             animate={{ x: isOn ? 0 : -200 }}

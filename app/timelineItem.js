@@ -32,11 +32,6 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
             hoverRef.current.click();
         }
     }, [galleryPress]);
-    console.log(
-        window.innerWidth * 0.3,
-        curr.description,
-        curr.description.length
-    );
     return (
         <TimelineItem key={index}>
             <TimelineSeparator>
@@ -101,24 +96,20 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                             className="absolute text-white w-[30vw] bg-black top-[calc(10vw+4px)] text-center"
                             animate={{
                                 height: hover
-                                    ? // ? window.innerWidth * 0.3
-                                      curr.description.length
-                                    : window.innerWidth * 0.1,
+                                    ? window.innerWidth * 0.28
+                                    : window.innerWidth * 0.08,
                                 top: hover
-                                    ? // ? window.innerWidth * 0.1 + 8
-                                      window.innerWidth * 0.4 -
-                                      curr.description.length +
-                                      8
-                                    : window.innerWidth * 0.3 + 8,
+                                    ? window.innerWidth * 0.12 + 8
+                                    : window.innerWidth * 0.32 + 8,
                             }}
                         >
                             <div
-                                className={`${montserrat.className} text-[3vw] h-[10vw] text-center flex justify-center items-center`}
+                                className={`${montserrat.className} text-[2.5vw] h-[8vw] text-center flex justify-center items-center `}
                             >
                                 {curr.date}
                             </div>
                             <div
-                                className={`h-[30vw] ${opensans.className} text-[1.5vw] px-[2vw]`}
+                                className={`h-[28vw] ${opensans.className} text-[1.5vw] px-[2vw]`}
                             >
                                 {curr.description}
                             </div>

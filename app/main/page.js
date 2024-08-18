@@ -290,8 +290,8 @@ const Main = () => {
                     projectsRef={projectsRef}
                     achievementsRef={achievementsRef}
                     timelineRef={timelineRef}
-                />{" "}
-                <About innerref={aboutRef} />{" "}
+                />
+                <About innerref={aboutRef} />
                 <Timeline innerref={timelineRef} />
                 <TimelineBody setClickIn={setClickIn} clickIn={clickIn} />
                 <Projects innerref={projectsRef} />

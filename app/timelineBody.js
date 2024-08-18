@@ -5,6 +5,8 @@ const timeline11 = "/timeline/IMG_0877.jpg";
 const timeline12 = "/timeline/IMG_1019.jpg";
 const timeline13 = "/timeline/IMG_1020.jpg";
 const timeline21 = "/timeline/WechatIMG1135.jpg";
+const timeline22 = "/timeline/WechatIMG1133.jpg";
+const timeline23 = "/timeline/WechatIMG1152.jpg";
 const timeline31 = "/timeline/WechatIMG1142.jpg";
 const timeline32 = "/timeline/IMG_2447.jpg";
 const timeline33 = "/timeline/IMG_2464.jpg";
@@ -25,7 +27,7 @@ const timelineItems = [
         date: "Aug 27 2018",
         description:
             "I joined a Credit Suisse conference and met many highly-skilled developers there. There were talks with a wide range of interesting topics, like cloud computing etc.",
-        images: [timeline21],
+        images: [timeline21, timeline22, timeline23],
     },
     {
         date: "Feb 3 2019",

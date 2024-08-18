@@ -37,6 +37,7 @@
     "react-dom": "^18",
     "react-parallax-mouse": "^2.1.0",
     "react-query": "^3.39.3",
+    "react-scale-text": "^1.2.2",
     "react-scroll": "^1.9.0",
     "react-sticky-mouse-tooltip": "^0.0.1",
     "tailwindcss": "^3.4.7",

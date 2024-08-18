@@ -12,6 +12,8 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { motion } from "framer-motion";
 import { Montserrat, Open_Sans } from "next/font/google";
+import ScaleText from "react-scale-text";
+
 const montserrat = Montserrat({
     subsets: ["latin"],
     display: "swap",
@@ -107,10 +109,8 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                             >
                                 {curr.date}
                             </div>
-                            <div
-                                className={`h-[30vw] ${opensans.className} text-[2vw]`}
-                            >
-                                {curr.description}
+                            <div className={`h-[30vw] ${opensans.className}`}>
+                                <ScaleText>{curr.description}</ScaleText>
                             </div>
                         </motion.div>
                     </div>

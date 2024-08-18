@@ -11,8 +11,13 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { motion } from "framer-motion";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Open_Sans } from "next/font/google";
 const montserrat = Montserrat({
+    subsets: ["latin"],
+    display: "swap",
+});
+
+const opensans = Open_Sans({
     subsets: ["latin"],
     display: "swap",
 });
@@ -35,9 +40,9 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
             <TimelineContent
                 className={`flex flex-row ${
                     index % 2 === 0 ? "justify-start" : "justify-end"
-                } `}
+                }`}
             >
-                <div className="cursor-pointer border-white border-2">
+                <div className="cursor-pointer border-white border-2 overflow-hidden relative">
                     <LightGallery
                         plugins={[lgZoom, lgThumbnail]}
                         mode="lg-fade"
@@ -98,9 +103,14 @@ const TimelineComp = ({ curr, index, setClickIn, clickIn }) => {
                             }}
                         >
                             <div
-                                className={`${montserrat.className} text-[3vw] pt-[2.5vw]`}
+                                className={`${montserrat.className} text-[3vw] h-[10vw] text-center flex justify-center items-center`}
                             >
                                 {curr.date}
+                            </div>
+                            <div
+                                className={`h-[30vw] ${opensans.className} text-[2vw]`}
+                            >
+                                {curr.description}
                             </div>
                         </motion.div>
                     </div>

@@ -47,7 +47,7 @@ const timelineItems = [
         date: "Oct 15 2020",
         description:
             "I made my first app using React Native (which isn't on the app store). The first app I published on the app store is Binoculars, which you can see in the projects section!",
-        images: [timeline41],
+        images: [timeline37],
     },
 ];
 

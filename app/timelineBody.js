@@ -14,7 +14,7 @@ const timeline34 = "/timeline/IMG_2466.jpg";
 const timeline35 = "/timeline/IMG_2476.jpg";
 const timeline36 = "/timeline/IMG_2477.jpg";
 const timeline37 = "/timeline/IMG_2478.jpg";
-const timeline41 = "/timeline/IMG_2653.jpg";
+const timeline41 = "/timeline/IMG_2653.JPG";
 
 const timelineItems = [
     {
@@ -47,7 +47,7 @@ const timelineItems = [
         date: "Oct 15 2020",
         description:
             "I made my first app using React Native (which isn't on the app store). The first app I published on the app store is Binoculars, which you can see in the projects section!",
-        images: [timeline37],
+        images: [timeline41],
     },
 ];
 

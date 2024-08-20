@@ -24,11 +24,10 @@ const Projects = ({ innerref }) => {
     const [generatedImage, setGeneratedImage] = useState("");
 
     const handleImageHandler = async () => {
-        if (!generated) {
-            const data = await getPhotosByQuery({ query: userPrompt });
-            setGeneratedImage(data);
-            cookies.set("generated", true);
-        }
+        console.log("wait");
+        const data = await getPhotosByQuery({ query: userPrompt });
+        setGeneratedImage(data);
+        cookies.set("generated", true);
     };
 
     return (

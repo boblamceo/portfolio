@@ -80,7 +80,7 @@ const Header = ({
     }, []);
     return (
         <motion.div
-            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between`}
+            className={`flex flex-row p-[1.5vw] ${montserrat.className} fixed top-0 z-10 w-[98vw] justify-between pointer-events-none [&>*]:pointer-events-auto`}
             initial={{ y: "-100%" }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}

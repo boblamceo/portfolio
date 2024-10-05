@@ -57,6 +57,7 @@ const projects = [
         type: "Game",
         images: [Smake],
         videos: [],
+        link: "https://smake.netlify.app",
         description:
             "A normal snake game - the first game I ever made using Javascript! To play, press space and use arrow keys. The features of this game include a range of death messages and background music.",
     },
@@ -68,6 +69,7 @@ const projects = [
         videos: [],
         description:
             "Binoculars is a weather app developed with React Native and submitted to the App Store. With Binoculars, you can see the weather from different locations with a relaxing UI. It is easy to use, and loaded with global weather information.",
+        link: "https://apps.apple.com/us/app/binoculars-weather-app/id1632741879",
     },
     {
         date: "2023",
@@ -77,6 +79,7 @@ const projects = [
         videos: [],
         description:
             "Also made with React Native and submitted to the App Store, Zhengde Tea is an e-commerce application that sells tea. It has a quick and fast user experience, with the purchasing process as simple as a few clicks.",
+        link: "https://apps.apple.com/us/app/%E6%AD%A3%E5%BE%B7%E8%8C%B6%E9%81%93-zhengde-tea/id1663595426",
     },
     {
         date: "2023",
@@ -104,6 +107,7 @@ const projects = [
         videos: [],
         description:
             "This is just a simple game of Tetris, right? The twist of this Tetris game is that it is powered by a handpose model that can track the direction of your hand. Due to the large model, it may take some time to load.",
+        link: "https://handpose-tetris.netlify.app",
     },
     {
         date: "2024",
@@ -113,6 +117,7 @@ const projects = [
         videos: [],
         description:
             "I recreated Google's teachable machine using HTML and Javascript. It uses transfer learning to use the data from a model called Mobilenet to identify custom objects, like a green book with a big grey square.",
+        link: "https://teachable-machine-bob.netlify.app",
     },
     {
         date: "2024",
@@ -122,6 +127,7 @@ const projects = [
         videos: [],
         description:
             "Continuing with the recurring theme of adding Machine Learning twists to classic games, this is a game of tic tac toe, but you make the facial expression of the corresponding square to play a move. It uses a face-landmark model to detect the face landmarks on your face, and guess your facial expression.",
+        link: "https://ticmoji.netlify.app",
     },
     {
         date: "2024",
@@ -174,21 +180,22 @@ const Description = () => {
     const searchParams = useSearchParams();
 
     const name = searchParams.get("name");
-    const { date, type, images, videos, description } = projects.filter(
+    const { link, images, videos, description } = projects.filter(
         (curr) => curr.name === name
     )[0];
 
     return (
         <div className="bg-slate-900 w-screen pb-[3vh]">
             <Header page="/projects" description />
-            <motion.h1
-                className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r text-transparent mt-[5vw] ml-[5vw] description-background`}
+            <motion.a
+                className={`${montserrat.className} text-[6vw] inline-block bg-clip-text bg-gradient-to-r mt-[5vw] ml-[5vw] description-background h-max`}
                 initial={{ x: "-100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 2 }}
+                href={link || ""}
             >
                 {name}
-            </motion.h1>
+            </motion.a>
             <br />
             <motion.div
                 className={`${opensans.className} text-[3vw] inline-block bg-clip-text text-transparent ml-[10vw] description-background w-[80vw]`}

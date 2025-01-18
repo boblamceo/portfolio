@@ -20,6 +20,14 @@ const Coco2 = "/achievements/awards/coco2.JPG";
 const Coco4 = "/achievements/awards/coco4.JPG";
 const Coco10 = "/achievements/awards/coco10.JPG";
 const Coco11 = "/achievements/awards/coco11.JPG";
+const Coco251 = "/achievements/awards/coco251.jpg";
+const Coco252 = "/achievements/awards/coco252.jpg";
+const Coco253 = "/achievements/awards/coco253.jpg";
+const Coco254 = "/achievements/awards/coco254.jpg";
+const Coco255 = "/achievements/awards/coco255.jpg";
+const Coco256 = "/achievements/awards/coco256.jpg";
+const Coco257 = "/achievements/awards/coco257.jpg";
+const Coco258 = "/achievements/awards/coco258.jpg";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -45,6 +53,7 @@ const awards = [
     Violin2,
     Violin3,
     [Coco2, Coco4, Coco10, Coco11],
+    [Coco251, Coco252, Coco253, Coco254, Coco255, Coco256, Coco257, Coco258],
 ];
 
 const descriptions = [
@@ -117,6 +126,11 @@ const descriptions = [
         details:
             "ESF Coco - A computing conference hosted by students, including a hackathon.",
         date: 2023,
+    },
+    {
+        details:
+            "ESF Coco - A computing conference hosted by students, including a hackathon.",
+        date: 2024,
     },
 ]
     .map((curr, index) => {

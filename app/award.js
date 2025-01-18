@@ -42,7 +42,7 @@ const Award = ({ curr, index, setClickIn }) => {
                     opacity: 0,
                 }}
             >
-                {index === 10 ? (
+                {index === 10 || index === 14 ? (
                     <LightGallery
                         plugins={[lgZoom, lgThumbnail]}
                         mode="lg-fade"
